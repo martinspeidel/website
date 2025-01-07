@@ -91,8 +91,6 @@ animation.addEventListener('error', function (error) {
 animation.addEventListener('DOMLoaded', function () {
     console.log('Lottie animation loaded');
     updateAnimationSize();
-    document.querySelector('.masked-text').style.webkitMaskImage = 'url(stage.json)';
-    document.querySelector('.masked-text').style.maskImage = 'url(stage.json)';
 });
 
 // Handle responsive scaling
@@ -130,6 +128,8 @@ function smoothAnimation() {
 let lastScrollY = window.scrollY;
 let scrollingDown = true;
 
+const completionFrame = 20; // Set the specific frame number after which the completion text should appear
+
 window.addEventListener('scroll', () => {
     scrollingDown = window.scrollY > lastScrollY;
     lastScrollY = window.scrollY;
@@ -143,7 +143,7 @@ window.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
 
     let scrollProgress = window.scrollY / totalScrollHeight;
-    targetFrame = Math.floor(scrollProgress * animation.totalFrames);
+    targetFrame = Math.floor(scrollProgress * animation.totalFrames * 2); // Play 2x as fast
     currentFrame = animation.currentFrame;
     animation.goToAndStop(currentFrame, true);
 
@@ -152,7 +152,7 @@ window.addEventListener('scroll', () => {
         requestAnimationFrame(smoothAnimation);
     }, 50);
 
-    if (scrollingDown && targetFrame >= animation.totalFrames - 1) {
+    if (scrollingDown && targetFrame >= completionFrame) {
         isAnimationComplete = true;
         document.getElementById('completion-text').style.opacity = '1';
     }
@@ -166,9 +166,7 @@ animation.addEventListener('DOMLoaded', () => {
 const scrollIndicator = document.querySelector('.scroll-indicator');
 scrollIndicator.querySelector('a').addEventListener('click', function (event) {
     event.preventDefault();
-    document.querySelector('#next-section').scrollIntoView({
-        behavior: 'smooth'
-    });
+
     // Fade out the scroll indicator
     scrollIndicator.style.opacity = '0';
 });
@@ -182,11 +180,27 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Smooth scroll with jQuery animate and Lottie animation update
+$('a').click(function () {
+    const target = $($(this).attr('href'));
+    const targetOffset = target.offset().top;
 
-
-$('a').click(function(){
     $('html, body').animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500);
+        scrollTop: targetOffset
+    }, {
+        duration: 2000,
+        easing: 'easeInOutExpo',
+        step: function (now) {
+            let scrollProgress = now / totalScrollHeight;
+            targetFrame = Math.floor(scrollProgress * animation.totalFrames * 2);
+            animation.goToAndStop(targetFrame, true);
+        }
+    });
+
     return false;
 });
+
+
+
+
+
