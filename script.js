@@ -162,6 +162,26 @@ animation.addEventListener('DOMLoaded', () => {
     totalScrollHeight = document.body.scrollHeight - window.innerHeight;
 });
 
+// Smooth scroll functionality
+const scrollIndicator = document.querySelector('.scroll-indicator');
+scrollIndicator.querySelector('a').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('#next-section').scrollIntoView({
+        behavior: 'smooth'
+    });
+    // Fade out the scroll indicator
+    scrollIndicator.style.opacity = '0';
+});
+
+// Hide scroll indicator when the user starts scrolling
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        scrollIndicator.style.opacity = '0';
+    } else {
+        scrollIndicator.style.opacity = '1';
+    }
+});
+
 
 
 

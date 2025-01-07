@@ -176,7 +176,7 @@
     height: 13px;
     /* border: 2px solid #0066ff; */
     /* background: transparent; */
-    background: black;
+    background: rgb(255, 255, 255);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -279,12 +279,49 @@ main section:first-child {
 main section:not(:first-child) {
     position: relative;
     z-index: 2;
-    background: black; /* Ensure content is visible over animation */
+
 }
 
 /* Remove .scroll-indicator styles and its animations */
 .scroll-indicator {
-    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: bounce 2s infinite;
+    transition: opacity 0.5s ease; /* Add transition for fade effect */
+}
+
+.scroll-indicator .arrow {
+    display: block;
+    margin-top: 10px;
+    animation: bounce-arrow 1.5s infinite;
+    text-align: center; /* Ensure the arrow is centered */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes bounce-arrow {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 .masked-text {
@@ -310,4 +347,7 @@ main section:not(:first-child) {
     mask-position: center;
 }
 
-@keyframes bounce {
+#next-section {
+    margin-top: 800vh; /* Position one fullscreen height downwards */
+}
+
