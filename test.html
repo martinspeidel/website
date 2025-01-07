@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Text Mask</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .mask-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .text-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .text {
+            font-size: 72px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .lottie-mask {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            mix-blend-mode: destination-in;
+        }
+    </style>
+</head>
+<body>
+    <div class="mask-container">
+        <div class="text-layer">
+            <h1 class="text">Your Text<br>Here</h1>
+        </div>
+        <div class="lottie-mask" id="lottie"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animation = lottie.loadAnimation({
+                container: document.getElementById('lottie'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'stage.json' // Path to your Lottie animation file
+            });
+
+            // Optional: Add event listeners for animation
+            animation.addEventListener('DOMLoaded', () => {
+                console.log('Animation loaded');
+            });
+
+            animation.addEventListener('error', (error) => {
+                console.error('Animation failed to load:', error);
+            });
+        });
+    </script>
+</body>
+</html>
