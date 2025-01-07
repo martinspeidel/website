@@ -83,12 +83,12 @@ let animation = lottie.loadAnimation({
 });
 
 // Add error handling
-animation.addEventListener('error', function(error) {
+animation.addEventListener('error', function (error) {
     console.error('Lottie animation error:', error);
 });
 
 // Add load confirmation
-animation.addEventListener('DOMLoaded', function() {
+animation.addEventListener('DOMLoaded', function () {
     console.log('Lottie animation loaded');
     updateAnimationSize();
     document.querySelector('.masked-text').style.webkitMaskImage = 'url(stage.json)';
@@ -164,7 +164,7 @@ animation.addEventListener('DOMLoaded', () => {
 
 // Smooth scroll functionality
 const scrollIndicator = document.querySelector('.scroll-indicator');
-scrollIndicator.querySelector('a').addEventListener('click', function(event) {
+scrollIndicator.querySelector('a').addEventListener('click', function (event) {
     event.preventDefault();
     document.querySelector('#next-section').scrollIntoView({
         behavior: 'smooth'
@@ -184,4 +184,9 @@ window.addEventListener('scroll', () => {
 
 
 
-
+$('a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
+    return false;
+});
