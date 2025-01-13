@@ -134,11 +134,6 @@ window.addEventListener('scroll', () => {
     scrollingDown = window.scrollY > lastScrollY;
     lastScrollY = window.scrollY;
 
-    if (!scrollingDown && isAnimationComplete) {
-        isAnimationComplete = false;
-        document.getElementById('completion-text').style.opacity = '0';
-    }
-
     isScrolling = true;
     clearTimeout(scrollTimeout);
 
@@ -151,11 +146,6 @@ window.addEventListener('scroll', () => {
         isScrolling = false;
         requestAnimationFrame(smoothAnimation);
     }, 50);
-
-    if (scrollingDown && targetFrame >= completionFrame) {
-        isAnimationComplete = true;
-        document.getElementById('completion-text').style.opacity = '1';
-    }
 });
 
 animation.addEventListener('DOMLoaded', () => {
@@ -200,6 +190,19 @@ $('a').click(function () {
     return false;
 });
 
+// Load and display the Rive animation
+const r = new rive.Rive({
+    src: "https://cdn.rive.app/animations/vehicles.riv",
+    // OR the path to a discoverable and public Rive asset
+    // src: '/public/example.riv',
+    canvas: document.getElementById("canvas"),
+    autoplay: true,
+    // artboard: "Arboard", // Optional. If not supplied the default is selected
+    stateMachines: "bumpy",
+    onLoad: () => {
+      r.resizeDrawingSurfaceToCanvas();
+    },
+});
 
 
 

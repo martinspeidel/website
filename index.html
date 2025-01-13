@@ -11,58 +11,67 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://unpkg.com/@rive-app/canvas"></script>
 </head>
 
 
-<body class="bg-black text-white">
-    <div id="lottie-wrapper">
-        <div id="lottie-container"></div>
+<body>
+    <div id="lottie-wrapper" class="fixed top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none mix-blend-screen z-0">
+        <div id="lottie-container" class="absolute w-full h-full top-1/2 left-1/2 transform bg-transparent"></div>
     </div>
     
-    <div id="completion-text">INTO FRAMES</div>
+    <!-- Add the round button -->
+    <div id="round-button" class="fixed top-1/2 left-1/2 w-[600px] h-[600px] rounded-full transform -translate-x-1/2 -translate-y-1/2 pointer-events-auto z-10"></div>
 
-    <header class="fixed top-0 left-0 w-full z-50 pt-10 h-32">
-        <nav class="w-[95%] mx-auto px-2 flex items-center  justify-between"> <!-- Decreased padding -->
-            <a href="#" class="px-50 text-white sm:text-2xl md:text-2xl lg:text-3xl btn btn-slide btn-slide-logo">
+    <header class="fixed top-0 left-0 w-full z-50 pt-4 h-32">
+        <nav class="mx-auto px-10 flex items-center justify-between"> <!-- Decreased padding -->
+            <a href="#" class="px-0 text-3xl md:flex sm:text-3xl md:text-3xl lg:text-3xl btn btn-slide btn-slide-logo">
                 <span>Martin Speidel</span>
                 <span>Motion Design</span>
             </a>
 
-            <div class="nav-links md:flex gap-2 justify-end flex-grow">
-                <a href="#" class="text-white btn btn-slide sm:text-2xl md:text-2xl lg:text-3xl">
-                    <span>About</span>
-                    <span>About</span>
+            <div class="nav-links md:flex gap-0 justify-end flex-grow text-white">
+                <a href="#" class="btn btn-slide sm:text-1xl md:text-1xl lg:text-1xl">
+                    <span>Home</span>
+                    <span>Home</span>
                 </a>
-                <a href="#" class="text-white btn btn-slide sm:text-2xl md:text-2xl lg:text-3xl">
-                    <span>Reels</span>
-                    <span>Reels</span>
+                <a href="#" class="btn btn-slide sm:text-1xl md:text-1xl lg:text-1xl">
+                    <span>Showreels</span>
+                    <span>Showreels</span>
                 </a>
-                <a href="#" class="text-white btn btn-slide sm:text-2xl md:text-2xl lg:text-3xl">
-                    <span>Tools</span>
-                    <span>Tools</span>
+                <a href="#" class="btn btn-slide sm:text-1xl md:text-1xl lg:text-1xl">
+                    <span>Profile</span>
+                    <span>Profile</span>
                 </a>
-                <a href="#" class="text-white btn btn-slide sm:text-2xl md:text-2xl lg:text-3xl">
-                    <span>Login</span>
-                    <span>Login</span>
+                <a href="#" class="btn btn-slide sm:text-1xl md:text-1xl lg:text-1xl">
+                    <span>Downloads</span>
+                    <span>Downloads</span>
                 </a>
             </div>
-
-            <button class="burger-menu text-3xl md:hidden cursor-pointer">☰</button>
+            <button id="client-login-button" class="fixed border border-black">
+                <a href="#" class="text-3xl md:flex btn btn-slide btn-slide-logo">
+                    <span>Client Login</span>
+                    <span>Client Login</span>
+                </a>
+            </button>
+            <button class="burger-menu text-3xl md:hidden cursor-pointer block transition duration-300 ease-in-out transform hover:scale-110">☰</button>
         </nav>
     </header>
 
-    <div class="cursor"></div>
+    <div class="cursor w-3.25 h-3.25 bg-white rounded-full fixed pointer-events-none transition-transform duration-300 transform -translate-x-1/2 -translate-y-1/2 z-[1111]"></div>
 
     <main class="min-h-screen flex flex-col">
+
+        <div id="canvas" width="500" height="500"></div>
         <section class="w-full h-screen flex items-center justify-center text-center relative">
 
-            <div class="scroll-indicator">
-                <a href="#next-section" class="arrow sm:text-2xl md:text-3xl lg:text-5xl"><span class="arrow-text">↓</span></a>
+            <div class="scroll-indicator absolute bottom-5 left-1/2 transform -translate-x-1/2 text-center animation-bounce transition-opacity duration-500">
+                <a href="#next-section" class="arrow sm:text-2xl md:text-3xl lg:text-5xl block mt-2.5 animation-bounce-arrow text-center"><span class="arrow-text">↓</span></a>
             </div>
         </section>
 
 
-        <section name = "next-section" id="next-section" class="client-logos w-[95%] mx-auto flex justify-center flex-wrap gap-6 py-8">
+        <section id="next-section" class="mt-[200vh] w-[95%] mx-auto flex justify-center flex-wrap gap-6 py-8">
             <p class="text-3xl md:text-4xl font-light max-w-[90%] leading-tight text-center mx-auto mb-20">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
                 labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
@@ -71,9 +80,13 @@
                 magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
                 clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </p>
+            <!-- Add the Rive animation container -->
 
         </section>
     </main>
+
+    <!-- Add the Client Login button -->
+
 
     <footer class="bg-black py-16 px-2 flex">
         <div class="w-[95%] mx-auto"> <!-- Decreased padding -->
@@ -109,12 +122,12 @@
                 </div>
             </div>
 
-            <div class="social-links flex gap-3">
-                <a href="#" class="text-2xl">📷</a>
-                <a href="#" class="text-2xl">📌</a>
-                <a href="#" class="text-2xl">🎨</a>
-                <a href="#" class="text-2xl">💼</a>
-                <a href="#" class="text-2xl">✉️</a>
+            <div class="flex gap-3">
+                <a href="#" class="duration-300 ease hover:opacity-50">📷</a>
+                <a href="#" class="text-2xl transition-opacity duration-300 ease hover:opacity-50">📌</a>
+                <a href="#" class="text-2xl transition-opacity duration-300 ease hover:opacity-50">🎨</a>
+                <a href="#" class="text-2xl transition-opacity duration-300 ease hover:opacity-50">💼</a>
+                <a href="#" class="text-2xl transition-opacity duration-300 ease hover:opacity-50">✉️</a>
             </div>
 
             <p class="text-sm mt-5">Copyright © 2013 – 2024. All rights reserved.</p>
