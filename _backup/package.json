@@ -1,0 +1,62 @@
+{
+  "name": "nayla-html-template",
+  "version": "2.0.0",
+  "description": "Multi-Concept Creative Portfolio Template",
+  "author": "Pe Themes",
+  "homepage": "https://themeforest.net/item/nayla-multiconcept-creative-portfolio-template/46161193",
+  "repository": "https://github.com/pethemes/nayla-html-template",
+  "keywords": ["HTML5", "portfolio", "creative", "template"],
+  "dependencies": {
+    "gsap": "^3.x",
+    "jquery": "^3.x",
+    "barba.js": "^2.x",
+    "swiper": "^10.x"
+  },
+  "devDependencies": {
+    "lenis": "https://raw.githubusercontent.com/studio-freight/lenis/main/dist/lenis.js",
+    "hamsterjs": "https://cdnjs.cloudflare.com/ajax/libs/hamsterjs/1.1.3/hamster.min.js",
+    "imagesloaded": "https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js",
+    "plyr": "https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js"
+  },
+  "browserslist": "> 0.5%, last 2 versions",
+  "style": "style.css",
+  "font": "'DM Sans', sans-serif",
+  "fontUrl": "https://fonts.google.com/specimen/DM+Sans",
+  "icons": "Material Icons: https://fonts.google.com/icons",
+  "homepage": "http://naylahtml.pethemes.com",
+  "documentation": "https://naylahtml.pethemes.com/documentation",
+  "main": "index.html",
+  "landingPage": "index.html",
+  "colors": {
+    "mainColor": "#FF5733",
+    "mainBackground": "#333333",
+    "secondaryBackground": "#555555",
+    "mainLightColor": "#FFC0A3",
+    "mainLightBackground": "#EEEEEE",
+    "secondaryLightBackground": "#DDDDDD",
+    "headerBg": "#222222",
+    "stickyHeaderBg": "#444444",
+    "cursorColor": "#66CCFF",
+    "cursorTextColor": "#333333",
+    "cursorIconColor": "#FF9900",
+    "overlayBg": "#000000",
+    "transOvBg": "rgba(0, 0, 0, 0.8)",
+    "transCaptColor": "rgba(255, 255, 255, 0.8)",
+    "captColor": "#FFFFFF"
+  },
+  "fontSizes": {
+    "body": "17px",
+    "h1": "102px",
+    "h2": "64px",
+    "h3": "51px",
+    "h4": "36px",
+    "h5": "25px",
+    "h6": "21px"
+  },
+  "scripts": "js/scripts.js",
+  "published": "16 June 2023",
+  "highResolution": "Yes",
+  "compatibleBrowsers": "IE10, IE11, Firefox, Safari, Opera, Chrome, Edge",
+  "themeForestFilesIncluded": "HTML Files, CSS Files, JS Files",
+  "columns": "4+"
+}
