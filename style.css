@@ -241,13 +241,13 @@ body {
 
 body.dark {
     --mainColor: #ebebeb;
-    --mainBackground: #191919;
+    --mainBackground: #000000;
     --secondaryBackground: #151515;
 
 }
 
 body.light {
-    --mainColor: #191919;
+    --mainColor: #000000;
     --mainBackground: #ebebeb;
     --secondaryBackground: #e0e0e0;
     background-color: var(--mainBackground);
@@ -256,12 +256,12 @@ body.light {
 
 .light:not(body) {
     --mainColor: #ebebeb;
-    --mainBackground: #191919;
+    --mainBackground: #000000;
     color: var(--mainColor);
 }
 
 .site-header.dark {
-    --mainColor: #191919;
+    --mainColor: #000000;
     --mainBackground: #ebebeb;
     --secondaryBackground: #d7d7d7;
     color: var(--mainColor)
@@ -269,7 +269,7 @@ body.light {
 
 .site-header.light {
     --mainColor: #ebebeb;
-    --mainBackground: #191919;
+    --mainBackground: #000000;
     color: var(--mainColor)
 }
 
@@ -1477,11 +1477,11 @@ section:after {
 
 @media only screen and (min-width: 1600px) {
     .wrapper {
-        max-width: 1500px;
+        max-width: 1700px;
     }
 
     .wrapper-small {
-        max-width: 1200px;
+        max-width: 1400px;
     }
 
 }
@@ -2564,6 +2564,7 @@ div[data-elementor-type="sub-menu-type"] {
 
 .footer-top-wrapper {
     margin-bottom: 100px;
+
 }
 
 .wrapper-full.footer-bottom-wrapper,
@@ -2575,6 +2576,7 @@ div[data-elementor-type="sub-menu-type"] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
 }
 
 
