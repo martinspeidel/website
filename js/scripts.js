@@ -2092,6 +2092,26 @@
     }
 
 
+// Add event listeners to menu items to close the fullscreen menu when clicked
+document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('#site-navigation .menu li a');
+
+    // Function to close the fullscreen menu
+    function closeMenu() {
+        menuToggle($('#site-navigation.fullscreen_menu'));
+    }
+
+    // Add click event listener to each menu item
+    menuItems.forEach(item => {
+        item.addEventListener('click', closeMenu);
+    });
+});
+
+
+
+
+
+
 
     /////////////////////////////////
     //  General Scroll Animations  //
@@ -12690,3 +12710,9 @@
 
 
 }(jQuery));
+
+
+
+
+
+

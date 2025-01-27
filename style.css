@@ -249,7 +249,7 @@ body.dark {
 body.light {
     --mainColor: #000000;
     --mainBackground: #ebebeb;
-    --secondaryBackground: #e0e0e0;
+    --secondaryBackground: #D7D7D7;
     background-color: var(--mainBackground);
     color: var(--mainColor);
 }
@@ -2387,11 +2387,11 @@ div[data-elementor-type="sub-menu-type"] {
 
 .fullscreen_menu ul.menu.main-menu li {
     padding: 0;
-    font-size: 60px;
-    line-height: 1.2;
+    font-size: 102px;
+    line-height: 1;
     letter-spacing: -0.04em;
     overflow: hidden;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     white-space: nowrap
 }
 
@@ -2433,7 +2433,7 @@ div[data-elementor-type="sub-menu-type"] {
     content: "";
     display: inline-block;
     width: 0px;
-    height: 2px;
+    height: 1.2px;
     background: var(--mainColor);
     vertical-align: middle;
     margin-top: -0.6em;
@@ -3209,7 +3209,7 @@ div#mouseCursor.temp_hidden.dot {
 
 div#mouseCursor.light .mouse-cursor-icon,
 div#mouseCursor.light .mouse-cursor-text {
-    color: #191919
+    color: #000000
 }
 
 div#mouseCursor.dot {
@@ -3229,7 +3229,7 @@ div#mouseCursor .main-circle {
 }
 
 div#mouseCursor.circle .main-circle {
-    stroke: #191919;
+    stroke: #000000;
     stroke-width: 1;
     fill: transparent
 }
@@ -3237,7 +3237,7 @@ div#mouseCursor.circle .main-circle {
 div#mouseCursor.dot .main-circle {
     stroke: none;
     stroke-width: none;
-    fill: #191919;
+    fill: #1320F7;
 }
 
 .mouse-cursor-icon,
@@ -3354,8 +3354,9 @@ div#mouseCursor.dot.hover-size {
 }
 
 div#mouseCursor.dot.hover-size {
-    opacity: .25
+    opacity: 1;
 }
+
 
 div#mouseCursor.multi.dot.hover-size,
 div#mouseCursor.multi.hover-size {
@@ -3384,7 +3385,7 @@ div#mouseCursor.hover-text {
 div#mouseCursor.hover-text .main-circle {
     stroke: none;
     stroke-width: 0;
-    fill: #191919;
+    fill: #1320F7;
 }
 
 div#mouseCursor.hover-text .mouse-cursor-text span {
@@ -3408,7 +3409,7 @@ div#mouseCursor.hover-icon {
 div#mouseCursor.hover-icon .main-circle {
     stroke: none;
     stroke-width: 0;
-    fill: #191919;
+    fill: #000000;
 }
 
 div#mouseCursor.hover-icon .mouse-cursor-icon::after {
@@ -8933,13 +8934,13 @@ span.fraction-line {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 550px;
     opacity: 0;
     pointer-events: none;
     -webkit-transition: opacity .2s ease;
     -o-transition: opacity .2s ease;
     transition: opacity .2s ease;
-    z-index: -1
+    z-index: +1
 }
 
 .nayla-dynamic-list ul li .list-image img {
@@ -13740,3 +13741,8 @@ span.test-prev::after {
 
 
 }
+
+
+
+
+
