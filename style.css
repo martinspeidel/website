@@ -1870,7 +1870,7 @@ img.light-logo {
 
 .toggle-line {
     width: 100%;
-    height: 1.4px;
+    height: 0.07em;
     display: inline-block;
     background-color: #191919;
     margin: 3px 0;
@@ -1892,7 +1892,7 @@ img.light-logo {
 }
 
 .toggle-lines.plus .toggle-line:last-child {
-    margin-top: -1.5px;
+    margin-top: -2px;
 }
 
 .toggle-text {
@@ -11208,7 +11208,7 @@ ul.menu.social-menu li a::after {
     bottom: -0.1em;
     left: 0;
     width: 100%;
-    height: 0.1em;
+    height: 0.05em;
     background: var(--color);
     -webkit-transition: background .3s;
     -o-transition: background .3s;
@@ -11282,8 +11282,8 @@ ul.menu.social-menu li a::after {
 
 .nayla-button.fill a,
 .nayla-button.outline a {
-    padding: 1em 1.5em;
-    border: 1px solid;
+    padding: .9em 1.2em;
+    border: 0.05em solid;
     border-color: var(--color);
     border-radius: 2em;
 }
