@@ -50,23 +50,23 @@
         <div id="header" class="site-header fixed dark">
 
             <!-- Header Wrapper -->
-            <div class="header-wrapper wrapper">
+            <div class="header-wrapper wrapper" style="margin-top:-3em">
 
-                <div class="c-col-4 sm-6">
+                <div class="c-col-4 sm-6" >
 
                     <!--  Site Branding -->
                     <div class="site-branding">
 
                         <!--  Site Logo -->
-                        <div class="site-logo">
-                            <canvas id="rive-canvas" class="rive-canvas" width="20vw" height="20vw"></canvas>
+                        <div class="site-logo" >
+                            <canvas id="rive-canvas" class="rive-canvas" width="28000" height="800" style="width: 250px; height: 180px;"></canvas>
                             <script>
 
                                 const r = new rive.Rive({
                                     src: "/riv/logo.riv",
                                     canvas: document.getElementById("rive-canvas"),
                                     autoplay: true,
-                                    stateMachines: "button",
+                                    stateMachines: "logo",
                                     onLoad: () => {
                                         r.resizeDrawingSurfaceToCanvas();
                                     },
@@ -151,7 +151,7 @@
                     <!-- Empty Column (For Spacing) -->
                     <div class="c-col-2 hide-mobile"></div>
                     <!--/ Empty Column (For Spacing) -->
-                    <div class="c-col-6 sm-12" style="margin-top:-5%; ">
+                    <div class="c-col-6 sm-12" style="margin-top:-6%; ">
 
                         <!-- Main Menu -->
                         <ul class="menu main-menu">
@@ -221,7 +221,7 @@
 
                                 <!-- <p class="has-anim-text wordsUp" style="margin-top:10%">Hi, I am a 2D Motion Design Freelancer.</p> -->
 
-                                <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:5%; ">
+                                <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:4%; ">
                                     <!-- <span class="text-indent" style="width: 0px"></span> --> Hey there, my name is
                                     Martin.
                                     </br>I am a brand-focused specialist for cutting edge 2D motion
@@ -275,8 +275,7 @@
                             <!-- Text -->
                             <div class="text-wrapper">
 
-                                <p class="text-h6">I create motion graphics that boost brand identity and engage
-                                    audiences on social media and digital platforms.</p>
+                                <p class="text-h6">I create motion graphics that boost brand identity on digital platforms, social media, events, corporate presentations, and OOH advertising.</p>
 
                             </div>
                             <!--/ Text -->

@@ -1930,6 +1930,8 @@
 
                 })
 
+
+
                 // Closing Sub Menus //
                 subClose.on('click', function () {
 
@@ -1950,6 +1952,12 @@
 
         }
         fullscreenNavigation();
+
+        $('.fullscreen-menu-wrapper .menu a').on('click', function () {
+
+            $('.menu-toggle').click()
+
+        })
 
         // Menu Toggle //
 
