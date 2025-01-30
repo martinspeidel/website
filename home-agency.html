@@ -50,42 +50,43 @@
         <div id="header" class="site-header fixed dark">
 
             <!-- Header Wrapper -->
-            <div class="header-wrapper wrapper" style="margin-top:-3em">
+            <div class="header-wrapper wrapper-full">
 
                 <div class="c-col-4 sm-6">
 
                     <!--  Site Branding -->
-                    <div class="site-branding">
+                    <div class="site-branding" style="transform:translate(6px,10px); width: 300px;">
 
                         <!--  Site Logo -->
-                        <div class="site-logo">
-                            <canvas id="rive-canvas" class="rive-canvas" width="28000" height="800"
-                                style="width: 160px; height: 180px; transform: translateX(-4px);"></canvas>
-                            <script>
+                        <div>
+                            <h6 class="has-anim fadeIn" ><a href="">Martin Speidel</a></h1>
 
-                                const r = new rive.Rive({
-                                    src: "riv/logo.riv",
-                                    canvas: document.getElementById("rive-canvas"),
-                                    autoplay: true,
-                                    stateMachines: "logo",
-                                    onLoad: () => {
-                                        r.resizeDrawingSurfaceToCanvas();
-                                    },
-                                    background: "transparent"
-                                });
-                                document.addEventListener("mousemove", (event) => {
-                                    const canvasRect = document.getElementById("canvas").getBoundingClientRect();
-                                    const mouseX = event.clientX - canvasRect.left;
-                                    const mouseY = event.clientY - canvasRect.top;
+                                <canvas id="rive-canvas" class="rive-canvas" width="20vw" height="20vw"></canvas>
+                                <script>
 
-                                    // Update the Rive animation with the mouse coordinates
-                                    r.pointerMove({ x: mouseX, y: mouseY });
-                                });
+                                    const r = new rive.Rive({
+                                        src: "/riv/logo.riv",
+                                        canvas: document.getElementById("rive-canvas"),
+                                        autoplay: true,
+                                        stateMachines: "button",
+                                        onLoad: () => {
+                                            r.resizeDrawingSurfaceToCanvas();
+                                        },
+                                        background: "transparent"
+                                    });
+                                    document.addEventListener("mousemove", (event) => {
+                                        const canvasRect = document.getElementById("canvas").getBoundingClientRect();
+                                        const mouseX = event.clientX - canvasRect.left;
+                                        const mouseY = event.clientY - canvasRect.top;
+
+                                        // Update the Rive animation with the mouse coordinates
+                                        r.pointerMove({ x: mouseX, y: mouseY });
+                                    });
 
 
-                            </script>
-                            <!-- <img alt="Site Logo (Dark)" class="dark-logo" src="img/site-logo.png">
-                            <img alt="Site Logo (Light)" class="light-logo" src="img/site-logo-light.png"> -->
+                                </script>
+                                <!-- <img alt="Site Logo (Dark)" class="dark-logo" src="img/site-logo.png">
+                        <img alt="Site Logo (Light)" class="light-logo" src="img/site-logo-light.png"> -->
 
                         </div>
                         <!--/  Site Logo -->
@@ -94,7 +95,7 @@
                         <div class="sticky-logo">
 
                             <!-- <img alt="Sticky Logo (Dark)" class="sticky-dark-logo" src="img/sticky_logo.png">
-                            <img alt="Sticky Logo (Light)" class="sticky-light-logo" src="img/sticky_logo_light.png"> -->
+                        <img alt="Sticky Logo (Light)" class="sticky-light-logo" src="img/sticky_logo_light.png"> -->
 
                         </div>
                         <!--/  Sticky Logo -->
@@ -120,15 +121,15 @@
 
                     <!--  Button -->
 
-                    <div class="nayla-button outline hide-mobile hide-sticky text-h6 " data-icon="arrow_outward">
+                    <div class="nayla-button outline hide-mobile dynamic text-h6 has-anim fadeIn" data-icon="arrow_outward">
 
-                        <a href="https://martinspeidel.info/login" target="_blank">Client Login</a>
+                        <a href="https://martinspeidel.info/login">Client Login</a>
 
                     </div>
                     <!--/ Button -->
 
                     <!--  Menu Toggle -->
-                    <div class="menu-toggle">
+                    <div class="menu-toggle has-anim fadeIn">
 
                         <div class="toggle-lines">
                             <div class="toggle-line"></div>
@@ -147,20 +148,20 @@
             <!-- Fullscreen Menu -->
             <div id="site-navigation" class="fullscreen_menu fullscreen">
 
-                <div class="wrapper fullscreen-menu-wrapper">
+                <div class="wrapper-full fullscreen-menu-wrapper">
 
                     <!-- Empty Column (For Spacing) -->
-                    <div class="c-col-2 hide-mobile"></div>
+                    <div class="c-col-3 hide-mobile"></div>
                     <!--/ Empty Column (For Spacing) -->
-                    <div class="c-col-6 sm-12" style="margin-top:-6%; ">
+                    <div class="c-col-9 sm-12" style="margin: auto 0 auto 0 ">
 
                         <!-- Main Menu -->
-                        <ul class="menu main-menu">
+                        <ul class="menu main-menu" style="transform: translateY(-30px)">
 
                             <li><a href="home-agency.html#showreel">Showreel</a></li>
                             <li><a href="#process">Process</a></li>
                             <li><a href="#aboutme">About me</a></li>
-                            <li><a href="#imprint">Imprint</a></li>
+                            <li><a href="#extensions">Extensions</a></li>
 
                         </ul>
                         <!--/ Main Menu -->
@@ -176,16 +177,16 @@
                     <div class="fullscreen-menu-wrap-bottom">
 
                         <!-- Empty Column (For Spacing) -->
-                        <div class="c-col-2 hide-mobile"> </div>
+                        <div class="c-col-3 hide-mobile"> </div>
                         <!--/ Empty Column (For Spacing) -->
 
-                        <div class="c-col-3 sm-12 has-anim fadeDown" data-delay=.4>
+                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.4>
 
                             <!-- Button -->
                             <div class="nayla-button underline icon-right" data-icon="arrow_outward"
-                                style="margin-left:4%;">
+                                style="margin-left:15px;">
 
-                                <a href="mailto:hello@martinspeidel.info"
+                                <a href="#"
                                     class="nayla-button underline icon-right text-h6">hello@martinspeidel.info</a>
 
                             </div>
@@ -204,6 +205,7 @@
         </div>
 
 
+
         <!-- Main -->
         <main id="primary" class="site-main" data-barba="container">
 
@@ -213,9 +215,9 @@
 
                 <div class="section no-margin">
 
-                    <div class="wrapper no-margin" style="min-height: 20vh">
+                    <div class="wrapper-full no-margin" style="min-height: 20vh">
 
-                        <div class="c-col-10 sm-12 self-center">
+                        <div class="c-col-12 sm-12 self-center">
 
                             <!-- Empty Column (For Spacing) -->
                             <div class="hide-desktop" style="padding-top:54px;"> </div>
@@ -227,10 +229,10 @@
 
                                 <!-- <p class="has-anim-text wordsUp" style="margin-top:10%">Hi, I am a 2D Motion Design Freelancer.</p> -->
 
-                                <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:.7em; ">
+                                <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:5px;">
                                     <!-- <span class="text-indent" style="width: 0px"></span> --> Hi, my name is
                                     Martin.
-                                    </br>I am a brand-focused specialist for 2D motion
+                                    </br>I am a brand-focused expert for cutting edge 2D motion
                                     design.<!-- <span class="hide-mobile material-icons inline-icon">arrow_forward</span> -->
                                     <a href="http://localhost/nayla-last/pages/about-us.html"></a>
                                 </h1>
@@ -242,35 +244,33 @@
 
                     </div>
 
-                    <div class="wrapper no-margin">
+                    <div class="wrapper-full no-margin">
 
                         <!-- Empty Column (For Spacing) -->
                         <div class="c-col-6 hide-mobile"></div>
                         <!--/ Empty Column (For Spacing) -->
 
-
                         <div class="c-col-6 sm-12">
+
                             <!-- Empty Space -->
-                            <span class="empty-space hide-mobile" style="height: 55px"></span>
+                            <span class="empty-space hide-mobile" style="height: 60px"></span>
                             <!--/ Empty Space -->
+
                             <!-- Text -->
                             <div class="text-wrapper">
-
                                 <p class="text-h6">I create motion graphics that boost brand identity on digital
                                     platforms, social media, events, corporate presentations, and OOH advertising.</p>
-
                             </div>
                             <!--/ Text -->
 
                             <!-- Empty Space -->
-                            <span class="empty-space hide-mobile" style="height: 25px"></span>
+                            <span class="empty-space hide-mobile" style="height: 10px"></span>
                             <!--/ Empty Space -->
 
                             <!-- Button -->
-                            <div class="nayla-button underline icon-right text-h6" data-icon="arrow_outward">
-
+                            <div class="nayla-button underline icon-right text-h6" data-icon="arrow_outward"
+                                style="z-index: 10;">
                                 <a href="#aboutme">More about me</a>
-
                             </div>
                             <!--/ Button -->
 
@@ -278,25 +278,24 @@
 
                     </div>
 
-
                     <!-- Empty Space -->
                     <span class="empty-space hide-desktop" style="height: 40px"></span>
                     <!--/ Empty Space -->
 
-                    <div class="wrapper" id="showreel">
+                    <div class="wrapper-full" id="showreel" style="margin-top: -100px;">
 
-                        <div class="c-col-12 hide-mobile has-anim maskUp">
+                        <div class="c-col-12 hide-mobile">
 
                             <!-- Animation Wrapper -->
                             <div class="nayla-animation-wrapper has-anim scaleIn" data-start=.5 data-origin='center'
-                                data-pin=true style="margin-top:-8%;">
+                                data-pin=true>
 
                                 <!-- Video -->
                                 <div class="nayla-video n-vimeo cursor-play play-lightbox" data-play="WATCH"
                                     data-controls="play progress mute fullscreen" data-autoplay=true data-muted=true
                                     data-loop=true>
 
-                                    <div class="n-video" data-plyr-provider="vimeo" data-plyr-embed-id="852811469">
+                                    <div class=" n-video" data-plyr-provider="vimeo" data-plyr-embed-id="852811469">
                                     </div>
 
                                 </div>
@@ -347,7 +346,7 @@
 
                     <span class="empty-space hide-mobile" style="height: 40px"></span>
 
-                    <div class="wrapper">
+                    <div class="wrapper-full">
 
                         <div class="c-col-12 sm-12">
 
@@ -388,7 +387,7 @@
 
                 <div class="section light anim-bg no-margin" style="background: #000000" id="process">
 
-                    <div class="wrapper">
+                    <div class="wrapper-full">
 
                         <div class="c-col-12 sm-12" style="margin-top:-10%;">
 
@@ -526,7 +525,7 @@
 
                 <div class="section no-margin" style="margin-top: -13rem;" id="aboutme">
 
-                    <div class="wrapper no-margin">
+                    <div class="wrapper-full no-margin">
 
                         <div class="c-col-10 sm-12">
 
@@ -587,27 +586,23 @@
 
                             </div>
 
-                            <!-- Empty Column (For Spacing) -->
-                            <div class="c-col-2 hide-mobile"></div>
-                            <!-- Empty Column (For Spacing) -->
 
-                                                        <!-- Empty Column (For Spacing) -->
-                                                        <div class="c-col-2 hide-mobile"></div>
-                                                        <!-- Empty Column (For Spacing) -->
+                            <div class="text-wrapper" style="transform: translateY(-4rem);">
+                                <div class="c-col-12 sm-12">
+                                    <div class="c-col-2 hide-mobile">asdas</div>
+                                    <!-- Button -->
+                                    <div class="nayla-button underline icon-right text-h6" data-icon="arrow_outward"
+                                        style="transform: translateY(-20px);">
 
+                                        <a href="mailto:hello@martinspeidel.info">custom me</a>
 
-                            <div class="c-col-5 sm-12">
-                                <span class="empty-space hide-desktop" style="height: 25px"></span>
-                                <!-- Button -->
-                                <div class="nayla-button underline icon-right text-h6" data-icon="arrow_outward"
-                                    style="transform: translateY(-35px);">
-
-                                    <a href="mailto:hello@martinspeidel.info">Contact me</a>
+                                    </div>
+                                    <!--/ Button -->
 
                                 </div>
-                                <!--/ Button -->
-
                             </div>
+
+
 
 
 
@@ -633,7 +628,7 @@
             <div class="footer-wrapper">
 
                 <!-- Footer Top -->
-                <div class="wrapper footer-top-wrapper">
+                <div class="wrapper-full footer-top-wrapper">
 
                     <div class="c-col-12 sm-12">
 
@@ -655,7 +650,7 @@
             </div>
 
             <!-- Footer Bottom -->
-            <div class="wrapper footer-bottom-wrapper">
+            <div class="wrapper-full footer-bottom-wrapper">
 
                 <div class="c-col-12 sm-3" style="margin-top: -3rem;">
 

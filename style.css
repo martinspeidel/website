@@ -916,8 +916,8 @@ h4 {
 
 h1,
 .text-h1 {
-    font-size: 102px;
-    line-height: 115px;
+    font-size: 98px;
+    line-height: 110px;
     font-weight: 400;
     letter-spacing: -0.055em;
 }
@@ -3349,8 +3349,8 @@ div#mouseCursor.hover-size {
 }
 
 div#mouseCursor.dot.hover-size {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
 }
 
 div#mouseCursor.dot.hover-size {
@@ -11118,6 +11118,7 @@ ul.menu.social-menu li a::after {
 .nayla-button a {
     text-decoration: none;
     color: var(--color);
+    
     display: inline-block;
     position: relative;
 }
@@ -11283,7 +11284,7 @@ ul.menu.social-menu li a::after {
 
 .nayla-button.fill a,
 .nayla-button.outline a {
-    padding: .9em 1.2em;
+    padding: .7em 1.2em;
     border: 0.05em solid;
     border-color: var(--color);
     border-radius: 2em;
@@ -11313,6 +11314,7 @@ ul.menu.social-menu li a::after {
 
 .nayla-button.fill,
 .nayla-button.outline {
+    text-align:center;
     overflow: hidden;
     border-radius: 2em;
     --hoverColor: var(--mainBackground);
