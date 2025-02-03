@@ -2437,7 +2437,7 @@ div[data-elementor-type="sub-menu-type"] {
     background: var(--mainColor);
     vertical-align: middle;
     margin-top: -0.6em;
-    margin-right: 10px;
+    margin-right: 0px;
     -webkit-transition: width 1.2s cubic-bezier(.07, 0.8, .2, 1);
     -o-transition: width 1.2s cubic-bezier(.07, 0.8, .2, 1);
     transition: width 1.2s cubic-bezier(.07, 0.8, .2, 1);
@@ -13738,8 +13738,6 @@ span.test-prev::after {
         left: 0;
         padding: 0
     }
-
-
 
 
 }
