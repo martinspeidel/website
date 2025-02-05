@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Page Title -->
+    <title>Martin Speidel Motion Design</title>
+    <!--/ Page Title -->
+
+    <meta name="author" content="Martin Speidel">
+    <meta name="description" content="Martin Speidel – Brand-focused specialist for cutting edge 2D motion graphics">
+    <meta name="keywords"
+        content="Martin Speidel, Portfolio, Motion Graphics, Motion Design, After Effects, Hamburg, Design,">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!--/ Favicons -->
+
+</head>
+
+<body class="light " data-barba="wrapper">
+
+
+    <!-- Mouse Cursor -->
+    <div id="mouseCursor" class="dot"></div>
+    <!--/ Mouse Cursor -->
+
+
+    <!-- Page -->
+    <div id="page">
+
+        <div class="menu-overlay"></div>
+
+        <!-- Site Header -->
+        <div id="header" class="site-header fixed dark">
+
+            <!-- Header Wrapper -->
+            <div class="header-wrapper wrapper-full">
+
+                <div class="c-col-4 sm-8">
+
+                    <!--  Site Branding -->
+                    <div class="site-branding" style="transform:translate(0px,10px); width: 300px;">
+
+
+                        <!--  Site Logo -->
+                        <div>
+                            <h5 class=""><a href="index.html">Martin Speidel</a></h1>
+
+                                <canvas id="rive-canvas" class="rive-canvas" width="20vw" height="20vw"></canvas>
+                                <script>
+
+                                    const r = new rive.Rive({
+                                        src: "/riv/logo.riv",
+                                        canvas: document.getElementById("rive-canvas"),
+                                        autoplay: true,
+                                        stateMachines: "button",
+                                        onLoad: () => {
+                                            r.resizeDrawingSurfaceToCanvas();
+                                        },
+                                        background: "transparent"
+                                    });
+                                    document.addEventListener("mousemove", (event) => {
+                                        const canvasRect = document.getElementById("canvas").getBoundingClientRect();
+                                        const mouseX = event.clientX - canvasRect.left;
+                                        const mouseY = event.clientY - canvasRect.top;
+
+                                        // Update the Rive animation with the mouse coordinates
+                                        r.pointerMove({ x: mouseX, y: mouseY });
+                                    });
+
+
+                                </script>
+                                <!-- <img alt="Site Logo (Dark)" class="dark-logo" src="img/site-logo.png">
+                        <img alt="Site Logo (Light)" class="light-logo" src="img/site-logo-light.png"> -->
+
+                        </div>
+                        <!--/  Site Logo -->
+
+                        <!--  Sticky Logo -->
+                        <div class="sticky-logo">
+
+                            <!-- <img alt="Sticky Logo (Dark)" class="sticky-dark-logo" src="img/sticky_logo.png">
+                        <img alt="Sticky Logo (Light)" class="sticky-light-logo" src="img/sticky_logo_light.png"> -->
+
+                        </div>
+                        <!--/  Sticky Logo -->
+
+                    </div>
+                    <!--  Site Branding -->
+
+                </div>
+
+                <div class="c-col-4 hide-mobile">
+                </div>
+
+                <div class="c-col-4 sm-4 align-right">
+
+                    <!--  Button -->
+
+                    <div class="nayla-button outline hide-mobile dynamic text-h5" data-icon="arrow_outward">
+
+                        <a href="https://martinspeidel.info/login">Client Login</a>
+
+                    </div>
+                    <!--/ Button -->
+
+                    <!--  Menu Toggle -->
+                    <div class="menu-toggle">
+
+                        <div class="toggle-lines">
+                            <div class="toggle-line"></div>
+                            <div class="toggle-line"></div>
+                        </div>
+
+
+                    </div>
+                    <!--/  Menu Toggle -->
+
+                </div>
+
+            </div>
+            <!--/ Header Wrapper -->
+
+            <!-- Fullscreen Menu -->
+            <div id="site-navigation" class="fullscreen_menu fullscreen">
+
+                <div class="wrapper-full fullscreen-menu-wrapper">
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-3"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+                    <div class="c-col-9 sm-12">
+
+                        <!-- Main Menu -->
+
+                        <ul class="menu main-menu">
+
+                            <li><a href="index.html#page" class="text-h1">Home</a></li>
+                            <li><a href="index.html#showreel" class="text-h1">Showreel</a></li>
+                            <li><a href="index.html#aboutme" class="text-h1">About me</a></li>
+                            <li><a href="legal.html" class="text-h1">Legal Notice</a></li>
+
+                        </ul>
+
+                        <!--/ Main Menu -->
+
+                    </div>
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-2 hide-mobile"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-2 hide-desktop" style="padding-bottom: 60px;"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+                    <!-- Fullscreen Menu Bottom -->
+
+                    <div class="fullscreen-menu-wrap-bottom">
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-3 hide-mobile"> </div>
+                        <!--/ Empty Column (For Spacing) -->
+
+                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.4>
+
+                            <!-- Button -->
+                            <div class="nayla-button underline icon-right" data-icon="arrow_outward"
+                                style="margin-left:0px;">
+
+                                <a href="mailto:hello@martinspeidel.info"
+                                    class="nayla-button underline icon-right text-h5">hello@martinspeidel.info</a>
+
+                            </div>
+                            <!--/ Button -->
+
+                        </div>
+
+                    </div>
+                    <!--/ Fullscreen Menu Bottom -->
+
+                </div>
+
+            </div>
+            <!-- Fullscreen Menu -->
+
+        </div>
+
+
+
+
+        <!-- Empty Space -->
+        <span class="empty-space hide-mobile" style="height: 10px; "></span>
+        <!--/ Empty Space -->
+
+
+        <!-- Main -->
+        <main id="primary" class="site-main" data-barba="container">
+
+
+            <!-- Page Content -->
+            <div id="content" class="page-content">
+
+                <div class="section no-margin">
+
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-desktop" style="height: 50px"></span>
+                    <!--/ Empty Space -->
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-mobile" style="height: 170px"></span>
+                    <!--/ Empty Space -->
+
+
+
+
+                    <div class="wrapper-full no-margin">
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-2 hide-mobile"></div>
+                        <!--/ Empty Column (For Spacing) -->
+
+                        <div class="c-col-10 sm-12">
+                            <h1 class="has-anim-text wordsUp no-margin no-revert"
+                                style="padding-bottom:0px; margin-top:-80px;transform: translateX(-3px);">
+                                Legal Notice
+                            </h1>
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-mobile" style="height: 40px"></span>
+                    <!--/ Empty Space -->
+
+                    <div class="wrapper-full no-margin">
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-2 hide-mobile"></div>
+                        <!--/ Empty Column (For Spacing) -->
+
+                        <div class="c-col-8 sm-12">
+
+                            <!-- Text -->
+
+                            <p class="text-h5"><span style=" font-weight:600">Angaben gemäß § 5 TMG:</span><br>
+                                Dipl. Des. (FH) Martin Speidel<br>Zum Wachtelkönig 23c<br>21147 Hamburg<br><br>
+                                
+                                <span style=" font-weight:600">Kontakt:</span><br>
+                                Telefon: 0176-24122854<br>E-Mail: hello@martinspeidel.info<br><br>
+                                
+                                <span style=" font-weight:600">Umsatzsteuer-ID:</span><br>
+                                Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: DE296484952 Finanzamt Hamburg-Harburg<br><br><br>
+                                
+                                <span style=" font-weight:600">Haftungsausschluss (Disclaimer):</span><br>
+                                Haftung für Inhalte: Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.<br><br>
+                                
+                                <span style=" font-weight:600">Haftung für Links:</span><br> Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.<br><br> 
+
+                                <span style=" font-weight:600">Urheberrecht:</span><br> Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.<br><br>
+
+                                <span style=" font-weight:600">Datenschutz:</span><br> Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
+                                <br><br>
+                            </p>
+
+                            <!--/ Text -->
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="wrapper-full no-margin" style="transform: translateY(-20px);">
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-2 hide-mobile"></div>
+                        <!--/ Empty Column (For Spacing) -->
+
+                        <div class="c-col-5 sm-12">
+
+                            <!-- Button -->
+                            <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
+                                style="z-index: 10;">
+                                <a href="privacy.html">Privacy Policy</a>
+                            </div>
+                            <!--/ Button -->
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <!--/ Page Content -->
+
+        </main>
+        <!--/ Main -->
+
+
+        <!-- Empty Space -->
+        <span class="empty-space hide-desktop" style="height: 70px"></span>
+        <!--/ Empty Space -->
+
+
+        <!-- Empty Space -->
+        <span class="empty-space hide-mobile" style="height: 150px"></span>
+        <!--/ Empty Space -->
+
+
+
+         <!-- Footer -->
+         <div id="footer" class="site-footer light "
+         style="background: blueviolet; padding: 65px 0 0px 0; margin-top: -40px;">
+
+         <!-- Empty Space -->
+         <span class="empty-space hide-mobile" style="height: 50px"></span>
+         <!--/ Empty Space -->
+
+         <!-- Footer Wrapper -->
+         <div class="footer-wrapper no-margin text-h5">
+
+             <div class="wrapper-full footer-bottom-wrapper no-margin" style="line-height: 0.7em;">
+
+                 <div class="c-col-3 sm-12 align-left">
+                     <!-- Menu (Vertical) -->
+                     <ul class="menu vertical">
+                         <li><a href="https://www.linkedin.com/in/martinspeidel" target="_blank">LinkedIn</a></li>
+                         <li><a href="https://www.instagram.com/martinspeidel/" target="_blank">Instagram</a></li>
+                         <li><a href="https://martinspeidel.gumroad.com" target="_blank">Gumroad</a></li>
+                         <li><a href="privacy.html">Privacy Policy</a></li>
+                         <li><a href="legal.html">Legal Notice</a></li>
+
+                     </ul>
+                     <!--/ Menu (Horizontal) -->
+
+                     <!-- Menu (Vertical) -->
+                     <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
+                         <li>Moin 👋</li>
+                         <li><a href="mailto:hello@martinspeidel.info">hello@martinspeidel.info</a></li>
+                         <li>+(0)49 176 24 122 854</li>
+                     </ul>
+                     <!-- Menu (Vertical) -->
+
+                     <!-- Text -->
+                     <ul class="menu vertical hide-desktop"
+                         style="transform: translateY(70px); padding-bottom: 75px;">
+                         <li>© 2025</li>
+                     </ul>
+                     <!-- Text -->
+
+                 </div>
+
+                 <div class="c-col-6 align-left mobile-align-left hide-mobile">
+
+                     <!-- Menu (Vertical) -->
+                     <ul class="menu vertical">
+                         <li>Moin 👋</li>
+                         <li><a href="mailto:hello@martinspeidel.info">hello@martinspeidel.info</a></li>
+                         <li>+(0)49 176 24 122 854</li>
+                     </ul>
+                     <!-- Menu (Vertical) -->
+
+
+
+                 </div>
+
+                 <div class="c-col-3 align-right hide-mobile">
+
+                     <!-- Text -->
+                     <ul class="menu vertical">
+                         <li>© 2025</li>
+                     </ul>
+                     <!-- Text -->
+
+                 </div>
+
+             </div>
+
+         </div>
+
+     </div>
+     <!--/ Footer -->
+
+    </div>
+    <!--/ Page -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/barba.min.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>

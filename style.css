@@ -1872,7 +1872,7 @@ img.light-logo {
     width: 100%;
     height: 0.07em;
     display: inline-block;
-    background-color: #191919;
+    background-color: #000000;
     margin: 3px 0;
     -webkit-transition: -webkit-transform .3s ease;
     transition: -webkit-transform .3s ease;
@@ -2360,6 +2360,7 @@ div[data-elementor-type="sub-menu-type"] {
 
 #site-navigation.fullscreen_menu .fullscreen-menu-wrapper > div {
     margin-bottom: 0 !important
+    margin-top: 0 !important
 }
 
 
@@ -4488,7 +4489,7 @@ ul.grid-portfolio-filtering li:last-child::after {
     left: 0;
     height: 1px;
     width: 0%;
-    background: #191919;
+    background: #000000;
     opacity: .2;
     -webkit-transition: width 1.25s ease-out;
     -o-transition: width 1.25s ease-out;
@@ -6331,7 +6332,7 @@ span.fraction-line {
   ------------------------------ */
 
 .showcase-wall.light {
-    background: #191919
+    background: #000000
 }
 
 .sw-projects-wrap {
@@ -7098,7 +7099,7 @@ span.fraction-line {
 }
 
 .showcase-fullscreen-slideshow .project-button:hover a {
-    color: #191919
+    color: #000000
 }
 
 .showcase-fullscreen-slideshow .project-button a {
@@ -9175,7 +9176,7 @@ span.active-hold {
     display: inline-block;
     width: 15px;
     height: 2px;
-    background: #191919;
+    background: #000000;
     vertical-align: middle;
     margin: 0 5px;
     margin-top: -1px;
@@ -9618,7 +9619,7 @@ ul.nayla-awards-list li a:hover {
 
 .light ul.nayla-awards-list li a:hover,
 .light ul.nayla-awards-list li:hover a {
-    color: #191919
+    color: #000000
 }
 
 ul.nayla-awards-list li a span:first-child,
@@ -9734,7 +9735,7 @@ ul.nayla-awards-list li a span:last-child {
     left: 0;
     width: 100%;
     height: 0.1em;
-    background: #191919;
+    background: #000000;
 }
 
 .nayla-info-box.video-bg,
@@ -9940,7 +9941,7 @@ body.dark span.inline-img img {
 
 .text-wrapper span.text-indent.line {
     height: 0.05em;
-    background: #191919;
+    background: #000000;
 }
 
 .text-wrapper .material-icons.inline-icon {
@@ -10384,6 +10385,7 @@ body.dark span.inline-img img {
   ------------------------------ */
 
 .nayla-video {
+    font-size: 25px;
     display: inline-block;
     position: relative;
     width: 100%;
@@ -10421,14 +10423,14 @@ body.dark span.inline-img img {
 
 :root {
     --plyr-color-main: #fff;
-    --plyr-range-track-height: 1.5px;
+    --plyr-range-track-height: 5px;
     --plyr-range-thumb-background: transparent;
     --plyr-range-thumb-active-shadow-width: 0;
     --plyr-range-thumb-shadow: none
 }
 
 .nayla-video.dark .nayla-player-control {
-    color: #191919
+    color: #000000
 }
 
 .nayla-video.dark .plyr__progress {
@@ -10436,7 +10438,7 @@ body.dark span.inline-img img {
 }
 
 .dark {
-    --plyr-color-main: #191919;
+    --plyr-color-main: #000000;
 
 }
 
@@ -10517,7 +10519,7 @@ button.plyr__control.plyr__control--overlaid .nayla-player-control {
 
 .plyr--full-ui.plyr--video .plyr__control--overlaid svg {
     display: block;
-    fill: #191919;
+    fill: #000000;
     width: 20px;
     height: 20px;
 }
@@ -10558,7 +10560,7 @@ button.plyr__control.plyr__control--overlaid .nayla-player-control {
     position: absolute;
     top: 50%;
     left: 50%;
-    background: #191919;
+    background: #000000;
     width: 100px;
     height: 100px;
     -webkit-transform: translate(-50%, -50%);
@@ -10592,7 +10594,7 @@ button.plyr__control.plyr__control--overlaid .nayla-player-control {
 }
 
 .nayla-video.dark .plyr__progress .plyr__tooltip {
-    color: #191919
+    color: #000000
 }
 
 
@@ -10933,7 +10935,7 @@ ul.menu.social-menu li a::after {
     left: 0;
     width: 100%;
     height: 1px;
-    background: #191919;
+    background: #000000;
     opacity: .1;
 }
 
@@ -11568,7 +11570,7 @@ ul.menu.social-menu li a::after {
     width: 100%;
     left: 0;
     height: 1px;
-    background: #191919;
+    background: #000000;
     opacity: .1;
     top: 25px;
 }
@@ -11656,7 +11658,7 @@ ul.menu.social-menu li a::after {
     content: "";
     width: 0;
     height: 1px;
-    background: #191919;
+    background: #000000;
     opacity: .3;
     bottom: 0;
     left: 0;
@@ -12216,7 +12218,7 @@ span.test-prev::after {
     height: 1px;
     width: 100%;
     display: block;
-    background: #191919;
+    background: #000000;
     position: absolute;
     top: -50px;
     opacity: .2;
@@ -13096,7 +13098,7 @@ span.test-prev::after {
     }
 
     .text-wrapper br {
-        display: none
+        /* display: none */
     }
 
     .text-wrapper br.show-mobile {
@@ -13742,7 +13744,7 @@ span.test-prev::after {
 
 }
 
-
-
-
+video {
+    border-radius: 5px; 
+}
 
