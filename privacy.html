@@ -57,35 +57,26 @@
 
                     <!-- --------------------------------------------------------------- Logo ------------------------------------------------------------ -->
 
-                    <div class="site-branding" style="transform:translate(0px,10px); width: 300px;">
-                        <div>
-                            <h5 class=""><a href="index.html">Martin Speidel</a></h1>
+                    <div class="site-branding" style="transform:translate(-8px,10px); width: 300px;">
 
-                                <canvas id="rive-canvas" class="rive-canvas" width="20vw" height="20vw"></canvas>
-                                <script>
+                        <!-- <h5 class=""><a href="index.html">Martin Speidel</a></h5> -->
+                        <a href="index.html">
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
+                                style="width: 240px; transform:translate(-20px,3px); cursor:pointer;"></canvas>
+                            <script>
 
-                                    const r = new rive.Rive({
-                                        src: "/riv/logo.riv",
-                                        canvas: document.getElementById("rive-canvas"),
-                                        autoplay: true,
-                                        stateMachines: "button",
-                                        onLoad: () => {
-                                            r.resizeDrawingSurfaceToCanvas();
-                                        },
-                                        background: "transparent"
-                                    });
-                                    document.addEventListener("mousemove", (event) => {
-                                        const canvasRect = document.getElementById("canvas").getBoundingClientRect();
-                                        const mouseX = event.clientX - canvasRect.left;
-                                        const mouseY = event.clientY - canvasRect.top;
-
-                                        // Update the Rive animation with the mouse coordinates
-                                        r.pointerMove({ x: mouseX, y: mouseY });
-                                    });
-
-
-                                </script>
-                        </div>
+                                const r = new rive.Rive({
+                                    src: "riv/logo.riv",
+                                    canvas: document.getElementById("rive-canvas"),
+                                    autoplay: true,
+                                    stateMachines: "logo",
+                                    onLoad: () => {
+                                        r.resizeDrawingSurfaceToCanvas();
+                                    },
+                                    background: "transparent"
+                                });
+                            </script>
+                        </a>
                     </div>
                 </div>
 
@@ -187,9 +178,8 @@
 
 
         <!-- Empty Space -->
-        <span class="empty-space hide-mobile" style="height: 10px; "></span>
+        <span class="empty-space hide-mobile" style="height: 30px; "></span>
         <!--/ Empty Space -->
-
 
 
         <!-- --------------------------------------------------------------- Main ------------------------------------------------------------ -->

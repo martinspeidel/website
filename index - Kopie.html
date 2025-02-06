@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Page Title -->
+    <title>Martin Speidel Motion Design</title>
+    <!--/ Page Title -->
+
+    <meta name="author" content="Martin Speidel">
+    <meta name="description" content="Martin Speidel – Brand-focused specialist for cutting edge 2D motion graphics">
+    <meta name="keywords"
+        content="Martin Speidel, Portfolio, Motion Graphics, Motion Design, After Effects, Hamburg, Design,">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!--/ Favicons -->
+
+</head>
+
+
+
+
+
+<body class="light " data-barba="wrapper">
+
+
+    <!-- Mouse Cursor -->
+    <div id="mouseCursor" class="dot"></div>
+    <!--/ Mouse Cursor -->
+
+
+    <!-- Page -->
+    <div id="page">
+
+        <div class="menu-overlay"></div>
+
+        <!-- Site Header -->
+        <div id="header" class="site-header fixed dark">
+
+            <!-- Header Wrapper -->
+            <div class="header-wrapper wrapper-full">
+
+                <div class="c-col-4 sm-8">
+
+                    <!-- --------------------------------------------------------------- Logo ------------------------------------------------------------ -->
+
+                    <div class="site-branding" style="transform:translate(0px,10px); width: 300px;">
+                        <div>
+                            <h5 class=""><a href="index.html">Martin Speidel</a></h1>
+
+                                <canvas id="rive-canvas" class="rive-canvas" width="20vw" height="20vw"></canvas>
+                                <script>
+
+                                    const r = new rive.Rive({
+                                        src: "/riv/logo.riv",
+                                        canvas: document.getElementById("rive-canvas"),
+                                        autoplay: true,
+                                        stateMachines: "button",
+                                        onLoad: () => {
+                                            r.resizeDrawingSurfaceToCanvas();
+                                        },
+                                        background: "transparent"
+                                    });
+                                    document.addEventListener("mousemove", (event) => {
+                                        const canvasRect = document.getElementById("canvas").getBoundingClientRect();
+                                        const mouseX = event.clientX - canvasRect.left;
+                                        const mouseY = event.clientY - canvasRect.top;
+
+                                        // Update the Rive animation with the mouse coordinates
+                                        r.pointerMove({ x: mouseX, y: mouseY });
+                                    });
+
+
+                                </script>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- --------------------------------------------------------------- Menu ------------------------------------------------------------ -->
+
+                <div class="c-col-4 hide-mobile"></div>
+
+                <div class="c-col-4 sm-4 align-right">
+
+
+                    <div class="nayla-button outline hide-mobile dynamic text-h5" data-icon="arrow_outward">
+                        <a href="https://martinspeidel.info/login">Client Login</a>
+                    </div>
+
+                    <!--  Menu Toggle -->
+                    <div class="menu-toggle">
+
+                        <div class="toggle-lines">
+                            <div class="toggle-line"></div>
+                            <div class="toggle-line"></div>
+                        </div>
+
+
+                    </div>
+                    <!--/  Menu Toggle -->
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- --------------------------------------------------------------- Fullscreen Menu ------------------------------------------------------------ -->
+
+            <div id="site-navigation" class="fullscreen_menu fullscreen">
+
+                <div class="wrapper-full fullscreen-menu-wrapper">
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-3"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+                    <div class="c-col-9 sm-12">
+
+                        <!-- Main Menu -->
+                        <ul class="menu main-menu">
+
+                            <li><a href="#page" class="text-h1">Home</a></li>
+                            <li><a href="#showreel" class="text-h1">Showreel</a></li>
+                            <li><a href="#aboutme" class="text-h1">About me</a></li>
+                            <li><a href="legal.html" class="text-h1">Legal Notice</a></li>
+
+                        </ul>
+                        <!--/ Main Menu -->
+
+                    </div>
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-2 hide-mobile"></div>
+                    <div class="c-col-2 hide-desktop" style="padding-bottom: 60px;"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+
+                    <!-- Fullscreen Menu Bottom -->
+                    <div class="fullscreen-menu-wrap-bottom">
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-3 hide-mobile"> </div>
+                        <!--/ Empty Column (For Spacing) -->
+
+                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.4>
+
+                            <div class="nayla-button underline icon-right" data-icon="arrow_outward"
+                                style="margin-left:0px;">
+
+                                <a href="mailto:hello@martinspeidel.info"
+                                    class="nayla-button underline icon-right text-h5">hello@martinspeidel.info</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--/ Fullscreen Menu Bottom -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Empty Space -->
+            <span class="empty-space hide-mobile" style="height: 30px; "></span>
+            <!--/ Empty Space -->
+
+
+
+
+            <!-- --------------------------------------------------------------- Main ------------------------------------------------------------ -->
+
+            <main id="primary" class="site-main" data-barba="container">
+
+                <!-- Page Content -->
+                <div id="content" class="page-content">
+
+                    <div class="section no-margin">
+
+
+
+
+                        <div class="wrapper-full no-margin">
+
+                            <div class="c-col-12 sm-12 self-center" style="max-width: 1500px;">
+
+                                <!-- Empty Column (For Spacing) -->
+                                <div class="hide-desktop" style="padding-top:30px;"> </div>
+                                <!--/ Empty Column (For Spacing) -->
+
+                                <div class="text-wrapper no-margin">
+                                    <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:5px;">
+                                        Hi, my name is Martin.</br> I am a brand- &shy;focused specialist for cutting
+                                        edge 2D motion design.</h1>
+                                    <div class="text-wrapper no-margin hide-desktop" style="padding-bottom:1.1em;">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="wrapper-full no-margin">
+
+
+                            <!-- Empty Column (For Spacing) -->
+                            <div class="c-col-6 hide-mobile"></div>
+                            <!--/ Empty Column (For Spacing) -->
+
+
+                            <div class="c-col-6 sm-12 ">
+
+
+                                <!-- Empty Space -->
+                                <span class="empty-space hide-mobile" style="height: 60px; "></span>
+                                <!--/ Empty Space -->
+
+
+                                <div class="text-wrapper">
+                                    <p class="text-h5">I create motion graphics that boost brand identity on digital
+                                        platforms, social media, events and corporate presentations.</p>
+                                </div>
+
+                                <!-- Empty Space -->
+                                <span class="empty-space hide-mobile" style="height: 30px"></span>
+                                <!--/ Empty Space -->
+
+
+                                <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
+                                    style="z-index: 10;">
+                                    <a href="#aboutme">More about me</a>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <!-- Empty Space -->
+                        <span class="empty-space hide-desktop" style="height: 50px"></span>
+                        <!--/ Empty Space -->
+
+                        <!-- Empty Space -->
+                        <span class="empty-space hide-mobile" style="height: 40px"></span>
+                        <!--/ Empty Space -->
+
+
+
+
+
+                        <!-- --------------------------------------------------------------- Showreel ------------------------------------------------------------ -->
+
+                        <div id="showreel" class="wrapper-full" id="showreel" style="margin-top: calc(60px - 14vw)">
+
+                            <div class="c-col-12 hide-mobile">
+
+                                <!-- Animation Wrapper -->
+                                <div class="nayla-animation-wrapper has-anim scaleIn" data-start=.5 data-origin='center'
+                                    data-pin=true style="border-radius: 15px; overflow: hidden;">
+
+                                    <video width="100%" height="100%" controls autoplay muted loop>
+                                        <source src="showreel.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+
+                                </div>
+                                <!--/ Animation Wrapper -->
+
+                            </div>
+
+
+                            <div class="c-col-12 hide-desktop">
+
+                                <!-- Animation Wrapper -->
+                                <div class="nayla-animation-wrapper" style="border-radius: 5px; overflow: hidden;">
+
+                                    <video width="100%" height="100%" controls autoplay muted>
+                                        <source src="showreel.mp4" type="video/mp4" style="transform: translateY(5px);">
+                                        Your browser does not support the video tag.
+                                    </video>
+
+                                </div>
+                                <!--/ Animation Wrapper -->
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <!-- --------------------------------------------------------------- Stage Text ------------------------------------------------------------ -->
+
+
+                        <!-- Empty Space -->
+                        <span class="empty-space hide-desktop" style="height: 4px"></span>
+                        <!--/ Empty Space -->
+
+                        <!-- Empty Space -->
+                        <span class="empty-space hide-mobile" style="height: 40px"></span>
+                        <!--/ Empty Space -->
+
+
+
+
+                        <div id="aboutme" style="transform: translateY(-160px);"></div>
+
+
+
+
+                        <div class="wrapper-full no-margin">
+
+                            <!-- Empty Column (For Spacing) -->
+                            <div class="c-col-2 hide-mobile"></div>
+                            <!--/ Empty Column (For Spacing) -->
+
+                            <div class="c-col-10 sm-12">
+                                <h1 class="has-anim-text wordsUp no-margin no-revert"
+                                    style="padding-bottom:0px; margin-top:-60px;transform: translateX(-3px);">
+                                    About me</h1>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- Empty Space -->
+                        <span class="empty-space hide-mobile" style="height: 20px"></span>
+                        <!--/ Empty Space -->
+
+
+
+                        <div class="wrapper-full no-margin">
+
+
+                            <!-- Empty Column (For Spacing) -->
+                            <div class="c-col-2 hide-mobile"></div>
+                            <!--/ Empty Column (For Spacing) -->
+
+
+                            <div class="c-col-5 sm-12">
+
+                                <p class="text-h5">I focus on creating motion systems, motion branding,  case films, logo animations, motion graphic templates, custom scripting, and digital assets for web projects.
+                                    <br><br>
+                                    <span style=" font-weight:600">I partner with:</span><br>27KM, BÄR TIGER WOLF,
+                                    BRNDMRK,
+                                    MUTABOR, PREUSSISCH PORTUGAL, REBEL PRODUCTIONS, SEHSUCHT, SHERPA DESIGN, SYNDICATE and
+                                    more.
+
+                                    <br><br>
+                                    <span style=" font-weight:600">For clients like:</span> <br>AUDI, BOSCH, SEAT, DAS
+                                    ERSTE, DPA, ELBJAZZ
+                                    FESTIVAL, EOS, FREENET, HAMBURG ENERGIE, HEIDELBERG, LUFTHANSA, OTTO, SEAT, and ZF.
+                                </p>
+
+                            </div>
+
+
+                            <div class="c-col-5 sm-12">
+
+                                <div class="text-wrapper">
+                                    <p class="text-h5">I work with Adobe After Effects,
+                                        Maxon Cinema 4D and VS Code. Currently learning Rive & Cavalry. To enhance my workflow, I
+                                        develop my own tools for After Effects. Feel free to
+                                        <a
+                                            href="https://martinspeidel.gumroad.com/" target="_blank">download them on my Gumroad account.</a>
+                                        <br><br>
+                                        With over 10 years of freelance experience, I work 100% remotely, ensure fast
+                                        and
+                                        secure data exchange, quick response, and
+                                        smooth collaboration.
+                                        <br><br>
+                                        I live on the edge of Hamburg, surrounded by nature. I've got two kids, enjoy
+                                        playing piano, and taking walks <a href="https://www.hamburg.de/freizeit/ausfluege/wandern/wandern-fischbeker-heide-306580" target="_blank">in the beautiful countryside.</a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Empty Space -->
+                        <span class="empty-space hide-mobile" style="height: 30px"></span>
+                        <!--/ Empty Space -->
+
+
+
+                        <div class="wrapper-full no-margin" style="transform: translateY(-20px);">
+
+                            <!-- Empty Column (For Spacing) -->
+                            <div class="c-col-2 hide-mobile"></div>
+                            <!--/ Empty Column (For Spacing) -->
+
+                            <div class="c-col-5 sm-12">
+                                <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
+                                    style="z-index: 10;">
+                                    <a href="mailto:hello@martinspeidel.info">Let's start something!</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <!--/ Page Content -->
+
+            </main>
+
+
+
+            <!-- Empty Space -->
+            <span class="empty-space hide-desktop" style="height: 70px"></span>
+            <span class="empty-space hide-mobile" style="height: 150px"></span>
+            <!--/ Empty Space -->
+
+
+
+
+            <!-- --------------------------------------------------------------- Footer ------------------------------------------------------------ -->
+
+            <div id="footer" class="site-footer dark "
+                style="background:#CDE0F5; padding: 50px 0 0px 0; margin-top: -40px;">
+
+                <!-- Empty Space -->
+                <span class="empty-space hide-mobile" style="height: 50px"></span>
+                <!--/ Empty Space -->
+
+                <!-- Footer Wrapper -->
+                <div class="footer-wrapper no-margin text-h5">
+
+                    <div class="wrapper-full footer-bottom-wrapper no-margin" style="line-height: .8em;">
+
+                        <div class="c-col-3 sm-12 align-left">
+
+                            <ul class="menu vertical" >
+                                <li><a href="https://www.linkedin.com/in/martinspeidel" target="_blank" class="super-hover">LinkedIn</a>
+                                </li>
+                                <li><a href="https://martinspeidel.bsky.social/" target="_blank" class="super-hover">Bluesky</a></li>
+                                <li><a href="https://www.instagram.com/martinspeidel/" target="_blank" class="super-hover">Instagram</a>
+                                </li>
+                                <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover">Gumroad</a></li>
+
+                                <!-- Empty Space -->
+                                <span class="empty-space hide-desktop" style="height: 35px"></span>
+                                <span class="empty-space hide-mobile" style="height: 50px"></span>
+                                <!--/ Empty Space -->
+
+                                <li><a href="privacy.html" class="super-hover">Privacy Policy</a></li>
+                                <li><a href="legal.html" class="super-hover">Legal Notice</a></li>
+                                
+                            </ul>
+
+                            <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
+                                <li>Moin 👋</li>
+                                <li><a href="mailto:hello@martinspeidel.info">hello@martinspeidel.info</a></li>
+                                <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover">+(0)49 176 24 122 854</a></li>
+                            </ul>
+
+                            <ul class="menu vertical hide-desktop"
+                                style="transform: translateY(70px); padding-bottom: 75px;">
+                                <li ><a href="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*9dTGG1AIpXumC-YjqH83WQ.jpeg" target="_blank" class="super-hover">© 2025</a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="c-col-6 align-left mobile-align-left hide-mobile">
+                            <ul class="menu vertical">
+                                <li><span class="dm-serif-display-regular-italic">Moin 👋</span></li>
+                                <li><a href="mailto:hello@martinspeidel.info" class="super-hover">hello@martinspeidel.info</a></li>
+                                <li><a href="https://wa.link/4m6e97" target="_blank" class="super-hover">+(0)49 176 24 122 854</a></li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="c-col-3 align-right hide-mobile">
+                            <ul class="menu vertical">
+                                <li ><a href="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*9dTGG1AIpXumC-YjqH83WQ.jpeg" target="_blank" class="super-hover">© 2025</a></li>
+                                
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <!--/ Page -->
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/barba.min.js"></script>
+        <script src="js/gsap.js"></script>
+        <script src="js/scripts.js"></script>
+
+</body>
