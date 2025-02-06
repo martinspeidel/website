@@ -919,7 +919,7 @@ h1,
     font-size: 98px;
     line-height: 110px;
     font-weight: 400;
-    letter-spacing: -0.055em;
+    letter-spacing: -0.045em;
 }
 
 h1.has-anim-text .anim_char,
@@ -2468,7 +2468,9 @@ div[data-elementor-type="sub-menu-type"] {
 #site-navigation .mt_char {
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
-    will-change: transform
+    will-change: transform;
+    padding-right: .2px;
+    padding-bottom: 1px;
 }
 
 
@@ -13747,4 +13749,20 @@ span.test-prev::after {
 video {
     border-radius: 5px; 
 }
+
+.super-hover {
+    transition: all 0.3s ease; /* Smooth transition over 0.3 seconds */
+    
+}
+
+.super-hover:hover {
+
+    background-color: #282323; /* Example: Hover background color */
+    color: #F4B5EA; /* Example: Hover text color */
+    border-radius: 10px; 
+    padding: 10px;
+    margin:-10px;
+
+}
+
 
