@@ -11733,781 +11733,781 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    barba.init({
-        debug: true,
-        timeout: 30000,
-        transitions: [
-            {
-                name: 'default-transition',
-                leave() {
+    // barba.init({
+    //     debug: true,
+    //     timeout: 30000,
+    //     transitions: [
+    //         {
+    //             name: 'default-transition',
+    //             leave() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        transitions.addClass('running')
+    //                     transitions.addClass('running')
 
-                        let tl = gsap.timeline({
-                            onStart: () => {
-                                gsap.set(transitions, {
-                                    visibility: 'visible'
-                                })
-                            },
+    //                     let tl = gsap.timeline({
+    //                         onStart: () => {
+    //                             gsap.set(transitions, {
+    //                                 visibility: 'visible'
+    //                             })
+    //                         },
 
-                            onComplete: () => {
+    //                         onComplete: () => {
 
-                                resolve();
-                            }
-                        });
+    //                             resolve();
+    //                         }
+    //                     });
 
-                        block ? animateBlocks(tl, true, false) : overlay ? animateOverlay(tl, true, false) : opacity ? animateOpacity(tl, true, false) : pageOver ? animatePageOver(tl, true, false) : columns ? animateColumns(tl, true, false) : '';
+    //                     block ? animateBlocks(tl, true, false) : overlay ? animateOverlay(tl, true, false) : opacity ? animateOpacity(tl, true, false) : pageOver ? animatePageOver(tl, true, false) : columns ? animateColumns(tl, true, false) : '';
 
-                        transitionCaption(tl, true, false)
-                    })
+    //                     transitionCaption(tl, true, false)
+    //                 })
 
-                },
-                beforeEnter() {
+    //             },
+    //             beforeEnter() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        let tl = gsap.timeline({
-                            onStart: () => {
-                                resolve();
-                                transitions.removeClass('running');
-                            },
-                            onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                         onStart: () => {
+    //                             resolve();
+    //                             transitions.removeClass('running');
+    //                         },
+    //                         onComplete: () => {
 
-                                gsap.set(transitions, {
-                                    clearProps: 'all'
-                                })
+    //                             gsap.set(transitions, {
+    //                                 clearProps: 'all'
+    //                             })
 
-                                if (block) {
+    //                             if (block) {
 
-                                    gsap.set('.transition-block', {
-                                        clearProps: 'all'
-                                    })
+    //                                 gsap.set('.transition-block', {
+    //                                     clearProps: 'all'
+    //                                 })
 
-                                }
+    //                             }
 
-                            }
-                        });
+    //                         }
+    //                     });
 
 
-                        block ? animateBlocks(tl, false, true) : overlay ? animateOverlay(tl, false, true) : opacity ? animateOpacity(tl, false, true) : pageOver ? animatePageOver(tl, false, true) : columns ? animateColumns(tl, false, true) : '';
+    //                     block ? animateBlocks(tl, false, true) : overlay ? animateOverlay(tl, false, true) : opacity ? animateOpacity(tl, false, true) : pageOver ? animatePageOver(tl, false, true) : columns ? animateColumns(tl, false, true) : '';
 
 
-                        transitionCaption(tl, false, true)
+    //                     transitionCaption(tl, false, true)
 
-                    })
-                }
+    //                 })
+    //             }
 
-                }, {
-                name: 'fullscreen-menu-transition',
-                from: {
-                    custom: ({
-                        trigger
-                    }) => {
-                        return trigger.classList && trigger.classList.contains('menu-link');
-                    },
-                },
-                leave() {
+    //             }, {
+    //             name: 'fullscreen-menu-transition',
+    //             from: {
+    //                 custom: ({
+    //                     trigger
+    //                 }) => {
+    //                     return trigger.classList && trigger.classList.contains('menu-link');
+    //                 },
+    //             },
+    //             leave() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        transitions.addClass('running')
+    //                     transitions.addClass('running')
 
-                        let tl = gsap.timeline({
-                                onStart: () => {
-                                    gsap.set(transitions, {
-                                        visibility: 'visible'
-                                    })
-                                },
+    //                     let tl = gsap.timeline({
+    //                             onStart: () => {
+    //                                 gsap.set(transitions, {
+    //                                     visibility: 'visible'
+    //                                 })
+    //                             },
 
-                                onComplete: () => {
-                                    resolve();
-                                }
-                            }),
-                            toggle = $('.menu-toggle');
+    //                             onComplete: () => {
+    //                                 resolve();
+    //                             }
+    //                         }),
+    //                         toggle = $('.menu-toggle');
 
-                        toggle.trigger('click')
+    //                     toggle.trigger('click')
 
-                        block ? animateBlocks(tl, true, false) : overlay ? animateOverlay(tl, true, false) : opacity ? animateOpacity(tl, true, false) : pageOver ? animatePageOver(tl, true, false) : columns ? animateColumns(tl, true, false) : '';
+    //                     block ? animateBlocks(tl, true, false) : overlay ? animateOverlay(tl, true, false) : opacity ? animateOpacity(tl, true, false) : pageOver ? animatePageOver(tl, true, false) : columns ? animateColumns(tl, true, false) : '';
 
-                        transitionCaption(tl, true, false)
+    //                     transitionCaption(tl, true, false)
 
-                    })
+    //                 })
 
-                },
-                beforeEnter() {
+    //             },
+    //             beforeEnter() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        let tl = gsap.timeline({
-                            onStart: () => {
-                                resolve();
-                                transitions.removeClass('running')
-                            },
-                            onComplete: () => {
-                                gsap.set(transitions, {
-                                    clearProps: 'all'
-                                })
-                            }
+    //                     let tl = gsap.timeline({
+    //                         onStart: () => {
+    //                             resolve();
+    //                             transitions.removeClass('running')
+    //                         },
+    //                         onComplete: () => {
+    //                             gsap.set(transitions, {
+    //                                 clearProps: 'all'
+    //                             })
+    //                         }
 
-                        });
+    //                     });
 
-                        block ? animateBlocks(tl, false, true) : overlay ? animateOverlay(tl, false, true) : opacity ? animateOpacity(tl, false, true) : pageOver ? animatePageOver(tl, false, true) : columns ? animateColumns(tl, false, true) : '';
+    //                     block ? animateBlocks(tl, false, true) : overlay ? animateOverlay(tl, false, true) : opacity ? animateOpacity(tl, false, true) : pageOver ? animatePageOver(tl, false, true) : columns ? animateColumns(tl, false, true) : '';
 
-                        transitionCaption(tl, false, true)
+    //                     transitionCaption(tl, false, true)
 
-                    })
-                }
-            }, {
-                name: 'media-center-to-image',
-                from: {
-                    custom: ({
-                        trigger
-                    }) => {
-                        return trigger.classList && trigger.classList.contains('sc-link');
-                    },
-                },
-                to: {
-                    namespace: ['project-half-image', 'project-image-gallery-horizontal', 'project-no-image', 'project-image-gallery-vertical', 'project-video', 'project-creative', 'project-boxed-image', 'project-fullscreen-image', 'project-tall-image']
-                },
-                leave() {
+    //                 })
+    //             }
+    //         }, {
+    //             name: 'media-center-to-image',
+    //             from: {
+    //                 custom: ({
+    //                     trigger
+    //                 }) => {
+    //                     return trigger.classList && trigger.classList.contains('sc-link');
+    //                 },
+    //             },
+    //             to: {
+    //                 namespace: ['project-half-image', 'project-image-gallery-horizontal', 'project-no-image', 'project-image-gallery-vertical', 'project-video', 'project-creative', 'project-boxed-image', 'project-fullscreen-image', 'project-tall-image']
+    //             },
+    //             leave() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        let tl = gsap.timeline({
-                            onComplete: () => {
-                                resolve();
-                            }
-                        })
+    //                     let tl = gsap.timeline({
+    //                         onComplete: () => {
+    //                             resolve();
+    //                         }
+    //                     })
 
-                        if ($('div.showcase-carousel').length || $('div.showcase-fullscreen-carousel').length || $('div.showcase-fullscreen-slideshow').length || $('div.showcase-3d-titles').length || $('div.showcase-cards').length) {
+    //                     if ($('div.showcase-carousel').length || $('div.showcase-fullscreen-carousel').length || $('div.showcase-fullscreen-slideshow').length || $('div.showcase-3d-titles').length || $('div.showcase-cards').length) {
 
-                        } else {
+    //                     } else {
 
-                            getMediaToCenter(tl, 1.5);
-                        }
+    //                         getMediaToCenter(tl, 1.5);
+    //                     }
 
 
-                        $('div.showcase-cards').length ? showcaseCardsOut(tl) : $('div.showcase-carousel').length ? outAnimShowcaseCarousel(tl) : $('div.showcase-fullscreen-carousel').length ? fullscreenCarouselOut(tl) : $('div.showcase-fullscreen-slideshow').length ? fullscreenSlideshowOut(tl) : $('div.showcase-minimal-list').length ? minimalListOut(tl) : $('div.showcase-fullscreen-wall').length ? fullscreenWallOut(tl) : $('div.showcase-list').length ? showcaseListOut(tl) : $('div.showcase-3d-titles').length ? showcase3dTitlesOut(tl) : null;
+    //                     $('div.showcase-cards').length ? showcaseCardsOut(tl) : $('div.showcase-carousel').length ? outAnimShowcaseCarousel(tl) : $('div.showcase-fullscreen-carousel').length ? fullscreenCarouselOut(tl) : $('div.showcase-fullscreen-slideshow').length ? fullscreenSlideshowOut(tl) : $('div.showcase-minimal-list').length ? minimalListOut(tl) : $('div.showcase-fullscreen-wall').length ? fullscreenWallOut(tl) : $('div.showcase-list').length ? showcaseListOut(tl) : $('div.showcase-3d-titles').length ? showcase3dTitlesOut(tl) : null;
 
-                    })
-                },
-                afterLeave() {
+    //                 })
+    //             },
+    //             afterLeave() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        if ($('div.showcase-carousel').length || $('div.showcase-fullscreen-carousel').length || $('div.showcase-fullscreen-slideshow').length || $('div.showcase-3d-titles').length || $('div.showcase-cards').length) {
+    //                     if ($('div.showcase-carousel').length || $('div.showcase-fullscreen-carousel').length || $('div.showcase-fullscreen-slideshow').length || $('div.showcase-3d-titles').length || $('div.showcase-cards').length) {
 
-                            let tl = gsap.timeline({
-                                onComplete: () => {
-                                    resolve();
-                                }
-                            })
+    //                         let tl = gsap.timeline({
+    //                             onComplete: () => {
+    //                                 resolve();
+    //                             }
+    //                         })
 
-                            $('div.showcase-carousel').length ? getMediaToCenter(tl, 0) : $('div.showcase-cards').length ? getMediaToCenter(tl, 0) : getMediaToCenter(tl, 1.5);
+    //                         $('div.showcase-carousel').length ? getMediaToCenter(tl, 0) : $('div.showcase-cards').length ? getMediaToCenter(tl, 0) : getMediaToCenter(tl, 1.5);
 
-                        } else {
+    //                     } else {
 
-                            resolve();
-                        }
+    //                         resolve();
+    //                     }
 
-                    })
+    //                 })
 
-                },
-                beforeEnter(data) {
+    //             },
+    //             beforeEnter(data) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
-                            bodyClasses = $(response).filter('notbody').attr('class');
+    //                     var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
+    //                         bodyClasses = $(response).filter('notbody').attr('class');
 
-                        let styleSheet = $(response).filter('style#nayla-body-styles')[0];
+    //                     let styleSheet = $(response).filter('style#nayla-body-styles')[0];
 
-                        var styleSheetContent = styleSheet.innerHTML;
+    //                     var styleSheetContent = styleSheet.innerHTML;
 
-                        var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
+    //                     var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
 
-                        var mainBackgroundValues = [];
+    //                     var mainBackgroundValues = [];
 
-                        if (matches) {
-                            matches.forEach(function (match) {
-                                var valueMatch = match.match(/--mainBackground:\s(.*?);/);
-                                if (valueMatch && valueMatch[1]) {
-                                    var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
-                                    mainBackgroundValues.push(value);
-                                }
-                            });
-                        }
+    //                     if (matches) {
+    //                         matches.forEach(function (match) {
+    //                             var valueMatch = match.match(/--mainBackground:\s(.*?);/);
+    //                             if (valueMatch && valueMatch[1]) {
+    //                                 var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
+    //                                 mainBackgroundValues.push(value);
+    //                             }
+    //                         });
+    //                     }
 
 
-                        var lightBg = mainBackgroundValues[0],
-                            darkBg = mainBackgroundValues[1],
-                            targetBg;
+    //                     var lightBg = mainBackgroundValues[0],
+    //                         darkBg = mainBackgroundValues[1],
+    //                         targetBg;
 
 
-                        if (bodyClasses.includes("light")) {
+    //                     if (bodyClasses.includes("light")) {
 
-                            targetBg = lightBg
-                        }
+    //                         targetBg = lightBg
+    //                     }
 
-                        if (bodyClasses.includes("dark")) {
+    //                     if (bodyClasses.includes("dark")) {
 
-                            targetBg = darkBg
+    //                         targetBg = darkBg
 
-                        }
+    //                     }
 
 
 
-                        let tl = gsap.timeline({
-                            delay: 1.5,
-                            onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                         delay: 1.5,
+    //                         onComplete: () => {
 
-                                resolve();
-                                setTimeout(function () {
+    //                             resolve();
+    //                             setTimeout(function () {
 
-                                    $('.project-trans-overlay').remove();
-                                    $('.project-image.featured').show();
-                                    $('.animating').remove();
-                                }, $('body').hasClass('smooth-scroll') ? 300 : 100)
-                            }
-                        })
+    //                                 $('.project-trans-overlay').remove();
+    //                                 $('.project-image.featured').show();
+    //                                 $('.animating').remove();
+    //                             }, $('body').hasClass('smooth-scroll') ? 300 : 100)
+    //                         }
+    //                     })
 
-                        showcaseImageEnter(tl, $('main').last(), targetBg)
-                    })
+    //                     showcaseImageEnter(tl, $('main').last(), targetBg)
+    //                 })
 
-                }
-                }, {
-                name: 'inline-project-transition',
-                from: {
-                    custom: ({
-                        trigger
-                    }) => {
-                        return trigger.classList && trigger.classList.contains('inner-project-link');
-                    },
-                },
-                to: {
-                    namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
-                },
-                leave(trigger) {
+    //             }
+    //             }, {
+    //             name: 'inline-project-transition',
+    //             from: {
+    //                 custom: ({
+    //                     trigger
+    //                 }) => {
+    //                     return trigger.classList && trigger.classList.contains('inner-project-link');
+    //                 },
+    //             },
+    //             to: {
+    //                 namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
+    //             },
+    //             leave(trigger) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        let clicked = $(trigger.trigger);
+    //                     let clicked = $(trigger.trigger);
 
-                        let tl = gsap.timeline({
-                                onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                             onComplete: () => {
 
-                                    resolve();
-                                }
-                            }),
-                            media;
+    //                                 resolve();
+    //                             }
+    //                         }),
+    //                         media;
 
-                        if (clicked.find('.trans-media').length) {
+    //                     if (clicked.find('.trans-media').length) {
 
-                            media = clicked.find('.trans-media');
+    //                         media = clicked.find('.trans-media');
 
-                        } else {
-                            media = $('.trans-media')
-                        }
+    //                     } else {
+    //                         media = $('.trans-media')
+    //                     }
 
-                        projectImageLeave(tl, media);
+    //                     projectImageLeave(tl, media);
 
-                    })
-                },
-                beforeEnter(data) {
+    //                 })
+    //             },
+    //             beforeEnter(data) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
 
-                        var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
-                            bodyClasses = $(response).filter('notbody').attr('class');
+    //                     var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
+    //                         bodyClasses = $(response).filter('notbody').attr('class');
 
-                        let styleSheet = $(response).filter('style#nayla-body-styles')[0];
+    //                     let styleSheet = $(response).filter('style#nayla-body-styles')[0];
 
-                        var styleSheetContent = styleSheet.innerHTML;
+    //                     var styleSheetContent = styleSheet.innerHTML;
 
-                        var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
+    //                     var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
 
-                        var mainBackgroundValues = [];
+    //                     var mainBackgroundValues = [];
 
-                        if (matches) {
-                            matches.forEach(function (match) {
-                                var valueMatch = match.match(/--mainBackground:\s(.*?);/);
-                                if (valueMatch && valueMatch[1]) {
-                                    var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
-                                    mainBackgroundValues.push(value);
-                                }
-                            });
-                        }
+    //                     if (matches) {
+    //                         matches.forEach(function (match) {
+    //                             var valueMatch = match.match(/--mainBackground:\s(.*?);/);
+    //                             if (valueMatch && valueMatch[1]) {
+    //                                 var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
+    //                                 mainBackgroundValues.push(value);
+    //                             }
+    //                         });
+    //                     }
 
 
-                        var lightBg = mainBackgroundValues[0],
-                            darkBg = mainBackgroundValues[1],
-                            targetBg;
+    //                     var lightBg = mainBackgroundValues[0],
+    //                         darkBg = mainBackgroundValues[1],
+    //                         targetBg;
 
 
-                        if (bodyClasses.includes("light")) {
+    //                     if (bodyClasses.includes("light")) {
 
-                            targetBg = lightBg
-                        }
+    //                         targetBg = lightBg
+    //                     }
 
-                        if (bodyClasses.includes("dark")) {
+    //                     if (bodyClasses.includes("dark")) {
 
-                            targetBg = darkBg
+    //                         targetBg = darkBg
 
-                        }
+    //                     }
 
 
 
-                        let tl = gsap.timeline({
-                            delay: 2,
-                            onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                         delay: 2,
+    //                         onComplete: () => {
 
-                                resolve();
+    //                             resolve();
 
-                                setTimeout(function () {
+    //                             setTimeout(function () {
 
-                                    $('.project-trans-overlay').remove();
-                                    $('.project-image.featured').show();
-                                    $('.animating').remove();
-                                }, $('body').hasClass('smooth-scroll') ? 300 : 100)
+    //                                 $('.project-trans-overlay').remove();
+    //                                 $('.project-image.featured').show();
+    //                                 $('.animating').remove();
+    //                             }, $('body').hasClass('smooth-scroll') ? 300 : 100)
 
-                            }
+    //                         }
 
-                        })
+    //                     })
 
-                        projectImageEnter(tl, $('main').last(), targetBg)
+    //                     projectImageEnter(tl, $('main').last(), targetBg)
 
-                    })
+    //                 })
 
-                },
+    //             },
 
-                }, {
-                name: 'showcase-project-transition',
-                from: {
-                    custom: ({
-                        trigger
-                    }) => {
-                        return trigger.classList && trigger.classList.contains('showcase-project-link');
-                    },
-                },
-                to: {
-                    namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
-                },
-                leave() {
+    //             }, {
+    //             name: 'showcase-project-transition',
+    //             from: {
+    //                 custom: ({
+    //                     trigger
+    //                 }) => {
+    //                     return trigger.classList && trigger.classList.contains('showcase-project-link');
+    //                 },
+    //             },
+    //             to: {
+    //                 namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
+    //             },
+    //             leave() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        let tl = gsap.timeline({
-                            onComplete: () => {
-                                resolve();
-                            }
-                        })
+    //                     let tl = gsap.timeline({
+    //                         onComplete: () => {
+    //                             resolve();
+    //                         }
+    //                     })
 
-                        showcaseImageLeave(tl, $('.trans-media'));
+    //                     showcaseImageLeave(tl, $('.trans-media'));
 
-                        $('div.showcase-carousel').length ? outAnimShowcaseCarousel(tl) : $('div.showcase-fullscreen-carousel').length ? fullscreenCarouselOut(tl) : $('div.showcase-fullscreen-slideshow').length ? fullscreenSlideshowOut(tl) : $('div.showcase-minimal-list').length ? minimalListOut(tl) : $('div.showcase-fullscreen-wall').length ? fullscreenWallOut(tl) : $('div.showcase-list').length ? showcaseListOut(tl) : $('div.showcase-3d-titles').length ? showcase3dTitlesOut(tl) : null;
+    //                     $('div.showcase-carousel').length ? outAnimShowcaseCarousel(tl) : $('div.showcase-fullscreen-carousel').length ? fullscreenCarouselOut(tl) : $('div.showcase-fullscreen-slideshow').length ? fullscreenSlideshowOut(tl) : $('div.showcase-minimal-list').length ? minimalListOut(tl) : $('div.showcase-fullscreen-wall').length ? fullscreenWallOut(tl) : $('div.showcase-list').length ? showcaseListOut(tl) : $('div.showcase-3d-titles').length ? showcase3dTitlesOut(tl) : null;
 
 
 
-                    })
-                },
-                beforeEnter(data) {
+    //                 })
+    //             },
+    //             beforeEnter(data) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
-                            bodyClasses = $(response).filter('notbody').attr('class');
+    //                     var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
+    //                         bodyClasses = $(response).filter('notbody').attr('class');
 
-                        let styleSheet = $(response).filter('style#nayla-body-styles')[0];
+    //                     let styleSheet = $(response).filter('style#nayla-body-styles')[0];
 
-                        var styleSheetContent = styleSheet.innerHTML;
+    //                     var styleSheetContent = styleSheet.innerHTML;
 
-                        var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
+    //                     var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
 
-                        var mainBackgroundValues = [];
+    //                     var mainBackgroundValues = [];
 
-                        if (matches) {
-                            matches.forEach(function (match) {
-                                var valueMatch = match.match(/--mainBackground:\s(.*?);/);
-                                if (valueMatch && valueMatch[1]) {
-                                    var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
-                                    mainBackgroundValues.push(value);
-                                }
-                            });
-                        }
+    //                     if (matches) {
+    //                         matches.forEach(function (match) {
+    //                             var valueMatch = match.match(/--mainBackground:\s(.*?);/);
+    //                             if (valueMatch && valueMatch[1]) {
+    //                                 var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
+    //                                 mainBackgroundValues.push(value);
+    //                             }
+    //                         });
+    //                     }
 
 
-                        var lightBg = mainBackgroundValues[0],
-                            darkBg = mainBackgroundValues[1],
-                            targetBg;
+    //                     var lightBg = mainBackgroundValues[0],
+    //                         darkBg = mainBackgroundValues[1],
+    //                         targetBg;
 
 
-                        if (bodyClasses.includes("light")) {
+    //                     if (bodyClasses.includes("light")) {
 
-                            targetBg = lightBg
-                        }
+    //                         targetBg = lightBg
+    //                     }
 
-                        if (bodyClasses.includes("dark")) {
+    //                     if (bodyClasses.includes("dark")) {
 
-                            targetBg = darkBg
+    //                         targetBg = darkBg
 
-                        }
+    //                     }
 
 
 
-                        let tl = gsap.timeline({
-                            delay: 1.5,
-                            onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                         delay: 1.5,
+    //                         onComplete: () => {
 
-                                resolve();
-                                setTimeout(function () {
+    //                             resolve();
+    //                             setTimeout(function () {
 
-                                    $('.project-trans-overlay').remove();
-                                    $('.project-image.featured').show();
-                                    $('.animating').remove();
-                                }, $('body').hasClass('smooth-scroll') ? 300 : 100)
+    //                                 $('.project-trans-overlay').remove();
+    //                                 $('.project-image.featured').show();
+    //                                 $('.animating').remove();
+    //                             }, $('body').hasClass('smooth-scroll') ? 300 : 100)
 
-                            }
+    //                         }
 
-                        })
+    //                     })
 
-                        showcaseImageEnter(tl, $('main').last(), targetBg)
+    //                     showcaseImageEnter(tl, $('main').last(), targetBg)
 
-                    })
+    //                 })
 
-                }
-                }, {
-                name: 'projects-grid-transition',
-                from: {
-                    custom: ({
-                        trigger
-                    }) => {
-                        return trigger.classList && trigger.classList.contains('grid-project-link');
-                    },
-                },
-                to: {
-                    namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
-                },
-                leave(trigger) {
+    //             }
+    //             }, {
+    //             name: 'projects-grid-transition',
+    //             from: {
+    //                 custom: ({
+    //                     trigger
+    //                 }) => {
+    //                     return trigger.classList && trigger.classList.contains('grid-project-link');
+    //                 },
+    //             },
+    //             to: {
+    //                 namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
+    //             },
+    //             leave(trigger) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
 
-                        let tl = gsap.timeline({
-                            onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                         onComplete: () => {
 
-                                resolve();
-                            }
-                        })
+    //                             resolve();
+    //                         }
+    //                     })
 
-                        let clicked = $(trigger.trigger),
-                            media = clicked.find('.grid-project-image'),
-                            target;
+    //                     let clicked = $(trigger.trigger),
+    //                         media = clicked.find('.grid-project-image'),
+    //                         target;
 
-                        if ($('body').hasClass('smooth-scroll')) {
+    //                     if ($('body').hasClass('smooth-scroll')) {
 
-                            let aliothSmoother = ScrollSmoother.get();
-                            aliothSmoother.scrollTo(media.offset().top - ($(window).outerHeight() - media.outerHeight()) + (($(window).outerHeight() - media.outerHeight()) / 2), 2);
+    //                         let aliothSmoother = ScrollSmoother.get();
+    //                         aliothSmoother.scrollTo(media.offset().top - ($(window).outerHeight() - media.outerHeight()) + (($(window).outerHeight() - media.outerHeight()) / 2), 2);
 
-                        } else {
+    //                     } else {
 
-                            target = window
-                        }
+    //                         target = window
+    //                     }
 
-                        tl.to(window, {
-                            scrollTo: media.offset().top - ($(window).outerHeight() - media.outerHeight()) + (($(window).outerHeight() - media.outerHeight()) / 2),
-                            duration: 2,
-                            ease: 'power3.out',
-                            onComplete: () => {
+    //                     tl.to(window, {
+    //                         scrollTo: media.offset().top - ($(window).outerHeight() - media.outerHeight()) + (($(window).outerHeight() - media.outerHeight()) / 2),
+    //                         duration: 2,
+    //                         ease: 'power3.out',
+    //                         onComplete: () => {
 
-                                let medTop = media.offset().top - $(window).scrollTop(),
-                                    wido = media.outerWidth(),
-                                    height = media.outerHeight(),
-                                    left = media.offset().left;
+    //                             let medTop = media.offset().top - $(window).scrollTop(),
+    //                                 wido = media.outerWidth(),
+    //                                 height = media.outerHeight(),
+    //                                 left = media.offset().left;
 
 
-                                if (media.find('.n-vimeo').length || media.find('.n-youtube').length) {
+    //                             if (media.find('.n-vimeo').length || media.find('.n-youtube').length) {
 
 
-                                } else {
+    //                             } else {
 
-                                    $('body').hasClass('smooth-scroll') ? media.insertBefore('#smooth-content') : media.insertBefore('main');
+    //                                 $('body').hasClass('smooth-scroll') ? media.insertBefore('#smooth-content') : media.insertBefore('main');
 
 
-                                    gsap.set(media, {
-                                        top: medTop,
-                                        width: wido,
-                                        height: height,
-                                        left: left,
-                                        position: 'fixed',
-                                        zIndex: 999,
-                                    })
+    //                                 gsap.set(media, {
+    //                                     top: medTop,
+    //                                     width: wido,
+    //                                     height: height,
+    //                                     left: left,
+    //                                     position: 'fixed',
+    //                                     zIndex: 999,
+    //                                 })
 
-                                }
+    //                             }
 
-                                media.addClass('animating');
+    //                             media.addClass('animating');
 
-                            }
-                        });
+    //                         }
+    //                     });
 
-                        let otherProj = $('.grid-project').not(media.parents()),
-                            targets = $('main').find('.elementor-widget-container'),
-                            exclude = media.parents('.elementor-widget-container').first(),
-                            lastTar;
+    //                     let otherProj = $('.grid-project').not(media.parents()),
+    //                         targets = $('main').find('.elementor-widget-container'),
+    //                         exclude = media.parents('.elementor-widget-container').first(),
+    //                         lastTar;
 
-                        if (targets.length > 1) {
+    //                     if (targets.length > 1) {
 
-                            lastTar = targets.not(exclude)
-                        } else {
+    //                         lastTar = targets.not(exclude)
+    //                     } else {
 
-                            lastTar = null
-                        }
+    //                         lastTar = null
+    //                     }
 
 
-                        if (media.find('.nayla-video').length) {
+    //                     if (media.find('.nayla-video').length) {
 
-                            tl.to([otherProj, '.grid-controls', lastTar], {
-                                opacity: 0
-                            }, 0)
+    //                         tl.to([otherProj, '.grid-controls', lastTar], {
+    //                             opacity: 0
+    //                         }, 0)
 
 
 
-                        } else {
+    //                     } else {
 
-                            tl.to([otherProj, media.parent('div').find('.masked'), '.grid-controls', lastTar], {
-                                opacity: 0
-                            }, 0)
+    //                         tl.to([otherProj, media.parent('div').find('.masked'), '.grid-controls', lastTar], {
+    //                             opacity: 0
+    //                         }, 0)
 
-                        }
+    //                     }
 
 
-                        tl.to('hr', {
-                            width: 0
-                        }, 0)
+    //                     tl.to('hr', {
+    //                         width: 0
+    //                     }, 0)
 
 
-                    })
-                },
-                beforeEnter(data) {
+    //                 })
+    //             },
+    //             beforeEnter(data) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
-                            bodyClasses = $(response).filter('notbody').attr('class');
+    //                     var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
+    //                         bodyClasses = $(response).filter('notbody').attr('class');
 
-                        let styleSheet = $(response).filter('style#nayla-body-styles')[0];
+    //                     let styleSheet = $(response).filter('style#nayla-body-styles')[0];
 
-                        var styleSheetContent = styleSheet.innerHTML;
+    //                     var styleSheetContent = styleSheet.innerHTML;
 
-                        var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
+    //                     var matches = styleSheetContent.match(/--mainBackground:\s(.*?);/g);
 
-                        var mainBackgroundValues = [];
+    //                     var mainBackgroundValues = [];
 
-                        if (matches) {
-                            matches.forEach(function (match) {
-                                var valueMatch = match.match(/--mainBackground:\s(.*?);/);
-                                if (valueMatch && valueMatch[1]) {
-                                    var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
-                                    mainBackgroundValues.push(value);
-                                }
-                            });
-                        }
+    //                     if (matches) {
+    //                         matches.forEach(function (match) {
+    //                             var valueMatch = match.match(/--mainBackground:\s(.*?);/);
+    //                             if (valueMatch && valueMatch[1]) {
+    //                                 var value = valueMatch[1].replace(/\s*!important/g, ''); // !important'ı kaldırın
+    //                                 mainBackgroundValues.push(value);
+    //                             }
+    //                         });
+    //                     }
 
 
-                        var lightBg = mainBackgroundValues[0],
-                            darkBg = mainBackgroundValues[1],
-                            targetBg;
+    //                     var lightBg = mainBackgroundValues[0],
+    //                         darkBg = mainBackgroundValues[1],
+    //                         targetBg;
 
 
-                        if (bodyClasses.includes("light")) {
+    //                     if (bodyClasses.includes("light")) {
 
-                            targetBg = lightBg
-                        }
+    //                         targetBg = lightBg
+    //                     }
 
-                        if (bodyClasses.includes("dark")) {
+    //                     if (bodyClasses.includes("dark")) {
 
-                            targetBg = darkBg
+    //                         targetBg = darkBg
 
-                        }
+    //                     }
 
-                        let tl = gsap.timeline({
-                            onStart: () => {
+    //                     let tl = gsap.timeline({
+    //                         onStart: () => {
 
-                                gsap.set($('main').last(), {
-                                    opacity: 0
-                                })
+    //                             gsap.set($('main').last(), {
+    //                                 opacity: 0
+    //                             })
 
-                            },
-                            onComplete: () => {
+    //                         },
+    //                         onComplete: () => {
 
-                                resolve();
-                                gsap.set($('main').last(), {
-                                    opacity: 1
-                                })
+    //                             resolve();
+    //                             gsap.set($('main').last(), {
+    //                                 opacity: 1
+    //                             })
 
-                                setTimeout(function () {
+    //                             setTimeout(function () {
 
-                                    $('.project-trans-overlay').remove();
-                                    $('.project-image.featured').show();
-                                    $('.animating').remove();
-                                }, $('body').hasClass('smooth-scroll') ? 300 : 100)
+    //                                 $('.project-trans-overlay').remove();
+    //                                 $('.project-image.featured').show();
+    //                                 $('.animating').remove();
+    //                             }, $('body').hasClass('smooth-scroll') ? 300 : 100)
 
-                            }
+    //                         }
 
-                        })
+    //                     })
 
-                        projectImageEnter(tl, $('main').last(), targetBg)
+    //                     projectImageEnter(tl, $('main').last(), targetBg)
 
-                    })
+    //                 })
 
-                }
-                }, {
-                name: 'next-project-transition',
-                from: {
-                    custom: ({
-                        trigger
-                    }) => {
-                        return trigger.classList && trigger.classList.contains('next-project-link');
-                    },
-                },
-                to: {
-                    namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
-                },
-                leave() {
+    //             }
+    //             }, {
+    //             name: 'next-project-transition',
+    //             from: {
+    //                 custom: ({
+    //                     trigger
+    //                 }) => {
+    //                     return trigger.classList && trigger.classList.contains('next-project-link');
+    //                 },
+    //             },
+    //             to: {
+    //                 namespace: ['project-boxed-image', 'project-fullscreen-image', 'project-half-image', 'project-creative', 'project-tall-image', 'project-image-gallery-horizontal', 'project-image-gallery-vertical', 'project-video']
+    //             },
+    //             leave() {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
 
-                        let tl = gsap.timeline({
-                            onComplete: () => {
+    //                     let tl = gsap.timeline({
+    //                         onComplete: () => {
 
-                                resolve();
-                            }
-                        })
+    //                             resolve();
+    //                         }
+    //                     })
 
 
-                        let media = $('.next-project-image'),
-                            parent = $('.nayla-next-project'),
-                            targets = ['div.next-project-caption , .next-project-title, .next-project-metas'],
-                            bg = parent.css('backgroundColor'),
-                            target;
+    //                     let media = $('.next-project-image'),
+    //                         parent = $('.nayla-next-project'),
+    //                         targets = ['div.next-project-caption , .next-project-title, .next-project-metas'],
+    //                         bg = parent.css('backgroundColor'),
+    //                         target;
 
-                        headerLayoutChange(false, bg, false, true)
+    //                     headerLayoutChange(false, bg, false, true)
 
 
-                        tl.to(window, {
-                            scrollTo: parent.offset().top,
-                            duration: 1,
-                            ease: 'power3.out',
-                            onComplete: () => {
+    //                     tl.to(window, {
+    //                         scrollTo: parent.offset().top,
+    //                         duration: 1,
+    //                         ease: 'power3.out',
+    //                         onComplete: () => {
 
-                                let medTop = media.offset().top - $(window).scrollTop(),
-                                    wido = media.outerWidth(),
-                                    height = media.outerHeight(),
-                                    left = media.offset().left;
+    //                             let medTop = media.offset().top - $(window).scrollTop(),
+    //                                 wido = media.outerWidth(),
+    //                                 height = media.outerHeight(),
+    //                                 left = media.offset().left;
 
-                                $('body').hasClass('smooth-scroll') ? media.insertBefore('#smooth-content') : media.insertBefore('main');;
+    //                             $('body').hasClass('smooth-scroll') ? media.insertBefore('#smooth-content') : media.insertBefore('main');;
 
-                                gsap.set(media, {
-                                    top: medTop,
-                                    width: wido,
-                                    height: height,
-                                    left: left,
-                                    xPercent: 0,
-                                    yPercent: 0,
-                                    x: 0,
-                                    y: 0,
-                                    position: 'fixed',
-                                    zIndex: 999,
-                                })
-                                media.addClass('animating');
+    //                             gsap.set(media, {
+    //                                 top: medTop,
+    //                                 width: wido,
+    //                                 height: height,
+    //                                 left: left,
+    //                                 xPercent: 0,
+    //                                 yPercent: 0,
+    //                                 x: 0,
+    //                                 y: 0,
+    //                                 position: 'fixed',
+    //                                 zIndex: 999,
+    //                             })
+    //                             media.addClass('animating');
 
-                            }
-                        });
+    //                         }
+    //                     });
 
-                        tl.to(targets, {
-                            opacity: 0
-                        })
+    //                     tl.to(targets, {
+    //                         opacity: 0
+    //                     })
 
 
 
-                    })
-                },
-                beforeEnter(data) {
+    //                 })
+    //             },
+    //             beforeEnter(data) {
 
-                    return new Promise(function (resolve, reject) {
+    //                 return new Promise(function (resolve, reject) {
 
-                        let tl = gsap.timeline({
-                            onStart: () => {
+    //                     let tl = gsap.timeline({
+    //                         onStart: () => {
 
-                                gsap.set($('main').last(), {
-                                    opacity: 0
-                                })
+    //                             gsap.set($('main').last(), {
+    //                                 opacity: 0
+    //                             })
 
-                            },
-                            onComplete: () => {
+    //                         },
+    //                         onComplete: () => {
 
-                                resolve();
-                                gsap.set($('main').last(), {
-                                    opacity: 1
-                                })
+    //                             resolve();
+    //                             gsap.set($('main').last(), {
+    //                                 opacity: 1
+    //                             })
 
-                                setTimeout(function () {
+    //                             setTimeout(function () {
 
-                                    $('.project-trans-overlay').remove();
-                                    $('.project-image.featured').show();
-                                    $('.animating').remove();
-                                }, $('body').hasClass('smooth-scroll') ? 300 : 100)
+    //                                 $('.project-trans-overlay').remove();
+    //                                 $('.project-image.featured').show();
+    //                                 $('.animating').remove();
+    //                             }, $('body').hasClass('smooth-scroll') ? 300 : 100)
 
-                            }
+    //                         }
 
-                        })
+    //                     })
 
 
-                        let response = $('main').last();
+    //                     let response = $('main').last();
 
-                        let image = response.find('.project-page-header .project-image.featured'),
-                            top = image.offset().top - $('main').first().outerHeight() - ($('main').first().find('.project-page').outerHeight()),
-                            height = image.outerHeight(),
-                            width = image.outerWidth(),
-                            left = image.offset().left,
-                            transImage = $('.animating');
+    //                     let image = response.find('.project-page-header .project-image.featured'),
+    //                         top = image.offset().top - $('main').first().outerHeight() - ($('main').first().find('.project-page').outerHeight()),
+    //                         height = image.outerHeight(),
+    //                         width = image.outerWidth(),
+    //                         left = image.offset().left,
+    //                         transImage = $('.animating');
 
-                        image.hide();
+    //                     image.hide();
 
-                        let state = Flip.getState(transImage);
+    //                     let state = Flip.getState(transImage);
 
-                        gsap.set(transImage, {
-                            position: 'fixed',
-                            top: top,
-                            height: height,
-                            width: width,
-                            left: left,
-                        })
+    //                     gsap.set(transImage, {
+    //                         position: 'fixed',
+    //                         top: top,
+    //                         height: height,
+    //                         width: width,
+    //                         left: left,
+    //                     })
 
-                        let next = $('.project-page-header').css('backgroundColor'),
-                            current = $('main').css('backgroundColor')
+    //                     let next = $('.project-page-header').css('backgroundColor'),
+    //                         current = $('main').css('backgroundColor')
 
 
 
-                        let imgTo = Flip.from(state, {
-                            duration: 1,
-                            ease: 'expo.inOut',
+    //                     let imgTo = Flip.from(state, {
+    //                         duration: 1,
+    //                         ease: 'expo.inOut',
 
-                        })
+    //                     })
 
-                        tl.add(imgTo, 0);
+    //                     tl.add(imgTo, 0);
 
 
-                    })
+    //                 })
 
-                }
-                }
+    //             }
+    //             }
 
-            ]
-    })
+    //         ]
+    // })
 
 
     if (history.scrollRestoration) {
@@ -12536,179 +12536,179 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
 
-    barba.hooks.before((data) => {
+    // barba.hooks.before((data) => {
 
-        startLoading();
+    //     startLoading();
 
-    });
+    // });
 
-    barba.hooks.enter((data) => {
+    // barba.hooks.enter((data) => {
 
-        var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
-            bodyClasses = $(response).filter('notbody').attr('class'),
-            bodyStyles = $(response).filter('notbody').attr('style'),
-            headerClasses = $(response).filter('notbody').find('#header').attr('class'),
-            headerInner = $(response).filter('notbody').find('#header').html();
+    //     var response = data.next.html.replace(/(<\/?)body( .+?)?>/gi, '$1notbody$2>', data.next.html),
+    //         bodyClasses = $(response).filter('notbody').attr('class'),
+    //         bodyStyles = $(response).filter('notbody').attr('style'),
+    //         headerClasses = $(response).filter('notbody').find('#header').attr('class'),
+    //         headerInner = $(response).filter('notbody').find('#header').html();
 
-        var $newPageHead = $('<head />').html(
-            $.parseHTML(
-                data.next.html.match(/<head[^>]*>([\s\S.]*)<\/head>/i)[0], // <- use data argument
-                document,
-                true
-            )
-        );
-
-
-        var headTags = [
-            			         'meta[name="keywords"]',
-            			         'meta[name="description"]',
-            			         'meta[property^="og"]',
-            			         'meta[name^="twitter"]',
-            			         'meta[itemprop]',
-            			         'link[itemprop]',
-            			         'link[rel="prev"]',
-            			         'link[rel="next"]',
-            			         'link[rel="canonical"]',
-            			         'link[rel="alternate"]',
-            			         'link[rel="shortlink"]',
-								'link[id*="google-fonts"]',
-                                'style[id*="nayla-body-styles"]'
-            ].join(',');
-        $(response).remove();
-
-        $('head').find(headTags).remove();
-        $newPageHead.find(headTags).appendTo('head');
+    //     var $newPageHead = $('<head />').html(
+    //         $.parseHTML(
+    //             data.next.html.match(/<head[^>]*>([\s\S.]*)<\/head>/i)[0], // <- use data argument
+    //             document,
+    //             true
+    //         )
+    //     );
 
 
-        if ($('body').hasClass('smooth-scroll')) {
+    //     var headTags = [
+    //         			         'meta[name="keywords"]',
+    //         			         'meta[name="description"]',
+    //         			         'meta[property^="og"]',
+    //         			         'meta[name^="twitter"]',
+    //         			         'meta[itemprop]',
+    //         			         'link[itemprop]',
+    //         			         'link[rel="prev"]',
+    //         			         'link[rel="next"]',
+    //         			         'link[rel="canonical"]',
+    //         			         'link[rel="alternate"]',
+    //         			         'link[rel="shortlink"]',
+	// 							'link[id*="google-fonts"]',
+    //                             'style[id*="nayla-body-styles"]'
+    //         ].join(',');
+    //     $(response).remove();
 
-            let aliothSmoother = ScrollSmoother.get();
-            aliothSmoother.scrollTo(0, false);
-            window.scrollTo(0, 0);
-
-        } else {
-
-            window.scrollTo(0, 0);
-        }
-
-        gsap.set('#page', {
-            clearProps: 'all'
-        })
-
-        $('body').attr('class', bodyClasses);
+    //     $('head').find(headTags).remove();
+    //     $newPageHead.find(headTags).appendTo('head');
 
 
-        if (switchedDark == true) {
-            $('body').addClass('dark')
-            $('body').removeClass('light')
-        }
+    //     if ($('body').hasClass('smooth-scroll')) {
 
-        if (switchedLight == true) {
+    //         let aliothSmoother = ScrollSmoother.get();
+    //         aliothSmoother.scrollTo(0, false);
+    //         window.scrollTo(0, 0);
+
+    //     } else {
+
+    //         window.scrollTo(0, 0);
+    //     }
+
+    //     gsap.set('#page', {
+    //         clearProps: 'all'
+    //     })
+
+    //     $('body').attr('class', bodyClasses);
+
+
+    //     if (switchedDark == true) {
+    //         $('body').addClass('dark')
+    //         $('body').removeClass('light')
+    //     }
+
+    //     if (switchedLight == true) {
             
-            $('body').removeClass('dark')
-            $('body').addClass('light')
-        }
+    //         $('body').removeClass('dark')
+    //         $('body').addClass('light')
+    //     }
 
-        naylaSmoother == true ? $('body').addClass('smooth-scroll') : '';
+    //     naylaSmoother == true ? $('body').addClass('smooth-scroll') : '';
 
-        $('body').attr('style', bodyStyles);
+    //     $('body').attr('style', bodyStyles);
 
-        $('.site-header').attr('class', headerClasses);
+    //     $('.site-header').attr('class', headerClasses);
         
-        if (!$('.site-header').hasClass('blend')) {
+    //     if (!$('.site-header').hasClass('blend')) {
             
-                    if (switchedDark == true) {
+    //                 if (switchedDark == true) {
 
-            headerLight = true;
-            headerDark = false;
+    //         headerLight = true;
+    //         headerDark = false;
 
-            $('.site-header').removeClass('dark')
-            $('.site-header').addClass('light')
+    //         $('.site-header').removeClass('dark')
+    //         $('.site-header').addClass('light')
 
-        } else if (switchedLight == true) {
+    //     } else if (switchedLight == true) {
             
-               headerLight = false;
-            headerDark = true;
+    //            headerLight = false;
+    //         headerDark = true;
 
-            $('.site-header').removeClass('light')
-            $('.site-header').addClass('dark')
+    //         $('.site-header').removeClass('light')
+    //         $('.site-header').addClass('dark')
 
-        }
+    //     }
             
             
-        }
+    //     }
 
 
 
-        let Alltrigger = ScrollTrigger.getAll()
+    //     let Alltrigger = ScrollTrigger.getAll()
 
-        for (let i = 0; i < Alltrigger.length; i++) {
-            Alltrigger[i].kill(true)
-        }
+    //     for (let i = 0; i < Alltrigger.length; i++) {
+    //         Alltrigger[i].kill(true)
+    //     }
 
-        gsap.set(siteHeader, {
-            clearProps: 'all'
-        })
+    //     gsap.set(siteHeader, {
+    //         clearProps: 'all'
+    //     })
 
-    });
+    // });
 
-    barba.hooks.after((data) => {
+    // barba.hooks.after((data) => {
 
-        $('html').removeClass('loading')
-        enableScroll();
-
-
-
-        naylaTextAnims();
-        naylaTextWrapper();
-        naylaGeneralAnims($('main .has-anim'));
-
-        naylaListAnimations();
-        naylaImageAnims()
-        naylaParallaxImages();
-
-        initShowcases();
-        initPageElements();
-        naylaSections();
-        initPages();
-        naylaVideo($('#primary').find('.nayla-video'));
-
-        ScrollTrigger.refresh(true);
-        naylaMouseCursor(false);
-
-        setTimeout(function () {
-
-            let siteHeader = $('.site-header'),
-                stickyTargets;
-
-            ScrollTrigger.refresh()
-
-            if (siteHeader.find('.hide-sticky').length) {
-
-                stickyTargets = siteHeader.find('.hide-sticky');
-            }
-
-            siteHeader.removeClass('sticked');
-
-            gsap.set([siteHeader, stickyTargets, siteHeader.children('div'), siteHeader.find('.site-logo'), siteHeader.find('.sticky-logo')], {
-                clearProps: 'all'
-            });
-
-
-            naylaHeader();
-            ScrollTrigger.refresh(true)
-
-
-        }, 200)
+    //     $('html').removeClass('loading')
+    //     enableScroll();
 
 
 
-    });
+    //     naylaTextAnims();
+    //     naylaTextWrapper();
+    //     naylaGeneralAnims($('main .has-anim'));
+
+    //     naylaListAnimations();
+    //     naylaImageAnims()
+    //     naylaParallaxImages();
+
+    //     initShowcases();
+    //     initPageElements();
+    //     naylaSections();
+    //     initPages();
+    //     naylaVideo($('#primary').find('.nayla-video'));
+
+    //     ScrollTrigger.refresh(true);
+    //     naylaMouseCursor(false);
+
+    //     setTimeout(function () {
+
+    //         let siteHeader = $('.site-header'),
+    //             stickyTargets;
+
+    //         ScrollTrigger.refresh()
+
+    //         if (siteHeader.find('.hide-sticky').length) {
+
+    //             stickyTargets = siteHeader.find('.hide-sticky');
+    //         }
+
+    //         siteHeader.removeClass('sticked');
+
+    //         gsap.set([siteHeader, stickyTargets, siteHeader.children('div'), siteHeader.find('.site-logo'), siteHeader.find('.sticky-logo')], {
+    //             clearProps: 'all'
+    //         });
+
+
+    //         naylaHeader();
+    //         ScrollTrigger.refresh(true)
+
+
+    //     }, 200)
+
+
+
+    // });
 
 
     $(document).ready(function () {
 
-        $.getJSON('http://localhost/nayla-last/package.json', function (jd) {
+        $.getJSON('package.json', function (jd) {
             //            console.log(jd.colors.mainColor)
         });
 
