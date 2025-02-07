@@ -57,27 +57,53 @@
 
                     <!-- --------------------------------------------------------------- Logo ------------------------------------------------------------ -->
 
-                    <div class="site-branding hide-mobile" style="transform:translate(-9px,10px); width: 335px;">
-
+                    <div class="site-branding hide-mobile" style="transform:translate(-9px,10px); width: 332px;">
                         <a href="index.html" class="no-barba">
-                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
-                                style="width: 250px; transform:translate(-20px,3px); cursor:pointer;"></canvas>
-                            <script>
-
-                                const r = new rive.Rive({
-                                    src: "riv/logo.riv",
-                                    canvas: document.getElementById("rive-canvas"),
-                                    autoplay: true,
-                                    stateMachines: "logo",
-                                    onLoad: () => {
-                                        r.resizeDrawingSurfaceToCanvas();
-                                    },
-                                    background: "transparent"
-                                });
-                            </script>
+                          <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
+                            style="width: 200px; transform:translate(-20px,-24px); cursor:pointer;"></canvas>
                         </a>
-                    </div>
-
+                      </div>
+                      
+                      <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
+                        <h5 id="fallback-text" class="hide-desktop no-barba" style="display: none;"><a href="index.html">Martin Speidel</a></h5>
+                      </div>
+                      
+                      <script>
+                        const r = new rive.Rive({
+                          src: "riv/logo.riv",
+                          canvas: document.getElementById("rive-canvas"),
+                          autoplay: true,
+                          stateMachines: "logo",
+                          onLoad: () => {
+                            r.resizeDrawingSurfaceToCanvas();
+                            window.addEventListener('mousemove', (event) => {
+                              const canvasRect = r.canvas.getBoundingClientRect();
+                              const mouseX = event.clientX - canvasRect.left;
+                              const mouseY = event.clientY - canvasRect.top;
+                      
+                              // Calculate normalized coordinates (e.g., values between 0 and 1)
+                              const normalizedX = mouseX / canvasRect.width;
+                              const normalizedY = mouseY / canvasRect.height;
+                      
+                              // Set input values for the state machine to control the animation
+                              r.stateMachineInputs[0].value = normalizedX; // Assume the X input is the first input
+                              r.stateMachineInputs[1].value = normalizedY; // Assume the Y input is the second input
+                            });
+                          },
+                          background: "transparent",
+                          onError: () => {
+                            document.getElementById('fallback-text').style.display = 'block';
+                          }
+                        });
+                      
+                        // Fallback in case Rive script fails to load
+                        window.addEventListener('error', function (e) {
+                          if (e.target && e.target.src && e.target.src.includes('riv/logo.riv')) {
+                            document.getElementById('fallback-text').style.display = 'block';
+                          }
+                        }, true);
+                      </script>
+                      
 
                     <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
 
@@ -95,12 +121,12 @@
                 <div class="c-col-4 sm-4 align-right">
 
 
-                    <div class="nayla-button outline hide-mobile dynamic text-h5" data-icon="arrow_outward">
-                        <a href="https://martinspeidel.info/login" class="no-barba">Client Login</a>
+                    <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
+                        <a href="#aboutme" class="super-hover no-barba">Client Login</a>
                     </div>
 
                     <!--  Menu Toggle -->
-                    <div class="menu-toggle">
+                    <div class="menu-toggle" style="transform:translate(0px,-26px);">
 
                         <div class="toggle-lines">
                             <div class="toggle-line"></div>
@@ -160,12 +186,9 @@
 
                         <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.4>
 
-                            <div class="nayla-button underline icon-right" data-icon="arrow_outward"
-                                style="margin-left:0px;">
-
-                                <a href="mailto:hello@martinspeidel.info"
-                                    class="nayla-button underline icon-right text-h5 no-barba">hello@martinspeidel.info</a>
-
+                            <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
+                                style="z-index: 10;">
+                                <a href="mailto:hello@martinspeidel.info" class="no-barba">hello@martinspeidel.info</a>
                             </div>
 
                         </div>
@@ -206,13 +229,13 @@
                         <div class="c-col-12 sm-12 self-center" style="max-width: 1500px;">
 
                             <!-- Empty Column (For Spacing) -->
-                            <div class="hide-mobile" style="padding-top:5px;"> </div>
+                            <div class="hide-mobile" style="padding-top:0px;"> </div>
                             <div class="hide-desktop" style="padding-top:30px;"> </div>
                             <!--/ Empty Column (For Spacing) -->
 
                             <div class="text-wrapper no-margin">
                                 <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:5px;">
-                                    Hi, my name is Martin.</br> I am a brand- &shy;focused specialist for cutting
+                                    Hi, my name is Martin.</br> I am a brand-&shy;focused specialist for cutting
                                     edge 2D motion design.</h1>
                                 <div class="text-wrapper no-margin hide-desktop" style="padding-bottom:1.1em;">
                                 </div>
@@ -389,23 +412,22 @@
 
                         <div class="c-col-5 sm-12">
 
-                            <div class="text-wrapper">
-                                <p class="text-h5">I work with Adobe After Effects,
-                                    Maxon Cinema 4D and VS Code. Currently learning Rive & Cavalry. To enhance my
-                                    workflow, I
-                                    develop my own tools for After Effects. Feel free to
-                                    <a href="https://martinspeidel.gumroad.com/" target="_blank" class="no-barba">download them on my
-                                        Gumroad account.</a>
-                                    <br><br>
-                                    With over 10 years of freelance experience, I work 100% remotely, ensure fast
-                                    and
-                                    secure data exchange, quick response, and
-                                    smooth collaboration.
-                                    <br><br>
-                                    I live on the edge of Hamburg, surrounded by nature. I've got two kids, enjoy
-                                    playing piano, and taking walks <a
-                                        href="https://www.hamburg.de/freizeit/ausfluege/wandern/wandern-fischbeker-heide-306580"
-                                        target="_blank" class="no-barba">in the beautiful countryside.</a>
+                            <div class="text-wrapper text-h5">
+                                I work with Adobe After Effects,
+                                Maxon Cinema 4D and VS Code. Currently <a href="https://martinspeidel.gumroad.com/"
+                                    target="_blank" class="super-hover">learning Rive & Cavalry</a>. To enhance my
+                                workflow, I
+                                develop my own tools for After Effects. Feel free to
+                                download them on my <a href="https://martinspeidel.gumroad.com/" target="_blank"
+                                    class="super-hover" style="color: #1320F7">Gumroad</a> account.
+                                <br><br>
+                                With over 10 years of freelance experience, I work 100% remotely, ensure fast
+                                and
+                                secure data exchange, quick response, and
+                                smooth collaboration.
+                                <br><br>
+                                I live on the edge of Hamburg, surrounded by nature. I've got two kids, enjoy
+                                playing piano, and taking walks in the beautiful countryside.
                                 </p>
                             </div>
 
@@ -494,8 +516,10 @@
 
                         <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
                             <li>Moin 👋</li>
-                            <li><a href="mailto:hello@martinspeidel.info" class="no-barba">hello@martinspeidel.info</a></li>
-                            <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover no-barba">+(0)49
+                            <li><a href="mailto:hello@martinspeidel.info" class="no-barba">hello@martinspeidel.info</a>
+                            </li>
+                            <li><a href="https://martinspeidel.gumroad.com" target="_blank"
+                                    class="super-hover no-barba">+(0)49
                                     176 24 122 854</a></li>
                         </ul>
 
@@ -512,7 +536,8 @@
                             <li><span class="dm-serif-display-regular-italic">Moin 👋</span></li>
                             <li><a href="mailto:hello@martinspeidel.info"
                                     class="super-hover no-barba">hello@martinspeidel.info</a></li>
-                            <li><a href="https://wa.link/4m6e97" target="_blank" class="super-hover no-barba">+(0)49 176 24 122
+                            <li><a href="https://wa.link/4m6e97" target="_blank" class="super-hover no-barba">+(0)49 176
+                                    24 122
                                     854</a></li>
 
                         </ul>

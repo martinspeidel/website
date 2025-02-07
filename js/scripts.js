@@ -121,11 +121,11 @@
 
 
             let xTo = gsap.quickTo(mouseCursor, "x", {
-                    duration: 0.6,
+                    duration: 0.01,
                     ease: "power3"
                 }),
                 yTo = gsap.quickTo(mouseCursor, "y", {
-                    duration: 0.6,
+                    duration: 0.01,
                     ease: "power3"
                 });
 
