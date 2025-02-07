@@ -57,53 +57,43 @@
 
                     <!-- --------------------------------------------------------------- Logo ------------------------------------------------------------ -->
 
-                    <div class="site-branding hide-mobile" style="transform:translate(-9px,10px); width: 332px;">
+                    <div class="site-branding hide-mobile" style="transform:translate(-25px,5px); width: 332px;">
+
+
                         <a href="index.html" class="no-barba">
-                          <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
-                            style="width: 200px; transform:translate(-20px,-24px); cursor:pointer;"></canvas>
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
+                                style="width: 250px; transform:translate(-20px,-24px); cursor:pointer;"></canvas>
+                            <script>
+                                const r = new rive.Rive({
+                                    src: "riv/logo.riv",
+                                    canvas: document.getElementById("rive-canvas"),
+                                    autoplay: true,
+                                    stateMachines: "logo",
+                                    onLoad: () => {
+                                        r.resizeDrawingSurfaceToCanvas();
+                                        const inputs = r.stateMachineInputs("logo");
+
+                                        const xInput = inputs.find((input) => {
+                                            return input.name === "xAxis";
+                                        });
+
+                                        const yInput = inputs.find((input) => {
+                                            return input.name === "yAxis";
+                                        });
+                                        const maxWidth = window.innerWidth;
+                                        const maxHeight = window.innerHeight;
+                                        window.addEventListener("mousemove", function (e) {
+                                            xInput.value = (e.x / maxWidth) * 100;
+                                            yInput.value = 100 - (e.y / maxHeight) * 100;
+                                        });
+                                    },
+                                    background: "transparent"
+                                });
+                            </script>
+
                         </a>
-                      </div>
-                      
-                      <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
-                        <h5 id="fallback-text" class="hide-desktop no-barba" style="display: none;"><a href="index.html">Martin Speidel</a></h5>
-                      </div>
-                      
-                      <script>
-                        const r = new rive.Rive({
-                          src: "riv/logo.riv",
-                          canvas: document.getElementById("rive-canvas"),
-                          autoplay: true,
-                          stateMachines: "logo",
-                          onLoad: () => {
-                            r.resizeDrawingSurfaceToCanvas();
-                            window.addEventListener('mousemove', (event) => {
-                              const canvasRect = r.canvas.getBoundingClientRect();
-                              const mouseX = event.clientX - canvasRect.left;
-                              const mouseY = event.clientY - canvasRect.top;
-                      
-                              // Calculate normalized coordinates (e.g., values between 0 and 1)
-                              const normalizedX = mouseX / canvasRect.width;
-                              const normalizedY = mouseY / canvasRect.height;
-                      
-                              // Set input values for the state machine to control the animation
-                              r.stateMachineInputs[0].value = normalizedX; // Assume the X input is the first input
-                              r.stateMachineInputs[1].value = normalizedY; // Assume the Y input is the second input
-                            });
-                          },
-                          background: "transparent",
-                          onError: () => {
-                            document.getElementById('fallback-text').style.display = 'block';
-                          }
-                        });
-                      
-                        // Fallback in case Rive script fails to load
-                        window.addEventListener('error', function (e) {
-                          if (e.target && e.target.src && e.target.src.includes('riv/logo.riv')) {
-                            document.getElementById('fallback-text').style.display = 'block';
-                          }
-                        }, true);
-                      </script>
-                      
+                    </div>
+
 
                     <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
 
@@ -479,7 +469,7 @@
         <!-- --------------------------------------------------------------- Footer ------------------------------------------------------------ -->
 
         <div id="footer" class="site-footer dark "
-            style="background:#CDE0F5; padding: 50px 0 0px 0; margin-top: -40px;">
+            style="background:#ffffff; padding: 50px 0 0px 0; margin-top: -40px;">
 
             <!-- Empty Space -->
             <span class="empty-space hide-mobile" style="height: 50px"></span>
