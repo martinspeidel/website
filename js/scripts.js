@@ -2042,7 +2042,7 @@
                         gsap.to(targetMenu, {
                             height: 0,
                             duration: .7,
-                            delay: .5,
+                            delay: .01,
                             ease: 'expo.inOut',
                             onComplete: () => {
                                 menuToggle.removeClass('active');

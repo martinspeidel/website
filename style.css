@@ -919,8 +919,8 @@ h1,
 .text-h1 {
     font-size: 98px;
     line-height: 110px;
-    font-weight: 200;
-    letter-spacing: -0.045em;
+    font-weight: 400;
+    letter-spacing: -0.035em;
 }
 
 h1.has-anim-text .anim_char,
@@ -959,7 +959,7 @@ h5,
     font-size: 27px;
     line-height: 39px;
     margin-left: -1px;
-    font-weight: 100;
+    font-weight: 400;
     margin-bottom: 2em;
 }
 
@@ -967,17 +967,20 @@ h6,
 .text-h6 {
     font-size: 21px;
     line-height: 36px;
-    letter-spacing: 0
+    letter-spacing: 0;
+    font-weight: 100;
 }
 
 .text-h6 {
-    line-height: 1.5
+    line-height: 1.5;
+    font-weight: 100;
 }
 
 p {
     line-height: 25px;
     margin-bottom: 1em;
-    font-size: 1rem
+    font-size: 1rem;
+    font-weight: 100;
 }
 
 .big-title {
@@ -13757,8 +13760,7 @@ video {
 
 
 
-/* ------------------------ HOVER Behavour Martin ----------------------------------- */
-
+/* ------------------------ HOVER Behavour kleine Typo ----------------------------------- */
 
 
 
@@ -13832,7 +13834,77 @@ video {
   
 
 
+/* ------------------------ HOVER Behavour fette Typo ----------------------------------- */
 
+
+
+/* Define default styles for .super-hover */
+.super-hover-fett {
+    transition: all 0.3s ease; /* Smooth transition over 0.3 seconds */
+    position: relative; /* Positioning for the pseudo-element */
+    text-decoration: none; /* Remove default underline */
+    color: var(--initial-color) !important; /* Use custom property for initial text color */
+  }
+  
+  /* Default underline */
+  .super-hover-fett::before {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    left: 0;
+    right: 0;
+    bottom: -0.06em; /* Adjust the distance below the text */
+    height: .055em; /* Adjust the thickness of the underline */
+    background-color: var(--initial-color) !important; /* Use custom property for default underline color */
+    transform: scaleX(1); /* Default scale set to full width */
+    transform-origin: bottom right; /* Set the transform origin */
+    transition: transform 0.2s ease-out; /* Smooth transition effect */
+  }
+  
+  /* Hover state */
+  .super-hover-fett:hover {
+    color: var(--hover-color) !important; /* Use custom property for hover text color */
+    border-radius: 10px;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  /* Custom underline on hover */
+  .super-hover-fett:hover::before {
+    transform: scaleX(0); /* Hide the default underline */
+    transform-origin: bottom right; /* Maintain transform origin to the right */
+    transition-delay: 0s; /* No delay for the white line to start disappearing */
+  }
+  
+  .super-hover-fett::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    left: 0;
+    right: 0;
+    bottom: -0.06em; /* Adjust the distance below the text */
+    height: .055em; /* Adjust the thickness of the underline */
+    background-color: var(--hover-color) !important; /* Use custom property for hover underline color */
+    transform: scaleX(0); /* Initial scale set to 0 */
+    transform-origin: bottom left; /* Set the transform origin */
+    transition: transform 0.2s ease-out 0.5s; /* Smooth transition effect with delay */
+  }
+  
+  /* Hover animation with delay */
+  .super-hover-fett:hover::after {
+    transform: scaleX(1); /* Scale the hover underline to full width */
+    transform-origin: bottom left; /* Set the transform origin for the transition */
+    transition-delay: 0.15s; /* Delay for the purple line to start appearing */
+  }
+  
+  /* Exit animations with delay */
+  .super-hover-fett:not(:hover)::after {
+    transform: scaleX(0); /* Hide the hover underline */
+    transition-delay: 0s; /* No delay for the purple line to start disappearing */
+  }
+  
+  .super-hover-fett:not(:hover)::before {
+    transform: scaleX(1); /* Show the default underline */
+    transition-delay: 0.15s; /* Delay for the white line to start appearing */
+  }
 
 
 
