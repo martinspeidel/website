@@ -126,8 +126,8 @@ html.loading * {
 
 ol,
 ul {
-    list-style: disc;
-    padding-left: 1.3em
+    list-style: none;
+
 }
 
 ul li,
@@ -241,35 +241,35 @@ body {
 }
 
 body.dark {
-    --mainColor: #ebebeb;
-    --mainBackground: #000000;
-    --secondaryBackground: #151515;
+    --mainColor: #ffffff;
+    --mainBackground: #151515;
+    --secondaryBackground: #252525;
 
 }
 
 body.light {
     --mainColor: #000000;
-    --mainBackground: #ebebeb;
+    --mainBackground: #ffffff;
     --secondaryBackground: #e0e0e0;
     background-color: var(--mainBackground);
     color: var(--mainColor);
 }
 
 .light:not(body) {
-    --mainColor: #ebebeb;
+    --mainColor: #ffffff;
     --mainBackground: #000000;
     color: var(--mainColor);
 }
 
 .site-header.dark {
     --mainColor: #000000;
-    --mainBackground: #ebebeb;
+    --mainBackground: #ffffff;
     --secondaryBackground: #d7d7d7;
     color: var(--mainColor)
 }
 
 .site-header.light {
-    --mainColor: #ebebeb;
+    --mainColor: #ffffff;
     --mainBackground: #000000;
     color: var(--mainColor)
 }
@@ -919,7 +919,7 @@ h1,
 .text-h1 {
     font-size: 98px;
     line-height: 110px;
-    font-weight: 400;
+    font-weight: 200;
     letter-spacing: -0.045em;
 }
 
@@ -959,7 +959,7 @@ h5,
     font-size: 27px;
     line-height: 39px;
     margin-left: -1px;
-    font-weight: normal;
+    font-weight: 100;
     margin-bottom: 2em;
 }
 
@@ -3241,7 +3241,7 @@ div#mouseCursor.circle .main-circle {
 div#mouseCursor.dot .main-circle {
     stroke: none;
     stroke-width: none;
-    fill: #1320F7;
+    fill: #BFABFF;
 }
 
 .mouse-cursor-icon,
@@ -3389,7 +3389,7 @@ div#mouseCursor.hover-text {
 div#mouseCursor.hover-text .main-circle {
     stroke: none;
     stroke-width: 0;
-    fill: #1320F7;
+    fill: #BFABFF;
 }
 
 div#mouseCursor.hover-text .mouse-cursor-text span {
@@ -7854,7 +7854,7 @@ span.scatter-close {
     -ms-flex-align: end;
     align-items: flex-end;
     height: auto !important;
-    color: var(--mainColor);
+    /* color: var(--mainColor); */
 }
 
 .showcase-footer * {
@@ -13748,25 +13748,57 @@ span.test-prev::after {
 }
 
 video {
-    border-radius: 5px; 
+    border-radius: 8px; 
 }
 
-/* Apply styles to elements with the 'super-hover' class */
+
+
+
+
+
+
+/* ------------------------ HOVER Behavour Martin ----------------------------------- */
+
+
+
+
+/* Define default styles for .super-hover */
 .super-hover {
     transition: all 0.3s ease; /* Smooth transition over 0.3 seconds */
     position: relative; /* Positioning for the pseudo-element */
-    text-decoration: none; Remove default underline
+    text-decoration: none; /* Remove default underline */
+    color: var(--initial-color) !important; /* Use custom property for initial text color */
   }
   
-  /* Add custom underline and other styles on hover */
+  /* Default underline */
+  .super-hover::before {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    left: 0;
+    right: 0;
+    bottom: -4px; /* Adjust the distance below the text */
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: var(--initial-color) !important; /* Use custom property for default underline color */
+    transform: scaleX(1); /* Default scale set to full width */
+    transform-origin: bottom right; /* Set the transform origin */
+    transition: transform 0.2s ease-out; /* Smooth transition effect */
+  }
+  
+  /* Hover state */
   .super-hover:hover {
-    color: #1320F7; /* Example: Hover text color */
-    border-radius: 10px; 
+    color: var(--hover-color) !important; /* Use custom property for hover text color */
+    border-radius: 10px;
     padding: 0px;
     margin: 0px;
   }
   
-  /* Create the custom underline on hover */
+  /* Custom underline on hover */
+  .super-hover:hover::before {
+    transform: scaleX(0); /* Hide the default underline */
+    transform-origin: bottom right; /* Maintain transform origin to the right */
+    transition-delay: 0s; /* No delay for the white line to start disappearing */
+  }
+  
   .super-hover::after {
     content: ''; /* Empty content for the pseudo-element */
     position: absolute; /* Absolute positioning */
@@ -13774,14 +13806,110 @@ video {
     right: 0;
     bottom: -4px; /* Adjust the distance below the text */
     height: 2px; /* Adjust the thickness of the underline */
-    background-color: #1320F7; /* Set the underline color */
+    background-color: var(--hover-color) !important; /* Use custom property for hover underline color */
     transform: scaleX(0); /* Initial scale set to 0 */
-    transform-origin: bottom right; /* Set the transform origin */
-    transition: transform 0.3s ease-out; /* Smooth transition effect */
+    transform-origin: bottom left; /* Set the transform origin */
+    transition: transform 0.2s ease-out 0.5s; /* Smooth transition effect with delay */
   }
   
-  /* Apply the underline animation on hover */
+  /* Hover animation with delay */
   .super-hover:hover::after {
-    transform: scaleX(1); /* Scale the underline to full width */
+    transform: scaleX(1); /* Scale the hover underline to full width */
     transform-origin: bottom left; /* Set the transform origin for the transition */
+    transition-delay: 0.15s; /* Delay for the purple line to start appearing */
   }
+  
+  /* Exit animations with delay */
+  .super-hover:not(:hover)::after {
+    transform: scaleX(0); /* Hide the hover underline */
+    transition-delay: 0s; /* No delay for the purple line to start disappearing */
+  }
+  
+  .super-hover:not(:hover)::before {
+    transform: scaleX(1); /* Show the default underline */
+    transition-delay: 0.15s; /* Delay for the white line to start appearing */
+  }
+  
+
+
+
+
+
+
+
+
+
+/* ------------------------ Fullscreen MENU Martin ----------------------------------- */
+
+
+
+  .fullscreen_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .wrapper-full-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Center elements in a column */
+    height: 110%; /* Full height of parent */
+    width: 100%; /* Full width of parent */
+  }
+  
+  .c-col-9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+  }
+  
+  /* Media query for mobile screens */
+  @media (max-width: 767px) {
+    .fullscreen_menu {
+      justify-content: flex-start; /* Align content to the left on mobile screens */
+    }
+  
+    .wrapper-full-centered {
+      align-items: flex-start; /* Align items to the left on mobile screens */
+      padding-left: 20px; /* Add some padding for spacing */
+    }
+  
+    .c-col-9 {
+      justify-content: flex-start; /* Align content to the left on mobile screens */
+    }
+  }
+  
+
+
+
+/* ------------------------ RIVE Size MOBILE SCREENS ----------------------------------- */
+
+  .site-branding {
+    transform: translate(-25px, 5px);
+    width: 332px;
+  }
+  
+  .rive-canvas {
+    width: 250px;
+    transform: translate(-20px, -24px);
+    cursor: pointer;
+  }
+  
+  /* Media query for mobile screens */
+  @media (max-width: 767px) {
+    .site-branding {
+      width: 166px; /* Adjust the width for mobile screens */
+    }
+  
+    .rive-canvas {
+      width: 125px; /* Adjust the canvas width for mobile screens */
+    }
+}

@@ -33,7 +33,7 @@
 </head>
 
 
-<body class="light">
+<body class="dark">
 
 
     <!-- Mouse Cursor -->
@@ -43,12 +43,12 @@
 
 
     <!-- Page -->
-    <div id="page">
+    <div id="start">
 
         <div class="menu-overlay"></div>
 
         <!-- Site Header -->
-        <div id="header" class="site-header fixed dark">
+        <div id="header" class="site-header fixed light">
 
             <!-- Header Wrapper -->
             <div class="header-wrapper wrapper-full">
@@ -57,7 +57,7 @@
 
                     <!-- --------------------------------------------------------------- Logo ------------------------------------------------------------ -->
 
-                    <div class="site-branding hide-mobile" style="transform:translate(-25px,5px); width: 332px;">
+                    <div class="site-branding" style="transform:translate(-25px,5px); width: 332px;">
 
 
                         <a href="index.html" class="no-barba">
@@ -95,11 +95,15 @@
                     </div>
 
 
-                    <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
+
+
+
+
+                    <!-- <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
 
                         <h5 class="hide-desktop no-barba"><a href="index.html">Martin Speidel</a></h5>
 
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -112,7 +116,7 @@
 
 
                     <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
-                        <a href="#aboutme" class="super-hover no-barba">Client Login</a>
+                        <a href="#aboutme" class="super-hover no-barba hide-mobile" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Client Login</a>
                     </div>
 
                     <!--  Menu Toggle -->
@@ -140,7 +144,7 @@
 
             <div id="site-navigation" class="fullscreen_menu fullscreen">
 
-                <div class="wrapper-full fullscreen-menu-wrapper">
+                <div class="wrapper-full-centered">
 
                     <!-- Empty Column (For Spacing) -->
                     <div class="c-col-3"></div>
@@ -149,12 +153,12 @@
                     <div class="c-col-9 sm-12">
 
                         <!-- Main Menu -->
-                        <ul class="menu main-menu no-barba">
+                        <ul class="">
 
-                            <li><a href="index.html#page" class="text-h1 no-barba">Home</a></li>
-                            <li><a href="index.html#showreel" class="text-h1 no-barba">Showreel</a></li>
-                            <li><a href="index.html#aboutme" class="text-h1 no-barba">About me</a></li>
-                            <li><a href="legal.html" class="text-h1 no-barba">Legal Notice</a></li>
+                            <li><a href="index.html#start" class="text-h1 super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Home</a></li>
+                            <li><a href="index.html#showreel" class="text-h1 super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Showreel</a></li>
+                            <li><a href="index.html#aboutme" class="text-h1 super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">About me</a></li>
+                            <li><a href="legal.html" class="text-h1 super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Legal Notice</a></li>
 
                         </ul>
                         <!--/ Main Menu -->
@@ -168,18 +172,18 @@
 
 
                     <!-- Fullscreen Menu Bottom -->
+                     
                     <div class="fullscreen-menu-wrap-bottom">
 
                         <!-- Empty Column (For Spacing) -->
                         <div class="c-col-3 hide-mobile"> </div>
                         <!--/ Empty Column (For Spacing) -->
 
-                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.4>
+                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.2>
 
-                            <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
-                                style="z-index: 10;">
-                                <a href="mailto:hello@martinspeidel.info" class="no-barba">hello@martinspeidel.info</a>
-                            </div>
+
+                           
+
 
                         </div>
 
@@ -197,6 +201,7 @@
 
         <!-- Empty Space -->
         <span class="empty-space hide-mobile" style="height: 30px; "></span>
+        <span class="empty-space hide-desktop" style="height: 20px; "></span>
         <!--/ Empty Space -->
 
 
@@ -219,15 +224,15 @@
                         <div class="c-col-12 sm-12 self-center" style="max-width: 1500px;">
 
                             <!-- Empty Column (For Spacing) -->
-                            <div class="hide-mobile" style="padding-top:0px;"> </div>
+                            <div class="hide-mobile" style="padding-top:70px;"> </div>
                             <div class="hide-desktop" style="padding-top:30px;"> </div>
                             <!--/ Empty Column (For Spacing) -->
 
                             <div class="text-wrapper no-margin">
                                 <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:5px;">
-                                    Hi, my name is Martin.</br> I am a brand-&shy;focused specialist for cutting
+                                    Hi, my name is Martin.</br> I am a brand focused specialist for cutting
                                     edge 2D motion design.</h1>
-                                <div class="text-wrapper no-margin hide-desktop" style="padding-bottom:1.1em;">
+                                <div class="text-wrapper no-margin hide-desktop">
                                 </div>
                             </div>
 
@@ -247,27 +252,25 @@
 
 
                         <div class="c-col-6 sm-12 ">
-
-
-                            <!-- Empty Space -->
                             <span class="empty-space hide-mobile" style="height: 60px; "></span>
-                            <!--/ Empty Space -->
-
-
+                            <span class="empty-space hide-desktop" style="height: 20px; "></span>
                             <div class="text-wrapper">
                                 <p class="text-h5">I create motion graphics that boost brand identity on digital
                                     platforms, social media, events and corporate presentations.</p>
                             </div>
 
+                            <div class="text-h5">
+                                <a href="#aboutme" class="super-hover no-barba" style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">More about me ⭢</a>
+                            </div>
+
+
+
                             <!-- Empty Space -->
-                            <span class="empty-space hide-mobile" style="height: 30px"></span>
+                            <span class="empty-space hide-mobile" style="height: 40px"></span>
+                            <span class="empty-space hide-desktop" style="height: 30px"></span>
                             <!--/ Empty Space -->
 
 
-                            <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
-                                style="z-index: 10;">
-                                <a href="#aboutme" class="no-barba">More about me</a>
-                            </div>
 
 
                         </div>
@@ -283,7 +286,7 @@
                     <!--/ Empty Space -->
 
                     <!-- Empty Space -->
-                    <span class="empty-space hide-mobile" style="height: 40px"></span>
+                    <span class="empty-space hide-mobile" style="height: 20px"></span>
                     <!--/ Empty Space -->
 
 
@@ -292,7 +295,7 @@
 
                     <!-- --------------------------------------------------------------- Showreel ------------------------------------------------------------ -->
 
-                    <div id="showreel" class="wrapper-full" id="showreel" style="margin-top: calc(60px - 14vw)">
+                    <div id="showreel" class="wrapper-full" id="showreel" style="margin-top: calc(25px - 12vw)">
 
                         <div class="c-col-12 hide-mobile">
 
@@ -339,7 +342,7 @@
                     <!--/ Empty Space -->
 
                     <!-- Empty Space -->
-                    <span class="empty-space hide-mobile" style="height: 40px"></span>
+                    <span class="empty-space hide-mobile" style="height: 60px"></span>
                     <!--/ Empty Space -->
 
 
@@ -404,12 +407,11 @@
 
                             <div class="text-wrapper text-h5">
                                 I work with Adobe After Effects,
-                                Maxon Cinema 4D and VS Code. Currently <a href="https://martinspeidel.gumroad.com/"
-                                    target="_blank" class="super-hover">learning Rive & Cavalry</a>. To enhance my
+                                Maxon Cinema 4D and VS Code. Currently learning Rive & Cavalry</a>. To enhance my
                                 workflow, I
                                 develop my own tools for After Effects. Feel free to
                                 download them on my <a href="https://martinspeidel.gumroad.com/" target="_blank"
-                                    class="super-hover" style="color: #1320F7">Gumroad</a> account.
+                                    class="super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Gumroad</a> account.
                                 <br><br>
                                 With over 10 years of freelance experience, I work 100% remotely, ensure fast
                                 and
@@ -428,7 +430,7 @@
 
 
                     <!-- Empty Space -->
-                    <span class="empty-space hide-mobile" style="height: 30px"></span>
+                    <span class="empty-space hide-mobile" style="height: 0px"></span>
                     <!--/ Empty Space -->
 
 
@@ -440,9 +442,8 @@
                         <!--/ Empty Column (For Spacing) -->
 
                         <div class="c-col-5 sm-12">
-                            <div class="nayla-button underline icon-right text-h5" data-icon="arrow_outward"
-                                style="z-index: 10;">
-                                <a href="mailto:hello@martinspeidel.info" class="no-barba">Let's start something!</a>
+                            <div class="text-h5">
+                                <a href="mailto:hello@martinspeidel.info" class="super-hover no-barba" style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">Let's start something! ⭢</a>
                             </div>
                         </div>
                     </div>
@@ -468,8 +469,8 @@
 
         <!-- --------------------------------------------------------------- Footer ------------------------------------------------------------ -->
 
-        <div id="footer" class="site-footer dark "
-            style="background:#ffffff; padding: 50px 0 0px 0; margin-top: -40px;">
+        <div id="footer" class="site-footer dark"
+            style="background:#252525; padding: 50px 0 0px 0; margin-top: -40px;">
 
             <!-- Empty Space -->
             <span class="empty-space hide-mobile" style="height: 50px"></span>
@@ -484,39 +485,39 @@
 
                         <ul class="menu vertical">
                             <li><a href="https://www.linkedin.com/in/martinspeidel" target="_blank"
-                                    class="super-hover no-barba">LinkedIn</a>
+                                    class="super-hover no-barba" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">LinkedIn</a>
                             </li>
                             <li><a href="https://martinspeidel.bsky.social/" target="_blank"
-                                    class="super-hover no-barba">Bluesky</a></li>
+                                    class="super-hover no-barba" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Bluesky</a></li>
                             <li><a href="https://www.instagram.com/martinspeidel/" target="_blank"
-                                    class="super-hover">Instagram</a>
+                                    class="super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Instagram</a>
                             </li>
                             <li><a href="https://martinspeidel.gumroad.com" target="_blank"
-                                    class="super-hover no-barba">Gumroad</a></li>
+                                    class="super-hover no-barba" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Gumroad</a></li>
 
                             <!-- Empty Space -->
                             <span class="empty-space hide-desktop" style="height: 35px"></span>
                             <span class="empty-space hide-mobile" style="height: 50px"></span>
                             <!--/ Empty Space -->
 
-                            <li><a href="privacy.html" class="super-hover no-barba">Privacy Policy</a></li>
-                            <li><a href="legal.html" class="super-hover no-barba">Legal Notice</a></li>
+                            <li><a href="privacy.html" class="super-hover no-barba" style="--initial-color: #ffffff; --hover-color: #BFABFF;">Privacy Policy</a></li>
+                            <li><a href="legal.html" class="super-hover no-barba" style="--initial-color: #ffffff; --hover-color: #BFABFF">Legal Notice</a></li>
 
                         </ul>
 
                         <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
                             <li>Moin 👋</li>
-                            <li><a href="mailto:hello@martinspeidel.info" class="no-barba">hello@martinspeidel.info</a>
+                            <li><a href="mailto:hello@martinspeidel.info" class="no-barba super-hover" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">hello@martinspeidel.info</a>
                             </li>
                             <li><a href="https://martinspeidel.gumroad.com" target="_blank"
-                                    class="super-hover no-barba">+(0)49
+                                    class="super-hover no-barba" style="--initial-color: #BFABFF; --hover-color: #F0FF96;">+(0)49
                                     176 24 122 854</a></li>
                         </ul>
 
                         <ul class="menu vertical hide-desktop"
                             style="transform: translateY(70px); padding-bottom: 75px;">
-                            <li><a href="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*9dTGG1AIpXumC-YjqH83WQ.jpeg"
-                                    target="_blank" class="super-hover no-barba">© 2025</a></li>
+                            <li><a href="whatif.jpeg"
+                                    target="_blank" class="no-barba">© 2025</a></li>
                         </ul>
 
                     </div>
@@ -525,8 +526,8 @@
                         <ul class="menu vertical">
                             <li><span class="dm-serif-display-regular-italic">Moin 👋</span></li>
                             <li><a href="mailto:hello@martinspeidel.info"
-                                    class="super-hover no-barba">hello@martinspeidel.info</a></li>
-                            <li><a href="https://wa.link/4m6e97" target="_blank" class="super-hover no-barba">+(0)49 176
+                                    class="super-hover no-barba" style="--initial-color: #ffffff; --hover-color: #BFABFF;">hello@martinspeidel.info</a></li>
+                            <li><a href="https://wa.link/4m6e97" target="_blank" class="super-hover no-barba" style="--initial-color: #ffffff; --hover-color: #BFABFF;">+(0)49 176
                                     24 122
                                     854</a></li>
 
@@ -535,8 +536,10 @@
 
                     <div class="c-col-3 align-right hide-mobile">
                         <ul class="menu vertical">
-                            <li><a href="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*9dTGG1AIpXumC-YjqH83WQ.jpeg"
-                                    target="_blank" class="super-hover no-barba">© 2025</a></li>
+                            <li><a href="#start"
+                                target="_blank" class="no-barba">Up ⮥</a></li>
+                            <li><a href="whatif.jpeg"
+                                    target="_blank" class="no-barba">© 2025</a></li>
 
                         </ul>
                     </div>
