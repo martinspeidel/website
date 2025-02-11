@@ -61,46 +61,43 @@
 
 
                         <a href="index.html" class="no-barba">
-                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
-                                style="width: 250px; transform:translate(-20px,-24px); cursor:pointer;">
-                            </canvas>
-                            <script>
-                                const r = new rive.Rive({
-                                    src: "riv/logo.riv",
-                                    canvas: document.getElementById("rive-canvas"),
-                                    autoplay: true,
-                                    stateMachines: "logo",
-                                    onLoad: () => {
-                                        r.resizeDrawingSurfaceToCanvas();
-                                        const inputs = r.stateMachineInputs("logo");
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"></canvas>
+                        </a>
 
-                                        const xInput = inputs.find(input => input.name === "xAxis");
-                                        const yInput = inputs.find(input => input.name === "yAxis");
-                                        const hoverInput = inputs.find(input => input.name === "linkHover");
-
-                                        const maxWidth = window.innerWidth;
-                                        const maxHeight = window.innerHeight;
-
-                                        // Mouse movement tracking
-                                        window.addEventListener("mousemove", function (e) {
-                                            xInput.value = (e.x / maxWidth) * 100;
-                                            yInput.value = 100 - (e.y / maxHeight) * 100;
+                        <script>
+                            const r = new rive.Rive({
+                                src: "riv/logo.riv",
+                                canvas: document.getElementById("rive-canvas"),
+                                autoplay: true,
+                                stateMachines: "logo",
+                                onLoad: () => {
+                                    r.resizeDrawingSurfaceToCanvas();
+                                    const inputs = r.stateMachineInputs("logo");
+                    
+                                    const xInput = inputs.find(input => input.name === "xAxis");
+                                    const yInput = inputs.find(input => input.name === "yAxis");
+                                    const hoverInput = inputs.find(input => input.name === "linkHover");
+                    
+                                    const maxWidth = window.innerWidth;
+                                    const maxHeight = window.innerHeight;
+                    
+                                    window.addEventListener("mousemove", function(e) {
+                                        xInput.value = (e.x / maxWidth) * 100;
+                                        yInput.value = 100 - (e.y / maxHeight) * 100;
+                                    });
+                    
+                                    document.querySelectorAll('a').forEach(link => {
+                                        link.addEventListener('mouseenter', () => {
+                                            hoverInput.value = true;
                                         });
-
-                                        // Add hover events to all links
-                                        document.querySelectorAll('a').forEach(link => {
-                                            link.addEventListener('mouseenter', () => {
-                                                hoverInput.value = true;
-                                            });
-                                            link.addEventListener('mouseleave', () => {
-                                                hoverInput.value = false;
-                                            });
+                                        link.addEventListener('mouseleave', () => {
+                                            hoverInput.value = false;
                                         });
-                                    },
-                                    background: "transparent"
-                                });
-                            </script>
-
+                                    });
+                                },
+                                background: "transparent"
+                            });
+                        </script>
                         </a>
                     </div>
 
@@ -122,7 +119,7 @@
 
                 <div class="c-col-4 hide-mobile"></div>
 
-                <div class="c-col-4 sm-4 align-right">
+                <div class="c-col-4 sm-4 align-right ">
 
 
                     <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
@@ -215,7 +212,7 @@
 
 
         <!-- Empty Space -->
-        <span class="empty-space hide-mobile" style="height: 30px; "></span>
+        <span class="empty-space hide-mobile" style="height: 10px; "></span>
         <span class="empty-space hide-desktop" style="height: 20px; "></span>
         <!--/ Empty Space -->
 
@@ -240,13 +237,22 @@
 
                             <!-- Empty Column (For Spacing) -->
                             <div class="hide-mobile" style="padding-top:70px;"> </div>
-                            <div class="hide-desktop" style="padding-top:40px;"> </div>
+                            <div class="hide-desktop" style="padding-top:20px;"> </div>
                             <!--/ Empty Column (For Spacing) -->
 
                             <div class="text-wrapper no-margin">
-                                <h1 class="has-anim-text wordsUp no-margin no-revert" style="margin-top:5px;">
-                                    Hi, my name is Martin.</br> I am a brand focused specialist for cutting
-                                    edge 2D motion design.</h1>
+                                <h1 class="no-margin no-revert" style="margin-top:5px;">
+                                    <div class="text-container">
+                                        <div class="scaling-container">
+                                          <div class="border-box"></div>
+                                          <div class="corner-box top-left"></div>
+                                          <div class="corner-box top-right"></div>
+                                          <div class="corner-box bottom-left"></div>
+                                          <div class="corner-box bottom-right"></div>
+                                          Hi, my name is Martin.<br> I am a <a href="#showreel" class="super-hover-fett-clean no-barba"
+                                          style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">brand focused</a> specialist for cutting edge 2D motion graphics.
+                                        </div>
+                                      </div>
                                 <div class="text-wrapper no-margin hide-desktop">
                                 </div>
                             </div>
@@ -267,14 +273,14 @@
 
 
                         <div class="c-col-6 sm-12 ">
-                            <span class="empty-space hide-mobile" style="height: 60px; "></span>
+                            <span class="empty-space hide-mobile" style="height: 100px; "></span>
                             <span class="empty-space hide-desktop" style="height: 20px; "></span>
-                            <div class="text-wrapper">
-                                <p class="text-h5">I create motion graphics that boost brand identity on digital
-                                    platforms, social media, events and corporate presentations.</p>
+                            <div class="text-wrapper has-anim fadeIn">
+                                <p class="text-h5">I support brands in elevating their identity through motion on digital platforms, social media, events, and corporate presentations.</p>
                             </div>
 
-                            <div class="text-h5">
+                            <div class="text-h5 has-anim fadeIn">
+                                <span class="empty-space hide-desktop" style="height: 15px; "></span>
                                 <a href="#aboutme" class="super-hover no-barba"
                                     style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">
                                     More about me
@@ -298,7 +304,7 @@
 
 
                             <!-- Empty Space -->
-                            <span class="empty-space hide-mobile" style="height: 40px"></span>
+                            <span class="empty-space hide-mobile" style="height: 30px"></span>
                             <span class="empty-space hide-desktop" style="height: 30px"></span>
                             <!--/ Empty Space -->
 
@@ -407,7 +413,7 @@
 
 
 
-                    <div class="wrapper-full no-margin">
+                    <div class="wrapper-full no-margin has-anim fadeIn">
 
 
                         <!-- Empty Column (For Spacing) -->
@@ -415,7 +421,7 @@
                         <!--/ Empty Column (For Spacing) -->
 
 
-                        <div class="c-col-5 sm-12">
+                        <div class="c-col-5 sm-12" style="padding-right: 50px;">
 
                             <p class="text-h5">I focus on creating motion branding, case films, logo
                                 animations, motion graphic templates, custom scripting, and digital assets for web
@@ -467,6 +473,7 @@
 
                     <!-- Empty Space -->
                     <span class="empty-space hide-mobile" style="height: 0px"></span>
+                    <span class="empty-space hide-desktop" style="height: 15px"></span>
                     <!--/ Empty Space -->
 
 

@@ -2348,6 +2348,7 @@ div[data-elementor-type="sub-menu-type"] {
     box-sizing: border-box;
     padding-bottom: 20px;
     height: 100vh;
+
 }
 
 #site-navigation.fullscreen_menu .fullscreen-menu-wrapper .fullscreen-menu-wrap-bottom {
@@ -2370,13 +2371,15 @@ div[data-elementor-type="sub-menu-type"] {
 
 #site-navigation.fullscreen_menu ul.menu.main-menu {
     padding: 0;
-    position: relative
+    position: relative;
+
 }
 
 #site-navigation.fullscreen_menu ul.menu.main-menu,
 #site-navigation.fullscreen_menu ul.menu.main-menu ul {
     visibility: hidden;
     pointer-events: none
+
 }
 
 #site-navigation.fullscreen_menu ul.menu.main-menu.active,
@@ -2388,12 +2391,13 @@ div[data-elementor-type="sub-menu-type"] {
 .fullscreen_menu ul.menu a {
     display: inline-block;
     color: var(--mainColor);
+    line-height: 1.2em;
 }
 
 .fullscreen_menu ul.menu.main-menu li {
     padding: 0;
     font-size: 102px;
-    line-height: 1;
+    line-height: 4em;
     letter-spacing: -0.04em;
     overflow: hidden;
     /* text-transform: uppercase; */
@@ -2402,7 +2406,7 @@ div[data-elementor-type="sub-menu-type"] {
 
 #site-navigation.fullscreen_menu ul.menu.main-menu .sub-menu.small li {
     font-size: 21px;
-    line-height: 21px;
+    line-height: 2em;
     text-transform: none;
     letter-spacing: 0;
     padding-bottom: 0.5em
@@ -13852,7 +13856,7 @@ video {
     position: absolute; /* Absolute positioning */
     left: 0;
     right: 0;
-    bottom: -0.06em; /* Adjust the distance below the text */
+    bottom: -0.02em; /* Adjust the distance below the text */
     height: .055em; /* Adjust the thickness of the underline */
     background-color: var(--initial-color) !important; /* Use custom property for default underline color */
     transform: scaleX(1); /* Default scale set to full width */
@@ -13880,7 +13884,7 @@ video {
     position: absolute; /* Absolute positioning */
     left: 0;
     right: 0;
-    bottom: -0.06em; /* Adjust the distance below the text */
+    bottom: -0.02em; /* Adjust the distance below the text */
     height: .055em; /* Adjust the thickness of the underline */
     background-color: var(--hover-color) !important; /* Use custom property for hover underline color */
     transform: scaleX(0); /* Initial scale set to 0 */
@@ -13909,6 +13913,19 @@ video {
 
 
 
+
+
+  /* Define default styles for .super-hover */
+.super-hover-fett-clean {
+    transition: color 0.6s ease; /* Smooth transition over 0.3 seconds */
+    color: var(--initial-color) !important; /* Use custom property for initial text color */
+    text-decoration: none; /* Ensure no underline */
+}
+
+/* Hover state */
+.super-hover-fett-clean:hover {
+    color: var(--hover-color) !important; /* Use custom property for hover text color */
+}
 
 
 /* ------------------------ Fullscreen MENU Martin ----------------------------------- */
@@ -13964,24 +13981,111 @@ video {
 
 /* ------------------------ RIVE Size MOBILE SCREENS ----------------------------------- */
 
-  .site-branding {
-    transform: translate(-25px, 5px);
-    width: 332px;
-  }
-  
-  .rive-canvas {
+
+
+
+
+.rive-canvas {
     width: 250px;
     transform: translate(-20px, -24px);
     cursor: pointer;
-  }
-  
-  /* Media query for mobile screens */
-  @media (max-width: 767px) {
-    .site-branding {
-      width: 166px; /* Adjust the width for mobile screens */
-    }
-  
+}
+
+/* Für mobile Geräte (maximale Breite 600px) */
+@media only screen and (max-width: 600px) {
     .rive-canvas {
-      width: 125px; /* Adjust the canvas width for mobile screens */
+        width: 180px; /* Verkleinern um 20% von 250px */
+        transform: translate(-5px, -27px); /* Anpassen der Positionierung nach Bedarf */
     }
 }
+
+
+
+
+/* ------------------------ Titelanimation ----------------------------------- */
+
+
+
+
+.text-container {
+    position: relative;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .scaling-container {
+    position: relative;
+    padding: 50px;
+    transform-origin: top left;
+    animation: scaleBox 1.8s ease forwards;
+  }
+  
+  /* Border box styles */
+  .border-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #505050;
+  }
+  
+  /* Corner box styles */
+  .corner-box {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #bfabff;
+    z-index: 1;
+  }
+  
+  .top-left {
+    top: -4px;
+    left: -4px;
+    /* background-color: #bfabff; */
+  }
+  
+  .top-right {
+    top: -4px;
+    right: -4px;
+    /* background-color: #f0ff96; */
+  }
+  
+  .bottom-left {
+    bottom: -4px;
+    left: -4px;
+    /* background-color: #f0ff96; */
+  }
+  
+  .bottom-right {
+    bottom: -4px;
+    right: -4px;
+    /* background-color: #bfabff; */
+  }
+  
+  /* Text styles */
+  .text-container h1 {
+    /* margin: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1.4; */
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards 0.6s;
+  }
+  
+  /* Animations */
+  @keyframes scaleBox {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }

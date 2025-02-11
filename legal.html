@@ -59,49 +59,45 @@
 
 
                         <a href="index.html" class="no-barba">
-                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"
-                                style="width: 250px; transform:translate(-20px,-24px); cursor:pointer;">
-                            </canvas>
-                            <script>
-                                const r = new rive.Rive({
-                                    src: "riv/logo.riv",
-                                    canvas: document.getElementById("rive-canvas"),
-                                    autoplay: true,
-                                    stateMachines: "logo",
-                                    onLoad: () => {
-                                        r.resizeDrawingSurfaceToCanvas();
-                                        const inputs = r.stateMachineInputs("logo");
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"></canvas>
+                        </a>
 
-                                        const xInput = inputs.find(input => input.name === "xAxis");
-                                        const yInput = inputs.find(input => input.name === "yAxis");
-                                        const hoverInput = inputs.find(input => input.name === "linkHover");
-
-                                        const maxWidth = window.innerWidth;
-                                        const maxHeight = window.innerHeight;
-
-                                        // Mouse movement tracking
-                                        window.addEventListener("mousemove", function (e) {
-                                            xInput.value = (e.x / maxWidth) * 100;
-                                            yInput.value = 100 - (e.y / maxHeight) * 100;
+                        <script>
+                            const r = new rive.Rive({
+                                src: "riv/logo.riv",
+                                canvas: document.getElementById("rive-canvas"),
+                                autoplay: true,
+                                stateMachines: "logo",
+                                onLoad: () => {
+                                    r.resizeDrawingSurfaceToCanvas();
+                                    const inputs = r.stateMachineInputs("logo");
+                    
+                                    const xInput = inputs.find(input => input.name === "xAxis");
+                                    const yInput = inputs.find(input => input.name === "yAxis");
+                                    const hoverInput = inputs.find(input => input.name === "linkHover");
+                    
+                                    const maxWidth = window.innerWidth;
+                                    const maxHeight = window.innerHeight;
+                    
+                                    window.addEventListener("mousemove", function(e) {
+                                        xInput.value = (e.x / maxWidth) * 100;
+                                        yInput.value = 100 - (e.y / maxHeight) * 100;
+                                    });
+                    
+                                    document.querySelectorAll('a').forEach(link => {
+                                        link.addEventListener('mouseenter', () => {
+                                            hoverInput.value = true;
                                         });
-
-                                        // Add hover events to all links
-                                        document.querySelectorAll('a').forEach(link => {
-                                            link.addEventListener('mouseenter', () => {
-                                                hoverInput.value = true;
-                                            });
-                                            link.addEventListener('mouseleave', () => {
-                                                hoverInput.value = false;
-                                            });
+                                        link.addEventListener('mouseleave', () => {
+                                            hoverInput.value = false;
                                         });
-                                    },
-                                    background: "transparent"
-                                });
-                            </script>
-
+                                    });
+                                },
+                                background: "transparent"
+                            });
+                        </script>
                         </a>
                     </div>
-
 
 
 
@@ -121,13 +117,14 @@
 
                 <div class="c-col-4 hide-mobile"></div>
 
-                <div class="c-col-4 sm-4 align-right">
+                <div class="c-col-4 sm-4 align-right ">
 
 
                     <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
                         <a href="https://login.martinspeidel.info/" target="_blank" class="super-hover no-barba hide-mobile"
                             style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Client login</a>
                     </div>
+
                     <!--  Menu Toggle -->
                     <div class="menu-toggle" style="transform:translate(0px,-26px);">
 
@@ -210,6 +207,7 @@
         </div>
 
 
+
         <!-- Empty Space -->
         <span class="empty-space hide-mobile" style="height: 30px; "></span>
         <span class="empty-space hide-desktop" style="height: 20px; "></span>
@@ -263,7 +261,7 @@
                         <div class="c-col-2 hide-mobile"></div>
                         <!--/ Empty Column (For Spacing) -->
 
-                        <div class="c-col-8 sm-12">
+                        <div class="c-col-8 sm-12 has-anim fadeIn" >
 
                             <!-- Text -->
 
