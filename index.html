@@ -73,19 +73,19 @@
                                 onLoad: () => {
                                     r.resizeDrawingSurfaceToCanvas();
                                     const inputs = r.stateMachineInputs("logo");
-                    
+
                                     const xInput = inputs.find(input => input.name === "xAxis");
                                     const yInput = inputs.find(input => input.name === "yAxis");
                                     const hoverInput = inputs.find(input => input.name === "linkHover");
-                    
+
                                     const maxWidth = window.innerWidth;
                                     const maxHeight = window.innerHeight;
-                    
-                                    window.addEventListener("mousemove", function(e) {
+
+                                    window.addEventListener("mousemove", function (e) {
                                         xInput.value = (e.x / maxWidth) * 100;
                                         yInput.value = 100 - (e.y / maxHeight) * 100;
                                     });
-                    
+
                                     document.querySelectorAll('a').forEach(link => {
                                         link.addEventListener('mouseenter', () => {
                                             hoverInput.value = true;
@@ -98,19 +98,8 @@
                                 background: "transparent"
                             });
                         </script>
-                        </a>
+
                     </div>
-
-
-
-
-
-
-                    <!-- <div class="site-branding" style="transform:translate(1px,0px); width: 300px;">
-
-                        <h5 class="hide-desktop no-barba"><a href="index.html">Martin Speidel</a></h5>
-
-                    </div> -->
                 </div>
 
 
@@ -123,8 +112,9 @@
 
 
                     <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
-                        <a href="https://login.martinspeidel.info/" target="_blank" class="super-hover no-barba hide-mobile"
-                            style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Client login</a>
+                        <a href="https://login.martinspeidel.info/" target="_blank"
+                            class="super-hover no-barba hide-mobile"
+                            style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Client login</a>
                     </div>
 
                     <!--  Menu Toggle -->
@@ -164,13 +154,13 @@
                         <ul class="menu">
 
                             <li><a href="index.html#start" class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Home</a></li>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Home</a></li>
                             <li><a href="index.html#showreel" class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Showreel</a></li>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
                             <li><a href="index.html#aboutme" class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">About me</a></li>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">About me</a></li>
                             <li><a href="legal.html" class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Legal notice</a></li>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Legal notice</a></li>
 
                         </ul>
                         <!--/ Main Menu -->
@@ -233,7 +223,8 @@
 
                     <div class="wrapper-full no-margin">
 
-                        <div class="c-col-12 sm-12 self-center" style="max-width: 1500px;">
+                        <!-- <div class="c-col-12 sm-12 self-center" style="max-width: 1500px;"> -->
+                        <div class="c-col-12 sm-12 self-center">
 
                             <!-- Empty Column (For Spacing) -->
                             <div class="hide-mobile" style="padding-top:70px;"> </div>
@@ -244,17 +235,18 @@
                                 <h1 class="no-margin no-revert" style="margin-top:5px;">
                                     <div class="text-container">
                                         <div class="scaling-container">
-                                          <div class="border-box"></div>
-                                          <div class="corner-box top-left"></div>
-                                          <div class="corner-box top-right"></div>
-                                          <div class="corner-box bottom-left"></div>
-                                          <div class="corner-box bottom-right"></div>
-                                          Hi, my name is Martin.<br> I am a <a href="#showreel" class="super-hover-fett-clean no-barba"
-                                          style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">brand focused</a> specialist for cutting edge 2D motion graphics.
+                                            <div class="border-box"></div>
+                                            <div class="corner-box top-left"></div>
+                                            <div class="corner-box top-right"></div>
+                                            <div class="corner-box bottom-left"></div>
+                                            <div class="corner-box bottom-right"></div>
+                                            Hi, my name is Martin.<br> I am a <a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">brand
+                                                focused</a> specialist for cutting edge 2D motion graphics.
                                         </div>
-                                      </div>
-                                <div class="text-wrapper no-margin hide-desktop">
-                                </div>
+                                    </div>
+                                </h1>
                             </div>
 
                         </div>
@@ -276,13 +268,14 @@
                             <span class="empty-space hide-mobile" style="height: 100px; "></span>
                             <span class="empty-space hide-desktop" style="height: 20px; "></span>
                             <div class="text-wrapper has-anim fadeIn">
-                                <p class="text-h5">I support brands in elevating their identity through motion on digital platforms, social media, events, and corporate presentations.</p>
+                                <p class="text-h5">I support brands in elevating their identity through motion on
+                                    digital platforms, social media, events, and corporate presentations.</p>
                             </div>
 
                             <div class="text-h5 has-anim fadeIn">
                                 <span class="empty-space hide-desktop" style="height: 15px; "></span>
                                 <a href="#aboutme" class="super-hover no-barba"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
                                     More about me
                                     <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 133.05 82.65" fill="currentColor" width="45" height="15"
@@ -304,7 +297,7 @@
 
 
                             <!-- Empty Space -->
-                            <span class="empty-space hide-mobile" style="height: 30px"></span>
+                            <span class="empty-space hide-mobile" style="height: 10px"></span>
                             <span class="empty-space hide-desktop" style="height: 30px"></span>
                             <!--/ Empty Space -->
 
@@ -376,31 +369,45 @@
 
 
                     <!-- Empty Space -->
-                    <span class="empty-space hide-desktop" style="height: 4px"></span>
-                    <!--/ Empty Space -->
-
-                    <!-- Empty Space -->
+                    <span class="empty-space hide-desktop" style="height: 0px"></span>
                     <span class="empty-space hide-mobile" style="height: 60px"></span>
                     <!--/ Empty Space -->
 
 
 
 
-                    <div id="aboutme" style="transform: translateY(-160px);"></div>
+                    <div id="aboutme" style="transform: translateY(-150px);"></div>
 
 
 
-
-                    <div class="wrapper-full no-margin">
+                    <div class="wrapper-full no-margin" style="transform: translateY(-60px);">
 
                         <!-- Empty Column (For Spacing) -->
                         <div class="c-col-2 hide-mobile"></div>
                         <!--/ Empty Column (For Spacing) -->
 
-                        <div class="c-col-10 sm-12">
-                            <h1 class="has-anim-text wordsUp no-margin no-revert"
-                                style="padding-bottom:0px; margin-top:-60px;transform: translateX(-3px);">
-                                About me</h1>
+                        <div class="c-col-10 sm-12 self-center"  >
+
+                            <!-- Empty Column (For Spacing) -->
+                            <div class="hide-mobile" style="padding-top:0px;"> </div>
+                            <div class="hide-desktop" style="padding-top:20px;"> </div>
+                            <!--/ Empty Column (For Spacing) -->
+
+                            <div class="text-wrapper no-margin" >
+                                <h1 class="no-margin no-revert" style="margin-top:0px;">
+                                    <div class="text-container" >
+                                        <div class="scaling-container" style="padding-right: 55px;">
+                                            <div class="border-box"></div>
+                                            <div class="corner-box top-left"></div>
+                                            <div class="corner-box top-right"></div>
+                                            <div class="corner-box bottom-left"></div>
+                                            <div class="corner-box bottom-right"></div>
+                                            About me
+                                        </div>
+                                    </div>
+                                </h1>
+                            </div>
+
                         </div>
                     </div>
 
@@ -408,12 +415,13 @@
 
 
                     <!-- Empty Space -->
-                    <span class="empty-space hide-mobile" style="height: 20px"></span>
+                    <span class="empty-space hide-mobile" style="height: 45px"></span>
+                    <span class="empty-space hide-desktop" style="height: 0px"></span>
                     <!--/ Empty Space -->
 
 
 
-                    <div class="wrapper-full no-margin has-anim fadeIn">
+                    <div class="wrapper-full no-margin has-anim fadeIn" >
 
 
                         <!-- Empty Column (For Spacing) -->
@@ -421,7 +429,7 @@
                         <!--/ Empty Column (For Spacing) -->
 
 
-                        <div class="c-col-5 sm-12" style="padding-right: 50px;">
+                        <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(-30px);">
 
                             <p class="text-h5">I focus on creating motion branding, case films, logo
                                 animations, motion graphic templates, custom scripting, and digital assets for web
@@ -450,7 +458,7 @@
                                 develop my own tools for After Effects. Feel free to
                                 download them on my <a href="https://martinspeidel.gumroad.com/" target="_blank"
                                     class="super-hover"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Gumroad</a> account.
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Gumroad</a> account.
                                 <br><br>
                                 With over 10 years of freelance experience, I work 100% remotely, ensure fast
                                 and
@@ -461,7 +469,7 @@
                                 playing piano, and taking walks in the beautiful <a
                                     href="https://www.hamburg.de/freizeit/ausfluege/wandern/wandern-fischbeker-heide-306580"
                                     target="_blank" class="super-hover"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">countryside</a>.
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">countryside</a>.
                                 </p>
                             </div>
 
@@ -487,7 +495,7 @@
                         <div class="c-col-5 sm-12">
                             <div class="text-h5">
                                 <a href="mailto:hello@martinspeidel.info" class="super-hover no-barba"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96; z-index: 99;">
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
                                     Let's start something!
                                     <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 133.05 82.65" fill="currentColor" width="45" height="15"
@@ -518,6 +526,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Empty Space -->
         <span class="empty-space hide-desktop" style="height: 70px"></span>
         <span class="empty-space hide-mobile" style="height: 150px"></span>
@@ -544,16 +566,16 @@
                         <ul class="menu vertical">
                             <li><a href="https://www.linkedin.com/in/martinspeidel" target="_blank"
                                     class="super-hover no-barba"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">LinkedIn</a>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">LinkedIn</a>
                             </li>
                             <li><a href="https://martinspeidel.bsky.social/" target="_blank"
                                     class="super-hover no-barba"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Bluesky</a></li>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Bluesky</a></li>
                             <li><a href="https://www.instagram.com/martinspeidel/" target="_blank" class="super-hover"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Instagram</a>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Instagram</a>
                             </li>
                             <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover no-barba"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">Gumroad</a></li>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Gumroad</a></li>
 
                             <!-- Empty Space -->
                             <span class="empty-space hide-desktop" style="height: 35px"></span>
@@ -570,10 +592,10 @@
                         <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
                             <li>Moin 👋</li>
                             <li><a href="mailto:hello@martinspeidel.info" class="no-barba super-hover"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">hello@martinspeidel.info</a>
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">hello@martinspeidel.info</a>
                             </li>
                             <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover no-barba"
-                                    style="--initial-color: #BFABFF; --hover-color: #F0FF96;">+(0)49
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">+(0)49
                                     176 24 122 854</a></li>
                         </ul>
 

@@ -14010,82 +14010,87 @@ video {
 .text-container {
     position: relative;
     display: inline-block;
-    padding: 0px;
     margin: 0px;
-  }
-  
-  .scaling-container {
+}
+
+.scaling-container {
     position: relative;
-    padding: 50px;
+    padding: 40px; /* Add padding here */
     transform-origin: top left;
-    animation: scaleBox 1.8s ease forwards;
-  }
-  
-  /* Border box styles */
-  .border-box {
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    opacity: 0; /* Initially hidden */
+    transform: scale(0); /* Initially scaled down */
+}
+
+/* Border box styles */
+.border-box {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     border: 1px solid #505050;
-  }
-  
-  /* Corner box styles */
-  .corner-box {
+}
+
+/* Corner box styles */
+.corner-box {
     position: absolute;
     width: 8px;
     height: 8px;
     background-color: #bfabff;
     z-index: 1;
-  }
-  
-  .top-left {
+}
+
+.top-left {
     top: -4px;
     left: -4px;
-    /* background-color: #bfabff; */
-  }
-  
-  .top-right {
+}
+
+.top-right {
     top: -4px;
     right: -4px;
-    /* background-color: #f0ff96; */
-  }
-  
-  .bottom-left {
+}
+
+.bottom-left {
     bottom: -4px;
     left: -4px;
-    /* background-color: #f0ff96; */
-  }
-  
-  .bottom-right {
+}
+
+.bottom-right {
     bottom: -4px;
     right: -4px;
-    /* background-color: #bfabff; */
-  }
-  
-  /* Text styles */
-  .text-container h1 {
-    /* margin: 0;
-    color: #fff;
-    font-size: 2.5rem;
-    line-height: 1.4; */
+}
+
+/* Text styles */
+.text-container h1 {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards 0.6s;
-  }
-  
-  /* Animations */
-  @keyframes scaleBox {
+}
+
+/* Animations */
+@keyframes scaleBox {
     from {
-      transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
     }
     to {
-      transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
     }
-  }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
   
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }

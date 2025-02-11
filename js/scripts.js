@@ -12724,3 +12724,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'scaleBox 1.8s ease forwards';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const scalingContainers = document.querySelectorAll('.scaling-container');
+    scalingContainers.forEach(container => {
+        observer.observe(container);
+    });
+});
+
+
