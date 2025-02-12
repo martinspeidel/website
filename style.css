@@ -233,6 +233,10 @@ html {
  */
 
 
+
+
+
+ 
 body {
     margin: 0;
     background-color: var(--mainBackground);
@@ -919,7 +923,7 @@ h1,
 .text-h1 {
     font-size: 98px;
     line-height: 110px;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.035em;
 }
 
@@ -959,7 +963,7 @@ h5,
     font-size: 27px;
     line-height: 39px;
     margin-left: -1px;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 2em;
 }
 
@@ -13835,6 +13839,52 @@ video {
     transform: scaleX(1); /* Show the default underline */
     transition-delay: 0.15s; /* Delay for the white line to start appearing */
   }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------ HOVER Behavour kleine Typo MOBILE ----------------------------------- */
+
+
+@media (max-width: 767px) {
+  /* Default underline */
+  .super-hover::before {
+    bottom: -4px; /* Adjust the distance below the text */
+    height: 1.5px; /* Adjust the thickness of the underline */
+  }
+
+
+  .super-hover::after {
+    bottom: -4px; /* Adjust the distance below the text */
+    height: 1.5px; /* Adjust the thickness of the underline */
+  }
+  
+    
+    svg {
+        width: 45px;
+        height: auto;
+    }
+
+    svg {
+        width: 33px;
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
   
 
 
@@ -14086,11 +14136,38 @@ video {
 }
 
 
+/* Für mobile Geräte (maximale Breite 600px) */
+@media only screen and (max-width: 600px) {
+    .scaling-container {
+        padding: 20px; /* Add padding here */
+    }
+}
 
 
 
 
 
+/* ------------------------ About Me Textformatierung ----------------------------------- */
 
 
+.einzug {
+    margin-left: 0px; 
+    /* transform: translateY(-1.7em); */
+}
+
+.bullet {
+    color: #BFABFF; 
+    font-size: 0px; 
+    display: inline-block;
+    vertical-align: middle; 
+    transform: translateY(-3px);
+}
   
+
+/* Für mobile Geräte (maximale Breite 600px) */
+@media only screen and (max-width: 600px) {
+    .einzug {
+        margin-left: 0px; 
+        transform: translateY(0);
+    }
+}
