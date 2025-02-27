@@ -246,8 +246,8 @@ body {
 
 body.dark {
     --mainColor: #ffffff;
-    --mainBackground: #151515;
-    --secondaryBackground: #252525;
+    --mainBackground: #090020;
+    --secondaryBackground: #191134;
 
 }
 
@@ -960,11 +960,12 @@ h4,
 
 h5,
 .text-h5 {
-    font-size: 27px;
-    line-height: 39px;
+    font-size: 30px;
+    line-height: 42px;
     margin-left: -1px;
     font-weight: 300;
     margin-bottom: 2em;
+    letter-spacing: 0.005em;
 }
 
 h6,
