@@ -1,11 +1,12 @@
 (function ($) {
     "use strict";
 
+
     gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, ScrollToPlugin, InertiaPlugin, ScrollSmoother, Flip);
 
     gsap.config({
-		nullTargetWarn: false
-	});
+        nullTargetWarn: false
+    });
 
     var mobileQuery = window.matchMedia('(max-width: 450px)');
 
@@ -35,7 +36,7 @@
                 supportsPassive = true;
             }
         }));
-    } catch (e) {}
+    } catch (e) { }
 
     var wheelOpt = supportsPassive ? {
         passive: false
@@ -121,9 +122,9 @@
 
 
             let xTo = gsap.quickTo(mouseCursor, "x", {
-                    duration: 0.01,
-                    ease: "power3"
-                }),
+                duration: 0.01,
+                ease: "power3"
+            }),
                 yTo = gsap.quickTo(mouseCursor, "y", {
                     duration: 0.01,
                     ease: "power3"
@@ -1479,7 +1480,7 @@
 
                 if ((st.pin != null) && (st.start <= 0)) {
                     topPin.push(st);
-              
+
                 }
 
             })
@@ -1510,8 +1511,8 @@
 
                     })
                 }
-                
-          
+
+
 
                 ScrollTrigger.create({
                     trigger: 'body',
@@ -2100,20 +2101,20 @@
     }
 
 
-// Add event listeners to menu items to close the fullscreen menu when clicked
-document.addEventListener('DOMContentLoaded', function() {
-    const menuItems = document.querySelectorAll('#site-navigation .menu li a');
+    // Add event listeners to menu items to close the fullscreen menu when clicked
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuItems = document.querySelectorAll('#site-navigation .menu li a');
 
-    // Function to close the fullscreen menu
-    function closeMenu() {
-        menuToggle($('#site-navigation.fullscreen_menu'));
-    }
+        // Function to close the fullscreen menu
+        function closeMenu() {
+            menuToggle($('#site-navigation.fullscreen_menu'));
+        }
 
-    // Add click event listener to each menu item
-    menuItems.forEach(item => {
-        item.addEventListener('click', closeMenu);
+        // Add click event listener to each menu item
+        menuItems.forEach(item => {
+            item.addEventListener('click', closeMenu);
+        });
     });
-});
 
 
 
@@ -4538,9 +4539,9 @@ document.addEventListener('DOMContentLoaded', function() {
             $this.on('mousemove', function (e) {
 
                 let xTo = gsap.quickTo(imagesWrap, "left", {
-                        duration: 0.6,
-                        ease: "power3"
-                    }),
+                    duration: 0.6,
+                    ease: "power3"
+                }),
                     yTo = gsap.quickTo(imagesWrap, "top", {
                         duration: 0.6,
                         ease: "power3"
@@ -6168,18 +6169,18 @@ document.addEventListener('DOMContentLoaded', function() {
             imagesWrap.find('.project-image').first().find('.fs-parallax-wrap').addClass('transition--media')
 
             var titlesSlider = new Swiper('.fc-slideshow-wrap', {
-                    slidesPerView: 'auto',
-                    centeredSlides: true,
-                    speed: 1500,
-                    noSwiping: true,
-                    slideToClickedSlide: true,
-                    allowTouchMove: false,
-                    mousewheel: {
-                        invert: false,
-                        eventsTarget: '.dragging-class'
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                speed: 1500,
+                noSwiping: true,
+                slideToClickedSlide: true,
+                allowTouchMove: false,
+                mousewheel: {
+                    invert: false,
+                    eventsTarget: '.dragging-class'
 
-                    }
-                }),
+                }
+            }),
                 interleaveOffset = 0.5,
                 imagesSlider = new Swiper('.fc-images-slider', {
                     slidesPerView: 1,
@@ -6583,8 +6584,8 @@ document.addEventListener('DOMContentLoaded', function() {
             function zoomIn(active) {
 
                 let state = Flip.getState(projects, {
-                        props: 'opacity, filter'
-                    }),
+                    props: 'opacity, filter'
+                }),
                     tl = gsap.timeline(),
                     left = positions[active.data('index')][1] - 25,
                     top = positions[active.data('index')][0] - 25;
@@ -6641,8 +6642,8 @@ document.addEventListener('DOMContentLoaded', function() {
             function zoomOut() {
 
                 let state = Flip.getState(projects, {
-                        props: 'opacity, filter'
-                    }),
+                    props: 'opacity, filter'
+                }),
                     tl = gsap.timeline();
 
                 projects.removeClass('active');
@@ -7213,9 +7214,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     switcher.removeClass('light-active');
                     switcher.addClass('dark-active');
-                    
-                       switchedDark = true;
-                switchedLight = false;
+
+                    switchedDark = true;
+                    switchedLight = false;
 
 
 
@@ -7241,9 +7242,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     switcher.removeClass('dark-active');
                     switcher.addClass('light-active');
-                    
-                       switchedDark = false;
-                switchedLight = true;
+
+                    switchedDark = false;
+                    switchedLight = true;
 
                 }
 
@@ -7483,354 +7484,243 @@ document.addEventListener('DOMContentLoaded', function() {
     naylaAddTocartButton()
 
 
-     function naylaLightboxGallery(gallery, items) {
+    function naylaLightboxGallery(gallery, items) {
 
-                let $items = $(items),
-                    $gallery = $(gallery),
-                    itemsLenght = $items.length,
-                    thumbsDragger, thumbsWheeler;
+        let $items = $(items),
+            $gallery = $(gallery),
+            itemsLenght = $items.length,
+            thumbsDragger, thumbsWheeler;
 
-                const $lightbox = $('<div>', {
-                        class: 'nayla-lightbox-hold',
-                        html: `
+        const $lightbox = $('<div>', {
+            class: 'nayla-lightbox-hold',
+            html: `
                     <div class="lightbox-overlay"></div>
                     <div class="lightbox-gal"></div>
                     <span class="active-hold"></span>
                     <div class="lightbox-close">CLOSE</div>
                     <div class="lightbox-fraction"><div class="lf-curr"></div><div class="lf-tot">${itemsLenght}</div></div>
                        `
-                    }),
-                    lightboxReset = $lightbox.html(),
-                    itemsState = Flip.getState($items, {
-                        props: 'padding , opacity, filter'
-                    });
+        }),
+            lightboxReset = $lightbox.html(),
+            itemsState = Flip.getState($items, {
+                props: 'padding , opacity, filter'
+            });
 
 
 
 
-                function createNav(range, length, index) {
+        function createNav(range, length, index) {
 
-                    let wrap = $('.lightbox-convert'),
-                        x = 0,
-                        result = 0,
-                        prevVal = [];
-
-
-                    for (x = 0; x < index; x++) {
-                        prevVal.push($('.thumb_' + x).outerWidth())
-                    }
-
-                    prevVal.length != 0 ? result = prevVal.reduce((a, b) => a + b, 0) : '';
-
-                    let curr = $('.thumb_' + index).outerWidth() / 2,
-                        currX = -result - curr;
-
-                    gsap.to(wrap, {
-                        x: currX,
-                        duration: 2,
-                        ease: 'expo.inOut',
-                    })
-
-                    const snaps = $items.map(function () {
-                        return -($(this).position().left + ($(this).outerWidth() / 2));
-                    }).get();
-
-                    function detectActive() {
-
-                        $items.each(function () {
-
-                            let $this = $(this),
-                                entrance = $this.offset().left,
-                                deadLine = $this.offset().left + $this.outerWidth(),
-                                center = $(window).outerWidth() / 2;
-
-                            entrance < center && center < deadLine ? $this.addClass('active') : $this.removeClass('active');
-
-                            let active = $('.grid--item.active').data('index');
-
-                            $('.lightbox-gal img').removeClass('active')
-                            $('.lb--img--' + active).addClass('active')
-
-                        })
-
-                        gsap.to('.active-hold', {
-                            width: $('.lightbox-thumb.active').outerWidth() - 13,
-                            duration: .35
-                        })
-
-                        // Update Fraction
-                        $lightbox.find('.lf-curr').html($('.lightbox-thumb.active').data('index') + 1)
-
-                    }
+            let wrap = $('.lightbox-convert'),
+                x = 0,
+                result = 0,
+                prevVal = [];
 
 
+            for (x = 0; x < index; x++) {
+                prevVal.push($('.thumb_' + x).outerWidth())
+            }
 
-                    // NavbyDrag
-                    thumbsDragger = Draggable.create(wrap, {
-                        type: 'x',
-                        bounds: {
-                            minX: -$items.first().outerWidth() / 2,
-                            maxX: -range + ($items.last().outerWidth() / 2)
-                        },
-                        lockAxis: true,
-                        inertia: true,
-                        zIndexBoost: false,
-                        id: 'lightboxThumbs',
-                        snap: snaps,
-                        onDrag: () => detectActive(),
-                        onThrowUpdate: () => detectActive()
-                    });
-                    thumbsDragger[0].disable();
+            prevVal.length != 0 ? result = prevVal.reduce((a, b) => a + b, 0) : '';
 
+            let curr = $('.thumb_' + index).outerWidth() / 2,
+                currX = -result - curr;
 
+            gsap.to(wrap, {
+                x: currX,
+                duration: 2,
+                ease: 'expo.inOut',
+            })
 
-                    //NavbyWheel
-                    thumbsWheeler = Hamster(document.querySelector('.nayla-lightbox-hold'));
-                    var xVal = currX;
+            const snaps = $items.map(function () {
+                return -($(this).position().left + ($(this).outerWidth() / 2));
+            }).get();
 
-                    thumbsWheeler.wheel(function (event, delta, deltaX, deltaY) {
+            function detectActive() {
 
-                        detectActive();
-                        thumbsDragger[0].update();
-
-                        xVal += event.deltaY * 1.1;
-                        xVal = Math.min(Math.max(-range + ($items.last().outerWidth() / 2), xVal), -$items.first().outerWidth() / 2);
-
-                        gsap.to(wrap, {
-                            x: xVal,
-                            onComplete: () => {
-                                gsap.to(wrap, {
-                                    x: gsap.utils.snap(snaps, xVal),
-                                })
-                            }
-                        })
-                    });
-
-                    //NavbyClick
-                    //            $items.on('click', function () {
-                    //
-                    //                if ($gallery.hasClass('lightbox-active')) {
-                    //                    
-                    //                    
-                    //                    gsap.to(wrap, {
-                    //                        x: -($(this).position().left + ($(this).outerWidth() / 2)),
-                    //                        duration: 1,
-                    //                        ease: 'expo.inOut',
-                    //                        onUpdate: () => {
-                    //                            detectActive();
-                    //                            thumbsDragger[0].update();
-                    //                        }
-                    //                    })
-                    //
-                    //                }
-                    //
-                    //            })
-
-
-                }
-
-                $(items).each(function (i) {
+                $items.each(function () {
 
                     let $this = $(this),
-                        img = $this.find('img'),
-                        cl = $(items).find('img').clone();
+                        entrance = $this.offset().left,
+                        deadLine = $this.offset().left + $this.outerWidth(),
+                        center = $(window).outerWidth() / 2;
 
-                    $this.attr('data-index', i);
-                    $this.addClass('thumb_' + i);
+                    entrance < center && center < deadLine ? $this.addClass('active') : $this.removeClass('active');
 
+                    let active = $('.grid--item.active').data('index');
 
-                    $this.on('click', () => {
-
-                        if (!$gallery.hasClass('lightbox-active')) {
-                            $this.addClass('active');
-                            //Resets
-                            disableScroll();
-                            gsap.killTweensOf($items);
-                            $('body').append($lightbox);
-                            $gallery.addClass('lightbox-active');
-
-                            setTimeout(function () {
-                                cl.appendTo('.lightbox-gal');
-
-                                $('.lightbox-gal').find('img').each(function (i) {
-                                    $(this).addClass('lb--img--' + i);
-                                });
-                                $lightbox.find('.lf-curr').html(i + 1)
-
-                            })
-
-                            let itemIndex = $(this).data('index');
-
-                            $gallery.addClass('lightbox-convert');
-
-                            gsap.set($gallery.parents('.elementor-section'), {
-                                zIndex: 999999,
-                                pointerEvents: 'none'
-                            })
-
-                            $items.addClass('lightbox-thumb');
-
-                            const result = $items.toArray().reduce((a, item) => a + Math.floor($(item).outerWidth()), 10);
-
-                            gsap.to('.active-hold', {
-                                width: $this.outerWidth() - 9,
-                                duration: 1
-                            })
-
-                            createNav(result, 18, itemIndex)
-
-
-                            lightboxAnim('in')
-
-                            Flip.from(itemsState, {
-                                duration: 2,
-                                ease: 'expo.inOut',
-                                absolute: true,
-                                onStart: () => {
-                                    setTimeout(function () {
-                                        let activeImage = $('.lb--img--' + $this.data('index'));
-                                        activeImage.addClass('active');
-
-                                        gsap.fromTo(activeImage, {
-                                            clipPath: 'inset(100% 0% 0% 0%)',
-                                            scale: .5
-                                        }, {
-                                            clipPath: 'inset(0% 0% 0% 0%)',
-                                            delay: 1.6,
-                                            scale: .5,
-                                            duration: 1.5,
-                                            ease: 'expo.out',
-                                            onComplete: () => {
-                                                gsap.to(activeImage, {
-                                                    scale: 1,
-                                                    duration: 1,
-                                                    ease: 'expo.inOut',
-                                                    onComplete: () => {
-                                                        gsap.set('body', {
-                                                            clearProps: 'cursor'
-                                                        })
-                                                    }
-                                                })
-                                            }
-
-                                        })
-
-                                    })
-
-                                },
-                                onComplete: () => {
-                                    $lightbox.find('.lightbox-close').on('click', () => closeLightBox())
-                                }
-
-                            });
-
-
-                        }
-
-
-                    })
-
+                    $('.lightbox-gal img').removeClass('active')
+                    $('.lb--img--' + active).addClass('active')
 
                 })
 
+                gsap.to('.active-hold', {
+                    width: $('.lightbox-thumb.active').outerWidth() - 13,
+                    duration: .35
+                })
 
-                function lightboxAnim(direction) {
+                // Update Fraction
+                $lightbox.find('.lf-curr').html($('.lightbox-thumb.active').data('index') + 1)
 
-                    let tl = gsap.timeline({
-                            onStart: () => {
-                                $('body').css('cursor', 'wait')
-                            },
-                        }),
-                        lightbox = $lightbox,
-                        overlay = lightbox.find('.lightbox-overlay');
+            }
 
-                    if (direction === 'in') {
 
-                        tl.to(overlay, {
-                            height: '100%',
-                            duration: 1.5,
-                            ease: 'expo.out',
-                            delay: 1,
-                            onComplete: () => {
-                                $lightbox.addClass('active');
-                                thumbsDragger[0].enable();
-                            }
+
+            // NavbyDrag
+            thumbsDragger = Draggable.create(wrap, {
+                type: 'x',
+                bounds: {
+                    minX: -$items.first().outerWidth() / 2,
+                    maxX: -range + ($items.last().outerWidth() / 2)
+                },
+                lockAxis: true,
+                inertia: true,
+                zIndexBoost: false,
+                id: 'lightboxThumbs',
+                snap: snaps,
+                onDrag: () => detectActive(),
+                onThrowUpdate: () => detectActive()
+            });
+            thumbsDragger[0].disable();
+
+
+
+            //NavbyWheel
+            thumbsWheeler = Hamster(document.querySelector('.nayla-lightbox-hold'));
+            var xVal = currX;
+
+            thumbsWheeler.wheel(function (event, delta, deltaX, deltaY) {
+
+                detectActive();
+                thumbsDragger[0].update();
+
+                xVal += event.deltaY * 1.1;
+                xVal = Math.min(Math.max(-range + ($items.last().outerWidth() / 2), xVal), -$items.first().outerWidth() / 2);
+
+                gsap.to(wrap, {
+                    x: xVal,
+                    onComplete: () => {
+                        gsap.to(wrap, {
+                            x: gsap.utils.snap(snaps, xVal),
                         })
-
-                    } else if (direction === 'out') {
-
-                        tl.to(lightbox, {
-                            clipPath: 'inset(0% 0% 100% 0%)',
-                            duration: 1,
-                            ease: 'expo.inOut',
-                            onStart: () => {
-                                $gallery.css('zIndex', 9999999999999);
-                                thumbsDragger[0].disable();
-
-                            },
-                            onComplete: () => {
-                                gsap.set(lightbox, {
-                                    clearProps: 'all'
-                                })
-                                lightbox.find('img').removeClass('active');
-                                lightbox.html(lightboxReset)
-                                lightbox.removeClass('active')
-                                lightbox.remove();
-                                gsap.set($gallery, {
-                                    clearProps: 'all'
-                                })
-
-                            }
-                        })
-
-
                     }
+                })
+            });
+
+            //NavbyClick
+            //            $items.on('click', function () {
+            //
+            //                if ($gallery.hasClass('lightbox-active')) {
+            //                    
+            //                    
+            //                    gsap.to(wrap, {
+            //                        x: -($(this).position().left + ($(this).outerWidth() / 2)),
+            //                        duration: 1,
+            //                        ease: 'expo.inOut',
+            //                        onUpdate: () => {
+            //                            detectActive();
+            //                            thumbsDragger[0].update();
+            //                        }
+            //                    })
+            //
+            //                }
+            //
+            //            })
 
 
-                }
+        }
+
+        $(items).each(function (i) {
+
+            let $this = $(this),
+                img = $this.find('img'),
+                cl = $(items).find('img').clone();
+
+            $this.attr('data-index', i);
+            $this.addClass('thumb_' + i);
 
 
-                function closeLightBox() {
+            $this.on('click', () => {
 
+                if (!$gallery.hasClass('lightbox-active')) {
+                    $this.addClass('active');
+                    //Resets
+                    disableScroll();
+                    gsap.killTweensOf($items);
+                    $('body').append($lightbox);
+                    $gallery.addClass('lightbox-active');
 
-                    thumbsDragger[0].kill()
-                    thumbsWheeler.unwheel();
+                    setTimeout(function () {
+                        cl.appendTo('.lightbox-gal');
 
-                    enableScroll()
-                    const itemsNewState = Flip.getState($items, {
-                        props: 'padding , opacity, filter'
-                    });
-
-                    lightboxAnim('out')
-
-                    $gallery.removeClass('lightbox-convert');
-                    $gallery.removeClass('lightbox-active');
-                    $items.removeClass('lightbox-thumb active');
-
-
-                    gsap.to($gallery, {
-                        x: 0,
-                        duration: 2,
-                        ease: 'expo.inOut',
+                        $('.lightbox-gal').find('img').each(function (i) {
+                            $(this).addClass('lb--img--' + i);
+                        });
+                        $lightbox.find('.lf-curr').html(i + 1)
 
                     })
 
+                    let itemIndex = $(this).data('index');
+
+                    $gallery.addClass('lightbox-convert');
+
+                    gsap.set($gallery.parents('.elementor-section'), {
+                        zIndex: 999999,
+                        pointerEvents: 'none'
+                    })
+
+                    $items.addClass('lightbox-thumb');
+
+                    const result = $items.toArray().reduce((a, item) => a + Math.floor($(item).outerWidth()), 10);
+
+                    gsap.to('.active-hold', {
+                        width: $this.outerWidth() - 9,
+                        duration: 1
+                    })
+
+                    createNav(result, 18, itemIndex)
 
 
-                    Flip.from(itemsNewState, {
+                    lightboxAnim('in')
+
+                    Flip.from(itemsState, {
                         duration: 2,
-
                         ease: 'expo.inOut',
                         absolute: true,
-                        onComplete: () => {
-                            gsap.set('body', {
-                                clearProps: 'cursor'
-                            });
+                        onStart: () => {
+                            setTimeout(function () {
+                                let activeImage = $('.lb--img--' + $this.data('index'));
+                                activeImage.addClass('active');
 
-                            gsap.set($gallery.parents('.elementor-section'), {
-                                clearProps: 'all'
+                                gsap.fromTo(activeImage, {
+                                    clipPath: 'inset(100% 0% 0% 0%)',
+                                    scale: .5
+                                }, {
+                                    clipPath: 'inset(0% 0% 0% 0%)',
+                                    delay: 1.6,
+                                    scale: .5,
+                                    duration: 1.5,
+                                    ease: 'expo.out',
+                                    onComplete: () => {
+                                        gsap.to(activeImage, {
+                                            scale: 1,
+                                            duration: 1,
+                                            ease: 'expo.inOut',
+                                            onComplete: () => {
+                                                gsap.set('body', {
+                                                    clearProps: 'cursor'
+                                                })
+                                            }
+                                        })
+                                    }
+
+                                })
+
                             })
 
+                        },
+                        onComplete: () => {
+                            $lightbox.find('.lightbox-close').on('click', () => closeLightBox())
                         }
 
                     });
@@ -7839,7 +7729,118 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
 
+            })
+
+
+        })
+
+
+        function lightboxAnim(direction) {
+
+            let tl = gsap.timeline({
+                onStart: () => {
+                    $('body').css('cursor', 'wait')
+                },
+            }),
+                lightbox = $lightbox,
+                overlay = lightbox.find('.lightbox-overlay');
+
+            if (direction === 'in') {
+
+                tl.to(overlay, {
+                    height: '100%',
+                    duration: 1.5,
+                    ease: 'expo.out',
+                    delay: 1,
+                    onComplete: () => {
+                        $lightbox.addClass('active');
+                        thumbsDragger[0].enable();
+                    }
+                })
+
+            } else if (direction === 'out') {
+
+                tl.to(lightbox, {
+                    clipPath: 'inset(0% 0% 100% 0%)',
+                    duration: 1,
+                    ease: 'expo.inOut',
+                    onStart: () => {
+                        $gallery.css('zIndex', 9999999999999);
+                        thumbsDragger[0].disable();
+
+                    },
+                    onComplete: () => {
+                        gsap.set(lightbox, {
+                            clearProps: 'all'
+                        })
+                        lightbox.find('img').removeClass('active');
+                        lightbox.html(lightboxReset)
+                        lightbox.removeClass('active')
+                        lightbox.remove();
+                        gsap.set($gallery, {
+                            clearProps: 'all'
+                        })
+
+                    }
+                })
+
+
             }
+
+
+        }
+
+
+        function closeLightBox() {
+
+
+            thumbsDragger[0].kill()
+            thumbsWheeler.unwheel();
+
+            enableScroll()
+            const itemsNewState = Flip.getState($items, {
+                props: 'padding , opacity, filter'
+            });
+
+            lightboxAnim('out')
+
+            $gallery.removeClass('lightbox-convert');
+            $gallery.removeClass('lightbox-active');
+            $items.removeClass('lightbox-thumb active');
+
+
+            gsap.to($gallery, {
+                x: 0,
+                duration: 2,
+                ease: 'expo.inOut',
+
+            })
+
+
+
+            Flip.from(itemsNewState, {
+                duration: 2,
+
+                ease: 'expo.inOut',
+                absolute: true,
+                onComplete: () => {
+                    gsap.set('body', {
+                        clearProps: 'cursor'
+                    });
+
+                    gsap.set($gallery.parents('.elementor-section'), {
+                        clearProps: 'all'
+                    })
+
+                }
+
+            });
+
+
+        }
+
+
+    }
 
     function naylaDynamicGrid() {
 
@@ -10685,7 +10686,7 @@ document.addEventListener('DOMContentLoaded', function() {
         siteNavigation();
         naylaScrollButtons();
         layoutSwitcher();
-        
+
         ScrollTrigger.refresh(true); // <- This time is in seconds;
 
         let loader = gsap.getById("innerTl");
@@ -11164,8 +11165,8 @@ document.addEventListener('DOMContentLoaded', function() {
         media.addClass('animating');
 
         let state = Flip.getState(media, {
-                props: 'top, left, right, bottom, x, y, maxWidth, maxHeight'
-            }),
+            props: 'top, left, right, bottom, x, y, maxWidth, maxHeight'
+        }),
             height = media.outerHeight(),
             width = media.outerWidth();
 
@@ -11361,8 +11362,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
 
         tl.to([slides, '.sfc-fraction', '.showcase-footer', '.project-button'], {
-                opacity: 0
-            }, 0),
+            opacity: 0
+        }, 0),
 
             tl.to('.fc_char', {
                 yPercent: -100,
@@ -12571,7 +12572,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //         			         'link[rel="canonical"]',
     //         			         'link[rel="alternate"]',
     //         			         'link[rel="shortlink"]',
-	// 							'link[id*="google-fonts"]',
+    // 							'link[id*="google-fonts"]',
     //                             'style[id*="nayla-body-styles"]'
     //         ].join(',');
     //     $(response).remove();
@@ -12604,7 +12605,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //     }
 
     //     if (switchedLight == true) {
-            
+
     //         $('body').removeClass('dark')
     //         $('body').addClass('light')
     //     }
@@ -12614,9 +12615,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //     $('body').attr('style', bodyStyles);
 
     //     $('.site-header').attr('class', headerClasses);
-        
+
     //     if (!$('.site-header').hasClass('blend')) {
-            
+
     //                 if (switchedDark == true) {
 
     //         headerLight = true;
@@ -12626,7 +12627,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //         $('.site-header').addClass('light')
 
     //     } else if (switchedLight == true) {
-            
+
     //            headerLight = false;
     //         headerDark = true;
 
@@ -12634,8 +12635,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //         $('.site-header').addClass('dark')
 
     //     }
-            
-            
+
+
     //     }
 
 
@@ -12716,6 +12717,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// ---------------- Soft Scroll Animation Anchor -----------------------
+
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        var target = this.hash;
+        var $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 2000, 'easeInOutQuart', function () {
+            window.location.hash = target;
+        });
+    });
+
+
+
 
 }(jQuery));
 
@@ -12725,15 +12741,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -12748,5 +12756,36 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(container);
     });
 });
+
+
+
+
+
+
+// ---------------- Hide Mouse Cursor when Hovering over Video -----------------------
+
+
+let mouseCursor = document.querySelector(".dot");
+let iframes = document.querySelectorAll("iframe");
+
+
+iframes.forEach(frame => {
+
+
+    frame.addEventListener("mouseleave", () => {
+
+        mouseCursor.classList.remove("hide");
+    });
+
+    frame.addEventListener("mouseover", () => {
+
+        mouseCursor.classList.add("hide");
+    });
+
+});
+
+
+
+
 
 

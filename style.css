@@ -92,6 +92,8 @@ video {
     font: inherit;
     vertical-align: baseline;
     cursor: none; 
+    scroll-behavior: smooth !important;
+
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -111,7 +113,7 @@ section {
 
 body {
     line-height: 1;
-
+    scroll-behavior: smooth !important;
 }
 
 html.loading {
@@ -13962,10 +13964,6 @@ video {
   }
 
 
-
-
-
-
   /* Define default styles for .super-hover */
 .super-hover-fett-clean {
     transition: color 0.6s ease; /* Smooth transition over 0.3 seconds */
@@ -14035,7 +14033,6 @@ video {
 
 
 
-
 .rive-canvas {
     width: 250px;
     transform: translate(-20px, -24px);
@@ -14054,7 +14051,6 @@ video {
 
 
 /* ------------------------ Titelanimation ----------------------------------- */
-
 
 
 
@@ -14172,3 +14168,37 @@ video {
         transform: translateY(0);
     }
 }
+
+
+
+/* ------------------------ Style Video Player ----------------------------------- */
+
+
+
+/* Hide the Picture-in-Picture button */
+video::-internal-media-controls-picture-in-picture-button {
+    display: none;
+}
+
+/* Hide the Enhance button */
+video::-internal-media-controls-overlay-cast-button {
+    display: none;
+}
+
+
+
+
+
+
+/* ------------------------ Hide Mouse Cursor when Hovering over Video ----------------------------------- */
+
+.hide {
+    display: none !important;
+  }
+  
+  @media (max-width: 768px){
+    .cursor {
+      display: none;
+        
+    } 
+  }
