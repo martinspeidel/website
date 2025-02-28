@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1768.46 1768.46">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bfabff;
+      }
+
+      .cls-2 {
+        fill: #090020;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="761.6" width="245.26" height="1768.46"/>
+  <rect class="cls-1" x="761.6" y="0" width="245.26" height="1768.46" transform="translate(2092.12 1207.88) rotate(150)"/>
+  <rect class="cls-1" x="761.6" y="0" width="245.26" height="1768.46" transform="translate(560.58 -323.65) rotate(30)"/>
+  <rect class="cls-1" x="761.6" y="0" width="245.26" height="1768.46" transform="translate(1207.88 -323.65) rotate(60)"/>
+  <rect class="cls-1" x="761.6" y="0" width="245.26" height="1768.46" transform="translate(1768.46 0) rotate(90)"/>
+  <rect class="cls-1" x="761.6" y="0" width="245.26" height="1768.46" transform="translate(2092.12 560.58) rotate(120)"/>
+  <g>
+    <g id="Ellipse_1" data-name="Ellipse 1">
+      <ellipse class="cls-2" cx="951.91" cy="776.97" rx="47.23" ry="87.51"/>
+    </g>
+    <g id="Ellipse_1-2" data-name="Ellipse 1">
+      <ellipse class="cls-2" cx="779.67" cy="776.97" rx="47.23" ry="87.51"/>
+    </g>
+    <g id="Shape_1" data-name="Shape 1">
+      <path class="cls-2" d="M865.79,1067.28c-101.57,0-163.23-48.74-197.06-89.63-36.34-43.9-48.78-88-49.29-89.86-3.67-13.31,4.14-27.08,17.45-30.75,13.29-3.67,27.03,4.11,30.73,17.38,1.69,5.96,42.33,142.85,198.17,142.85,163.51,0,199.38-128.6,200.83-134.07,3.52-13.31,17.14-21.32,30.47-17.87,13.32,3.46,21.36,16.98,17.97,30.31-.46,1.79-11.6,44.4-48.02,86.58-33.51,38.8-95.63,85.06-201.24,85.06Z"/>
+    </g>
+  </g>
+</svg>
