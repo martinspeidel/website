@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 995.57 499.04">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #bfabff;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_3" data-name="Ebene 3">
+    <path class="cls-1" d="M0,248.43S220.44.5,497.53.5s498.04,247.93,498.04,247.93c0,0-224.08,250.11-497.79,250.11S0,248.43,0,248.43Z"/>
+    <path class="cls-2" d="M712.85,450.41c49.17-52.59,79.28-123.22,79.28-200.89s-30.71-149.74-80.77-202.49C646.72,19.53,574.28.5,497.53.5s-148.37,18.82-212.68,46.08c-50.3,52.79-81.18,124.26-81.18,202.94s30.17,148.45,79.43,201.05c65.1,28.3,137.94,47.97,214.69,47.97s149.87-19.74,215.06-48.13Z"/>
+  </g>
+  <g id="Ebene_4" data-name="Ebene 4">
+    <circle cx="498.26" cy="249.06" r="131.98"/>
+  </g>
+  <g id="Ebene_5" data-name="Ebene 5">
+    <rect class="cls-1" x="321.77" y="89.72" width="113.44" height="113.44" rx="10.49" ry="10.49" transform="translate(214.4 -224.74) rotate(45)"/>
+  </g>
+</svg>
