@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bewegliches Bild mit skalierbarer Raute</title>
+<style>
+  body, html {
+    height: 200vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    font-family: sans-serif;
+  }
+  
+  .outer-wrapper {
+        height: 200vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    font-family: sans-serif;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .mask-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transform-origin: center center;
+  }
+  
+  .portrait-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    overflow: hidden;
+  }
+  
+  .portrait {
+    width: 100%;
+    height: 200%;
+
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    will-change: transform;
+    transform: scale(2.1) translate(10px, -100px);
+  }
+</style>
+</head>
+<body>
+
+<div class="outer-wrapper">
+  <div class="mask-container" id="container">
+    <!-- Bewegliches Bild -->
+    <div class="portrait-wrapper">
+      <img src="img/portrait.jpg" 
+         alt="Portrait" 
+         class="portrait" 
+         id="portrait">
+    </div>
+  </div>
+</div>
+
+<script>
+  const portrait = document.getElementById('portrait');
+  const container = document.getElementById('container');
+  let currentY = 0;
+  let targetY = 0;
+  let animationId = null;
+  let isHovering = false;
+  const scaleFactor = 1.12;
+
+  // Parallax-Scrolling mit Dämpfung
+  function onScroll() {
+    targetY = window.scrollY * 0.1 - 100;
+    if (!animationId) {
+      animationId = requestAnimationFrame(updatePosition);
+    }
+  }
+
+  function updatePosition() {
+    currentY += (targetY - currentY - 100) * 0.1;
+    
+    // Apply scroll transform only when not hovering
+    if (!isHovering) {
+      portrait.style.transform = `scale(1.1) translate(10px, 10px) translateY(${currentY}px)`;
+    }
+    
+    if (Math.abs(targetY - currentY) > 0.5) {
+      animationId = requestAnimationFrame(updatePosition);
+    } else {
+      animationId = null;
+    }
+  }
+
+  // Scale the container (and diamond) while keeping content properly sized
+  container.addEventListener('mouseenter', () => {
+    isHovering = true;
+    container.style.transform = `scale(${scaleFactor})`;
+    // Keep portrait with base scale, offset, and adjusted scroll position
+    portrait.style.transform = `scale(1.1) translate(10px, 10px) translateY(${currentY / scaleFactor}px)`;
+  });
+  
+  container.addEventListener('mouseleave', () => {
+    isHovering = false;
+    container.style.transform = 'scale(1)';
+    // Return to normal scroll transform with base scale and offset
+    portrait.style.transform = `scale(1.1) translate(10px, 10px) translateY(${currentY}px)`;
+  });
+
+  window.addEventListener('scroll', onScroll);
+</script>
+
+</body>
+</html>
