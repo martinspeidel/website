@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     <!-- Page Title -->
-    <title>Martin Speidel Motion Design</title>
+    <title>Martin Speidel Motion Design → Brand-focused specialist for cutting edge 2D motion graphics</title>
     <!--/ Page Title -->
 
     <meta name="author" content="Martin Speidel">
@@ -57,7 +57,7 @@
 
 
                         <a href="index.html" class="no-barba">
-                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="7500px"></canvas>
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="11500px"></canvas>
                         </a>
 
                         <script>
@@ -69,25 +69,36 @@
                                 onLoad: () => {
                                     r.resizeDrawingSurfaceToCanvas();
                                     const inputs = r.stateMachineInputs("logo");
-                    
                                     const xInput = inputs.find(input => input.name === "xAxis");
                                     const yInput = inputs.find(input => input.name === "yAxis");
                                     const hoverInput = inputs.find(input => input.name === "linkHover");
-                    
+                                    const linkWorldInput = inputs.find(input => input.name === "linkWorld");
+
                                     const maxWidth = window.innerWidth;
                                     const maxHeight = window.innerHeight;
-                    
-                                    window.addEventListener("mousemove", function(e) {
+
+                                    window.addEventListener("mousemove", function (e) {
                                         xInput.value = (e.x / maxWidth) * 100;
                                         yInput.value = 100 - (e.y / maxHeight) * 100;
                                     });
-                    
+
                                     document.querySelectorAll('a').forEach(link => {
                                         link.addEventListener('mouseenter', () => {
-                                            hoverInput.value = true;
+                                            if (link.target === "_blank" || link.href.startsWith("mailto:")) {
+                                                // Trigger linkWorld state for links that open in new tab or mailto links
+                                                linkWorldInput.value = true;
+                                            } else {
+                                                // Trigger regular linkHover for other links
+                                                hoverInput.value = true;
+                                            }
                                         });
+
                                         link.addEventListener('mouseleave', () => {
-                                            hoverInput.value = false;
+                                            if (link.target === "_blank" || link.href.startsWith("mailto:")) {
+                                                linkWorldInput.value = false;
+                                            } else {
+                                                hoverInput.value = false;
+                                            }
                                         });
                                     });
                                 },
