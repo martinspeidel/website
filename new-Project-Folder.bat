@@ -1,0 +1,7 @@
+MD "P2600X-XXX-Client-Project"
+MD "P2600X-XXX-Client-Project/_in"
+MD "P2600X-XXX-Client-Project/_out"
+MD "P2600X-XXX-Client-Project/AI"
+MD "P2600X-XXX-Client-Project/AE"
+MD "P2600X-XXX-Client-Project/INDD"
+MD "P2600X-XXX-Client-Project/C4D"
