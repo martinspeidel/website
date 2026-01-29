@@ -9407,12 +9407,14 @@ span.active-hold {
 }
 
 .nayla-clients-grid .client .client-caption {
+    white-space: nowrap;
     position: absolute;
-    bottom: 0;
+
+    bottom: -40px;
     left: 50%;
-    -webkit-transform: translate(-50%, 100%);
-    -ms-transform: translate(-50%, 100%);
-    transform: translate(-50%, 100%);
+    -webkit-transform: translate(-50%, 20%);
+    -ms-transform: translate(-50%, 20%);
+    transform: translate(-50%, 20%);
     opacity: 0;
     -webkit-transition: all .3s ease-out;
     -o-transition: all .3s ease-out;
@@ -9420,15 +9422,17 @@ span.active-hold {
 }
 
 .nayla-clients-grid .client:hover .client-caption {
+    white-space: nowrap;
     opacity: 1;
-    -webkit-transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, -20%);
+    -ms-transform: translate(-50%, -20%);
+    transform: translate(-50%, -20%);
 }
 
 .nayla-clients-grid .client a {
     text-decoration: none;
     color: var(--mainColor);
+        max-width: 500px;
 }
 
 .nayla-clients-grid .client a img {
@@ -9443,19 +9447,21 @@ span.active-hold {
 
 .nayla-clients-grid.bordered .client {
     height: 250px;
-    outline-color: rgb(0 0 0 / 20%);
-    outline-width: 1px;
+    outline-color: rgb(0 0 0 / 100%);
+    outline-width: 0px;
     outline-style: solid;
 }
 
 .light .nayla-clients-grid.bordered .client {
-    outline-color: rgb(255 255 255 / 10%);
+
+        border: 0px solid #505050;
+
 }
 
 .nayla-clients-grid.bordered .client:hover .client-caption {
-    -webkit-transform: translate(-50%, -150%);
-    -ms-transform: translate(-50%, -150%);
-    transform: translate(-50%, -150%);
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%);
 }
 
 /** Awards Table
@@ -11649,8 +11655,8 @@ ul.menu.social-menu li a::after {
     content: "";
     width: 100%;
     height: 1px;
-    background: var(--mainColor);
-    opacity: 0.1;
+    background: #505050;
+    opacity: 1;
     bottom: 0;
     left: 0;
     -webkit-transition: width 1s ease-out;
@@ -11716,7 +11722,8 @@ ul.menu.social-menu li a::after {
 }
 
 .nayla-accordion .accordion-item .accordion-title.detect-pov.is-inview .accordion-toggle {
-    opacity: .3;
+    opacity: 1;
+    color: #bfabff;
     margin-top: -1em
 }
 
@@ -14184,6 +14191,10 @@ video::-internal-media-controls-picture-in-picture-button {
 video::-internal-media-controls-overlay-cast-button {
     display: none;
 }
+
+
+
+
 
 
 

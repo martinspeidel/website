@@ -4346,8 +4346,9 @@
                         trigger: mainWrap,
                         scrub: 1,
                         pin: true,
-                        start: 'top top',
-                        end: end,
+                        start: 'top top 80%',
+                                                end: 'bottom',
+                        // end: end,
                         id: 'showcaseWallScroll'
                     }
                 });
@@ -4431,7 +4432,7 @@
 
                 $this.attr('data-index', i);
 
-                $this.prepend('<span class="project-index">' + i + '</span>')
+                // $this.prepend('<span class="project-index">' + i + '</span>')
 
                 image.addClass('image_' + i)
 

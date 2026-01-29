@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Page Title -->
+    <title>Martin Speidel Motion Design → Brand-focused specialist for cutting edge 2D motion graphics</title>
+    <!--/ Page Title -->
+
+    <meta name="author" content="Martin Speidel">
+    <meta name="description" content="Martin Speidel – Brand-focused specialist for cutting edge 2D motion graphics">
+    <meta name="keywords"
+        content="Martin Speidel, Portfolio, Motion Graphics, Motion Design, After Effects, Hamburg, Design,">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/logos.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gumlet/[email protected]/dist/player.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <!--/ Favicons -->
+
+</head>
+
+
+<body class="dark smooth-scroll">
+
+
+    <!-- Mouse Cursor -->
+    <div id="mouseCursor" class="dot"></div>
+    <!--/ Mouse Cursor -->
+
+
+    <!-- Page -->
+    <div id="start">
+
+        <div class="menu-overlay"></div>
+
+        <!-- Site Header -->
+        <div id="header" class="site-header fixed light">
+
+            <!-- Header Wrapper -->
+            <div class="header-wrapper wrapper-full">
+
+                <div class="c-col-4 sm-8">
+
+                    <!-- --------------------------------------------------------------- Logo ------------------------------------------------------------ -->
+
+                    <div class="site-branding" style="transform:translate(-33px,15px); width: 332px;">
+
+
+                        <a href="index.html" class="no-barba">
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="11500px"></canvas>
+                        </a>
+
+                        <script>
+                            const r = new rive.Rive({
+                                src: "riv/logo.riv",
+                                canvas: document.getElementById("rive-canvas"),
+                                autoplay: true,
+                                stateMachines: "logo",
+                                onLoad: () => {
+                                    r.resizeDrawingSurfaceToCanvas();
+                                    const inputs = r.stateMachineInputs("logo");
+                                    const xInput = inputs.find(input => input.name === "xAxis");
+                                    const yInput = inputs.find(input => input.name === "yAxis");
+                                    const hoverInput = inputs.find(input => input.name === "linkHover");
+                                    const linkWorldInput = inputs.find(input => input.name === "linkWorld");
+
+                                    const maxWidth = window.innerWidth;
+                                    const maxHeight = window.innerHeight;
+
+                                    window.addEventListener("mousemove", function (e) {
+                                        xInput.value = (e.x / maxWidth) * 100;
+                                        yInput.value = 100 - (e.y / maxHeight) * 100;
+                                    });
+
+                                    document.querySelectorAll('a').forEach(link => {
+                                        link.addEventListener('mouseenter', () => {
+                                            if (link.target === "_blank" || link.href.startsWith("mailto:")) {
+                                                // Trigger linkWorld state for links that open in new tab or mailto links
+                                                linkWorldInput.value = true;
+                                            } else {
+                                                // Trigger regular linkHover for other links
+                                                hoverInput.value = true;
+                                            }
+                                        });
+
+                                        link.addEventListener('mouseleave', () => {
+                                            if (link.target === "_blank" || link.href.startsWith("mailto:")) {
+                                                linkWorldInput.value = false;
+                                            } else {
+                                                hoverInput.value = false;
+                                            }
+                                        });
+                                    });
+                                },
+                                background: "transparent"
+                            });
+                        </script>
+
+
+                    </div>
+                </div>
+
+
+
+                <!-- --------------------------------------------------------------- Menu ------------------------------------------------------------ -->
+
+                <div class="c-col-4 hide-mobile"></div>
+
+                <div class="c-col-4 sm-4 align-right ">
+
+                    <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
+                        <a href="https://login.martinspeidel.info/" target="_blank"
+                            class="super-hover no-barba hide-mobile"
+                            style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Client login</a>
+                    </div>
+
+                    <!--  Menu Toggle -->
+                    <div class="menu-toggle" style="transform:translate(0px,-26px);">
+
+                        <div class="toggle-lines">
+                            <div class="toggle-line"></div>
+                            <div class="toggle-line"></div>
+                        </div>
+
+                    </div>
+                    <!--/  Menu Toggle -->
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- --------------------------------------------------------------- Fullscreen Menu ------------------------------------------------------------ -->
+
+            <div id="site-navigation" class="fullscreen_menu fullscreen fullscreen-menu-wrapper">
+
+                <div class="wrapper-full-centered">
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-3"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+                    <div class="c-col-9 sm-12">
+
+                        <!-- Main Menu -->
+                        <ul class="menu">
+
+                            <li><a href="index.html" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Home</a></li>
+                            <li><a href="https://vimeo.com/1061331237" target="_blank" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
+                            <li><a href="tools.html" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Tools</a></li>
+                            <li><a href="mailto:hello@martinspeidel.info" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">E-Mail</a></li>
+
+                        </ul>
+                        <!--/ Main Menu -->
+
+                    </div>
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-2 hide-mobile"></div>
+                    <div class="c-col-2 hide-desktop" style="padding-bottom: 60px;"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+
+                    <!-- Fullscreen Menu Bottom -->
+
+                    <div class="fullscreen-menu-wrap-bottom">
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-3 hide-mobile"> </div>
+                        <!--/ Empty Column (For Spacing) -->
+
+                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=.2>
+
+                        </div>
+
+                    </div>
+                    <!--/ Fullscreen Menu Bottom -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Empty Space -->
+        <span class="empty-space hide-mobile" style="height: 10px; "></span>
+        <span class="empty-space hide-desktop" style="height: 20px; "></span>
+        <!--/ Empty Space -->
+
+
+
+
+        <!-- --------------------------------------------------------------- Main ------------------------------------------------------------ -->
+
+        <main id="primary" class="site-main smooth-scroll">
+
+            <!-- Page Content -->
+            <div id="content" class="page-content">
+
+                <div class="section no-margin">
+
+                    <div class="wrapper-full no-margin">
+
+                        <!-- <div class="c-col-12 sm-12 self-center" style="max-width: 1500px;"> -->
+                        <div class="c-col-12 sm-12 self-center">
+
+                            <!-- Empty Column (For Spacing) -->
+                            <div class="hide-mobile" style="padding-top:75px;"> </div>
+                            <div class="hide-desktop" style="padding-top:50px;"> </div>
+                            <!--/ Empty Column (For Spacing) -->
+
+                            <div class="text-wrapper no-margin">
+                                <h1 class="no-margin no-revert" style="margin-top:5px;">
+                                    <div class="text-container">
+                                        <div class="scaling-container">
+                                            <div class="border-box"></div>
+                                            <div class="corner-box top-left"></div>
+                                            <div class="corner-box top-right"></div>
+                                            <div class="corner-box bottom-left"></div>
+                                            <div class="corner-box bottom-right"></div>
+                                            Fast results.
+                                            Consistent quality.
+                                        </div>
+                                    </div>
+                                </h1>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="hide-mobile" style="padding-top:0px;"> </div>
+                    <div class="hide-desktop" style="padding-top:25px;"> </div>
+                    <!--/ Empty Column (For Spacing) -->
+
+
+
+
+
+                    <!-- --------------------------------------------------------------- Intro ------------------------------------------------------------ -->
+
+
+
+
+                    <div class="wrapper-full no-margin">
+
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-6 hide-mobile"></div>
+                        <!--/ Empty Column (For Spacing) -->
+
+
+
+
+                        <span class="empty-space hide-mobile" style="height: 30px"></span>
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-2 hide-mobile"></div>
+                        <!--/ Empty Column (For Spacing) -->
+
+
+
+                        <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(0px);">
+                            <p class="text-h5" style="padding:0; margin-top:0; margin-bottom:0; color:#8e88a5">
+                                Here you’ll find the After Effects scripts and extensions I built to cut repetitive
+                                tasks and
+                                increase efficiency 🚀
+                            </p>
+                        </div>
+
+
+
+                        <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(0px); ">
+                            <div class="text-h5" style="padding:0; margin-top:0; margin-bottom:0; color:#8e88a5">
+                                <span style="font-weight: 600;">These tools are free</span> — share them, support
+                                each other and keep the community
+                                strong.
+                                <span class="empty-space hide-desktop"><br></span>
+                                <span class="empty-space hide-mobile"><br><br></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-desktop" style="height: 0px"></span>
+                    <span class="empty-space hide-mobile" style="height: 50px"></span>
+                    <!--/ Empty Space -->
+
+
+
+
+                    <!-- --------------------------------------------------------------- Akkordion ------------------------------------------------------------ -->
+
+
+
+
+
+                    <!-- Empty Column (For Spacing) -->
+                    <div class="c-col-6 hide-mobile"></div>
+                    <!--/ Empty Column (For Spacing) -->
+
+
+                    <div class="wrapper-full no-margin has-anim fadeIn">
+
+
+                        <!-- Empty Column (For Spacing) -->
+                        <div class="c-col-2 hide-mobile"></div>
+                        <!--/ Empty Column (For Spacing) -->
+
+
+                        <div class="c-col-10 sm-12" style="padding-right: 20px;">
+
+                            <!--Accordion Small-->
+                            <div class="nayla-accordion" data-duration="0.5" data-animation="wordsUp"
+                                data-toggle-icon="add">
+
+                                <ul class="accordion-wrap">
+
+
+
+                                    <!-- --------------------------------------------------------------- Tool ------------------------------------------------------------ -->
+
+                                    <li class="accordion-item">
+
+                                        <div class="accordion-title text-h3"><a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">Add
+                                                Colors</a></div>
+
+                                        <div class="accordion-content" style="padding-left: 0px; padding-right: 50px;">
+
+
+                                            <p class="text-h5"><span class="empty-space hide-mobile">
+
+                                                    <br></span>Add Colors adds
+                                                the Color Fill Effect to multiple selected layers.<br><br>
+                                                
+
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Save your color palettes as global presets<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Different color fill modes such as Repeat, Random,
+                                                Step, or Blend<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Add keyframes to the Color Fill Effect using shortcuts<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Responsive interface<br><br>
+
+                                                <a href="#" class="super-hover no-barba"
+                                                    style="--initial-color: #ffffff; --hover-color: #f0ff96; z-index: 99;">Watch
+                                                    Tutorial here</a><br><br><br>
+                                                <span
+                                                    style="font-size: .7em; line-height: 1.5em; display:inline-block; color:#8e88a5;">
+
+
+                                                    Adobe After Effects 17.5+ Win/Mac<br>
+                                                    ZXP Extension, 132 KB<br><br>
+                                                    v1.01 — 2025/04/28<br>
+                                                    Alt shortcut for color change works now<br><br>
+                                                    v1 — 2025/04/23<br>
+                                                    Initial Release<br>
+
+                                            </p>
+                                            </span>
+
+
+                                            <span class="empty-space hide-desktop"><br><br></span>
+                                            <span class="empty-space hide-mobile"></span>
+
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                                <a href="https://martinspeidel.info/login/wl/?id=vPS98T4ydPdcIRukRD86VoJ4ZiSqyX5L&fmode=download" class="super-hover no-barba"
+                                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                                    Download
+                                                    <svg id="Ebene_1" data-name="Ebene 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65"
+                                                        fill="currentColor" width="45" height="15"
+                                                        style="transform:translateY(0px);margin-left:-5px">
+                                                        <defs>
+                                                            <style>
+                                                                .cls-1 {
+                                                                    fill: currentColor;
+                                                                }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="cls-1"
+                                                            d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                                    </svg>
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </li>
+
+
+                                    <!-- --------------------------------------------------------------- Tool ------------------------------------------------------------ -->
+
+                                    <li class="accordion-item">
+
+                                        <div class="accordion-title text-h3"><a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">Add
+                                                Copies</a></div>
+
+                                        <div class="accordion-content" style="padding-left: 0px; padding-right: 50px;">
+
+
+                                            <p class="text-h5"><span class="empty-space hide-mobile">
+
+                                                    <br></span>Add Copies adds
+                                                copies of selected layers.<br><br>
+
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Duplicate any number of selected layers with customizable offsets<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Apply offsets to multiple properties such as Position, Scale,
+                                                Rotation<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Create a controller null with sliders for all selected properties<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Generate copies along a customizable path<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Responsive Interface<br><br>
+
+                                                <a href="#" class="super-hover no-barba"
+                                                    style="--initial-color: #ffffff; --hover-color: #f0ff96; z-index: 99;">Watch
+                                                    Tutorial here</a><br><br><br>
+                                                <span
+                                                    style="font-size: .7em; line-height: 1.5em; display:inline-block; color:#8e88a5;">
+
+
+                                                    Adobe After Effects 17.5+ Win/Mac<br>
+                                                    ZXP Extension, 132 KB<br><br>
+                                                    v1 - 2026/01/27<br>
+                                                    Initial Release<br>
+
+                                            </p>
+                                            </span>
+
+
+                                            <span class="empty-space hide-desktop"><br><br></span>
+                                            <span class="empty-space hide-mobile"></span>
+
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                                <a href="https://martinspeidel.info/login/wl/?id=XIw867mmkhDiEyyFlOXlH4H7hnEuxYAJ&fmode=download" class="super-hover no-barba"
+                                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                                    Download
+                                                    <svg id="Ebene_1" data-name="Ebene 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65"
+                                                        fill="currentColor" width="45" height="15"
+                                                        style="transform:translateY(0px);margin-left:-5px">
+                                                        <defs>
+                                                            <style>
+                                                                .cls-1 {
+                                                                    fill: currentColor;
+                                                                }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="cls-1"
+                                                            d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                                    </svg>
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </li>
+
+                                    <!-- --------------------------------------------------------------- Tool ------------------------------------------------------------ -->
+
+                                    <li class="accordion-item">
+
+                                        <div class="accordion-title text-h3"><a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">Add
+                                                Delay</a></div>
+
+                                        <div class="accordion-content" style="padding-left: 0px; padding-right: 50px;">
+
+
+                                            <p class="text-h5"><span class="empty-space hide-mobile">
+
+                                                    <br></span>Add Delay adds
+                                                animation delay to copies of layers.<br><br>
+
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Select a main layer and the copies or layers you want to affect<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Choose the properties you want to affect and press the + button<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Set the delay amount in the effects panel. Voila!<br><br>
+
+                                                <a href="#" class="super-hover no-barba"
+                                                    style="--initial-color: #ffffff; --hover-color: #f0ff96; z-index: 99;">Watch
+                                                    Tutorial here</a><br><br><br>
+                                                <span
+                                                    style="font-size: .7em; line-height: 1.5em; display:inline-block; color:#8e88a5;">
+
+
+                                                    Adobe After Effects 17.5+ Win/Mac<br>
+                                                    ZXP Extension, 3,4 KB<br><br>
+                                                    v2 - 2024/11/06<br>
+                                                    Initial Release<br>
+
+                                            </p>
+                                            </span>
+
+
+                                            <span class="empty-space hide-desktop"><br><br></span>
+                                            <span class="empty-space hide-mobile"></span>
+
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                                <a href="https://martinspeidel.info/login/wl/?id=M7cJ17iUg89FlylyrKAJ9s0zfgRutYe0&fmode=download" class="super-hover no-barba"
+                                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                                    Download
+                                                    <svg id="Ebene_1" data-name="Ebene 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65"
+                                                        fill="currentColor" width="45" height="15"
+                                                        style="transform:translateY(0px);margin-left:-5px">
+                                                        <defs>
+                                                            <style>
+                                                                .cls-1 {
+                                                                    fill: currentColor;
+                                                                }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="cls-1"
+                                                            d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                                    </svg>
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </li>
+
+
+                                    <!-- --------------------------------------------------------------- Tool ------------------------------------------------------------ -->
+
+                                    <li class="accordion-item">
+
+                                        <div class="accordion-title text-h3"><a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">Add
+                                                Folders</a></div>
+
+                                        <div class="accordion-content" style="padding-left: 0px; padding-right: 50px;">
+
+
+                                            <p class="text-h5"><span class="empty-space hide-mobile">
+
+                                                    <br></span>Add Folders adds
+                                                a folder structure to your After Effects project.<br><br>
+
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Add your personal folder structure to your project<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Define your own folder templates in a XML-File and share it with your
+                                                team<br><br>
+
+                                                <a href="#" class="super-hover no-barba"
+                                                    style="--initial-color: #ffffff; --hover-color: #f0ff96; z-index: 99;">Watch
+                                                    Tutorial here</a><br><br><br>
+                                                <span
+                                                    style="font-size: .7em; line-height: 1.5em; display:inline-block; color:#8e88a5;">
+
+
+                                                    Adobe After Effects 17.5+ Win/Mac<br>
+                                                    ZXP Extension, 4,2 KB<br><br>
+                                                    v2 - 2023/07/06<br>
+                                                    Initial Release<br>
+
+                                            </p>
+                                            </span>
+
+
+                                            <span class="empty-space hide-desktop"><br><br></span>
+                                            <span class="empty-space hide-mobile"></span>
+
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                                <a href="https://martinspeidel.info/login/wl/?id=zmMiMydiQw2i5LlrZ0ZTadQfXIT9jm1l&fmode=download" class="super-hover no-barba"
+                                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                                    Download
+                                                    <svg id="Ebene_1" data-name="Ebene 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65"
+                                                        fill="currentColor" width="45" height="15"
+                                                        style="transform:translateY(0px);margin-left:-5px">
+                                                        <defs>
+                                                            <style>
+                                                                .cls-1 {
+                                                                    fill: currentColor;
+                                                                }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="cls-1"
+                                                            d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                                    </svg>
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </li>
+
+                                    <!-- --------------------------------------------------------------- Tool ------------------------------------------------------------ -->
+
+                                    <li class="accordion-item">
+
+                                        <div class="accordion-title text-h3"><a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">Add
+                                                Grid</a></div>
+
+                                        <div class="accordion-content" style="padding-left: 0px; padding-right: 50px;">
+
+
+                                            <p class="text-h5"><span class="empty-space hide-mobile">
+
+                                                    <br></span>Add Grid
+                                                adds pixel perfect guides and grids to your compositions.<br><br>
+
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Save and name your guides as global presets<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Divide your grid in X and/or Y independently<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Add guides to an objects anchorpoint<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Set guides position by %<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Change the color of the guides<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                *.jsxbin shortcuts included (works with KBar)<br><br>
+
+                                                <a href="#" class="super-hover no-barba"
+                                                    style="--initial-color: #ffffff; --hover-color: #f0ff96; z-index: 99;">Watch
+                                                    Tutorial here</a><br><br><br>
+                                                <span
+                                                    style="font-size: .7em; line-height: 1.5em; display:inline-block; color:#8e88a5;">
+
+
+                                                    Adobe After Effects 17.5+ Win/Mac<br>
+                                                    ZXP Extension, 4,2 KB<br><br>
+                                                    v3.1 — 2024/07/22<br>
+                                                    Fixed "Undo group mismatch"-Bug<br><br>
+                                                    v3.0 - 2024/05/30<br>
+                                                    Initial Release<br>
+
+                                            </p>
+                                            </span>
+
+
+                                            <span class="empty-space hide-desktop"><br><br></span>
+                                            <span class="empty-space hide-mobile"></span>
+
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                                <a href="https://martinspeidel.info/login/wl/?id=79SsOK2GDPTrnoc85NWujxweFBadzQAb&fmode=download" class="super-hover no-barba"
+                                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                                    Download
+                                                    <svg id="Ebene_1" data-name="Ebene 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65"
+                                                        fill="currentColor" width="45" height="15"
+                                                        style="transform:translateY(0px);margin-left:-5px">
+                                                        <defs>
+                                                            <style>
+                                                                .cls-1 {
+                                                                    fill: currentColor;
+                                                                }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="cls-1"
+                                                            d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                                    </svg>
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </li>
+
+                                    <!-- --------------------------------------------------------------- Tool ------------------------------------------------------------ -->
+
+                                    <li class="accordion-item">
+
+                                        <div class="accordion-title text-h3"><a href="#showreel"
+                                                class="super-hover-fett-clean no-barba"
+                                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">Add
+                                                Parent Null</a></div>
+
+                                        <div class="accordion-content" style="padding-left: 0px; padding-right: 50px;">
+
+
+                                            <p class="text-h5"><span class="empty-space hide-mobile">
+
+                                                    <br></span>Add Parent Null is a script
+                                                to attach and parent selected layers to a null object.<br><br>
+
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                automatic layer length and timeline position of null object<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Automatic color label grouping<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Center anchor point on selected layers<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                Change shape, color, thickness, size, position of the null object<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                The null object's own anchor point is centered<br>
+                                                <span
+                                                    style="font-size: 0.4em; margin-right: 0.4em; transform: translateY(-5px); display:inline-block;">◆</span>
+                                                No more useless null solids in the project manager<br><br>
+
+                                                <a href="#" class="super-hover no-barba"
+                                                    style="--initial-color: #ffffff; --hover-color: #f0ff96; z-index: 99;">Watch
+                                                    Tutorial here</a><br><br><br>
+                                                <span
+                                                    style="font-size: .7em; line-height: 1.5em; display:inline-block; color:#8e88a5;">
+
+
+                                                    Adobe After Effects 17.5+ Win/Mac<br>
+                                                    JSX Script, 3,4 KB<br><br>
+                                                    v2.1.1 - 2024/09/27<br>
+                                                    Added a new shortcut which always inserts the Null in the center of
+                                                    the composition<br><br>
+                                                    v2.0 - 2023/11/29<br>
+                                                    Initial Release<br>
+
+                                            </p>
+                                            </span>
+
+
+                                            <span class="empty-space hide-desktop"><br><br></span>
+                                            <span class="empty-space hide-mobile"></span>
+
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                                <a href="https://martinspeidel.info/login/wl/?id=EdNCZlaC93B4okPZRdcYLH9BGGCLK86O&fmode=download" class="super-hover no-barba"
+                                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                                    Download
+                                                    <svg id="Ebene_1" data-name="Ebene 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65"
+                                                        fill="currentColor" width="45" height="15"
+                                                        style="transform:translateY(0px);margin-left:-5px">
+                                                        <defs>
+                                                            <style>
+                                                                .cls-1 {
+                                                                    fill: currentColor;
+                                                                }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="cls-1"
+                                                            d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                                    </svg>
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-h5 " style="transform: translateY(0px);">
+
+                                            </div>
+                                            <br><br>
+
+                                        </div>
+                                    </li>
+
+
+
+
+
+
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-desktop" style="height: 60px"></span>
+                    <!--/ Empty Space -->
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-mobile" style="height: 150px"></span>
+                    <!--/ Empty Space -->
+
+
+
+
+                </div>
+                <!--/ Page Content -->
+
+        </main>
+
+
+
+
+        <!-- Empty Space -->
+        <!-- <span class="empty-space hide-desktop" style="height: 40px"></span> -->
+        <!-- <span class="empty-space hide-mobile" style="height: 70px"></span> -->
+        <!--/ Empty Space -->
+
+
+
+
+
+        <!-- --------------------------------------------------------------- Footer ------------------------------------------------------------ -->
+
+        <div id="footer" class="site-footer dark" style="background:#191134; padding: 50px 0 0px 0; margin-top: 0px;">
+
+            <!-- Empty Space -->
+            <span class="empty-space hide-mobile" style="height: 50px"></span>
+            <!--/ Empty Space -->
+
+            <!-- Footer Wrapper -->
+            <div class="footer-wrapper no-margin text-h5">
+
+                <div class="wrapper-full footer-bottom-wrapper no-margin" style="line-height: .8em;">
+
+                    <div class="c-col-3 sm-12 align-left">
+
+                        <ul class="menu vertical">
+                            <li><a href="https://www.linkedin.com/in/martinspeidel" target="_blank"
+                                    class="super-hover no-barba"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">LinkedIn</a>
+                            </li>
+                            <li><a href="https://martinspeidel.bsky.social/" target="_blank"
+                                    class="super-hover no-barba"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Bluesky</a></li>
+                            <li><a href="https://www.instagram.com/martinspeidel/" target="_blank" class="super-hover"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Instagram</a>
+                            </li>
+                            <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover no-barba"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Gumroad</a></li>
+
+                            <!-- Empty Space -->
+                            <span class="empty-space hide-desktop" style="height: 35px"></span>
+                            <span class="empty-space hide-mobile" style="height: 50px"></span>
+                            <!--/ Empty Space -->
+
+                            <li><a href="privacy.html" class="super-hover no-barba"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">Privacy policy</a></li>
+                            <li><a href="legal.html" class="super-hover no-barba"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF">Legal notice</a></li>
+
+                        </ul>
+
+                        <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
+                            <li>Moin 👋</li>
+                            <li><a href="mailto:hello@martinspeidel.info" class="no-barba super-hover"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">hello@martinspeidel.info</a>
+                            </li>
+                            <li><a href="https://martinspeidel.gumroad.com" target="_blank" class="super-hover no-barba"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">+(0)49
+                                    176 24 122 854</a></li>
+                        </ul>
+
+                        <ul class="menu vertical hide-desktop"
+                            style="transform: translateY(70px); margin-bottom: 75px;">
+                            <li><a href="#start" target="_blank" class="no-barba super-hover"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">Scroll up</a></li>
+                            <li><a href="img/whatif.jpg" target="_blank" class="no-barba">© 2025</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="c-col-6 align-left mobile-align-left hide-mobile">
+                        <ul class="menu vertical">
+                            <li><span class="dm-serif-display-regular-italic">Moin 👋</span></li>
+                            <li><a href="mailto:hello@martinspeidel.info" class="super-hover no-barba"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">hello@martinspeidel.info</a>
+                            </li>
+                            <li><a href="https://wa.link/4m6e97" target="_blank" class="super-hover no-barba"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">+(0)49 176
+                                    24 122
+                                    854</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="c-col-3 align-right hide-mobile">
+                        <ul class="menu vertical">
+                            <li><a href="#start" target="_blank" class="no-barba super-hover"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">Scroll up</a></li>
+                            <li><a href="img/whatif.jpg" target="_blank" class="no-barba">© 2025</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--/ Page -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <!-- <script src="js/barba.min.js"></script> -->
+    <script src="js/gsap.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>

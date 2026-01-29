@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    min-height: 100vh;
+    padding: 60px 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.plugin-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    padding: 0px 0 0px 0;
+    transform: translateX(-40px)
+}
+
+.plugin-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* cursor: pointer; */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    padding: 0px;
+    aspect-ratio: 1;
+}
+
+.plugin-item:hover {
+    transform: rotate(5deg) scale(1.3);
+
+}
+
+.plugin-svg {
+    transform: translateY(-5px);
+    width: 70px;
+    height: 70px;
+    fill: #ffffff;
+    opacity: 1;
+    transition: fill 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.plugin-svg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+    mask: url(#logo-mask);
+    -webkit-mask: url(#logo-mask);
+}
+
+.plugin-item:hover .plugin-svg::before {
+    left: 100%;
+}
+
+.plugin-item:hover .plugin-svg {
+    fill: #ffffff;
+
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .plugin-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 30px;
+    }
+
+    .plugin-svg {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .plugin-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 15vw;
+        padding-left: 43px;
+    }
+
+    .plugin-svg {
+        width: 50px;
+        height: 50px;
+    }
+}
