@@ -14216,3 +14216,29 @@ video::-internal-media-controls-overlay-cast-button {
 
 
 
+
+/* ------------------------ Bullet ----------------------------------- */
+
+  .custom-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-bullets li {
+        transform: translateY(-7px);
+    position: relative;
+    padding-left: 1.2em; /* Einzug wie deine bisherigen Bullets */
+    margin-bottom: -.9em; /* exakt wie deine Zeilenhöhe wirkt */
+}
+
+.custom-bullets li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    font-size: 0.4em; /* exakt wie dein Inline-Styling */
+    transform: translateY(-5px);
+    color: currentColor;
+}
+
