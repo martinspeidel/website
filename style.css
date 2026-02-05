@@ -14242,3 +14242,15 @@ video::-internal-media-controls-overlay-cast-button {
     color: currentColor;
 }
 
+
+/* ------------------------ Lottie ----------------------------------- */
+
+
+.lottie {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 0px;
+    overflow:hidden;
+    margin-left: auto;   /* schiebt das Element nach rechts */
+}
+
