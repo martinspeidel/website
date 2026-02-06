@@ -8910,13 +8910,12 @@ span.fraction-line {
     opacity: .25;
 }
 
-/** Dymamic List
+/** Dynamic List
   ------------------------------ */
 
 .nayla-dynamic-list {
-    display: block;
-    float: left;
-    width: 100%;
+    display: inline-block;
+    /* entfernt: float: left; width: 100%; */
 }
 
 
@@ -8924,18 +8923,17 @@ span.fraction-line {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: inline-block; /* hinzugefügt */
 }
 
 .nayla-dynamic-list ul li {
-    padding-bottom: 0.5em;
+    padding-bottom: 0em;
     position: relative;
     -webkit-transition: opacity .2s ease;
     -o-transition: opacity .2s ease;
     transition: opacity .2s ease;
-    display: block;
-    float: left;
-    width: 100%;
-
+    display: inline-block; /* geändert von block */
+    /* entfernt: float: left; width: 100%; */
 }
 
 .nayla-dynamic-list.horizontal ul li {
@@ -8944,7 +8942,7 @@ span.fraction-line {
 }
 
 .nayla-dynamic-list ul li a {
-    padding-bottom: 0.5em;
+    padding-bottom: 0em;
 }
 
 .nayla-dynamic-list ul li .list-image {
@@ -8979,7 +8977,6 @@ span.fraction-line {
 .nayla-dynamic-list.hovered li.current .list-image {
     opacity: 1
 }
-
 
 /** Lightbox Gallery
   ------------------------------ */
