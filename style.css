@@ -14245,9 +14245,31 @@ video::-internal-media-controls-overlay-cast-button {
 
 .lottie {
     width: 100%;
-    max-width: 300px;
+    max-width: 800px;
     border-radius: 0px;
-    overflow:hidden;
+    /* overflow:hidden; */
     margin-left: auto;   /* schiebt das Element nach rechts */
 }
 
+
+
+.video-wrapper {
+    flex: 0 1 auto;
+    max-width: 1400px;   /* maximale Breite */
+    width: 100%;         /* skaliert bis zur max-width */
+    margin: 0;           /* NICHT zentrieren → linksbündig */
+    border-radius: 15px;
+    overflow: hidden;
+
+
+
+
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .video-wrapper {
+        border-radius: 8px;
+    }
+}

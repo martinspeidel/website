@@ -4347,7 +4347,7 @@
                         scrub: 1,
                         pin: true,
                         start: 'top top 80%',
-                                                end: 'bottom',
+                        end: 'bottom',
                         // end: end,
                         id: 'showcaseWallScroll'
                     }
@@ -5870,7 +5870,9 @@
                 } = context.conditions;
 
                 tl.revert();
-                window.scrollTo(0, 0)
+                if (!window.location.hash) {
+                    window.scrollTo(0, 0);
+                }
 
                 let wrapperWidth = scWrap.outerWidth(),
                     firstPos = ($(window).outerWidth() / 2) - ($('.project_0').outerWidth() / 2) + 75,
@@ -10668,7 +10670,9 @@
 
         winLoaded = true;
 
-        window.scrollTo(0, 0);
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
 
         naylaVideo($('.nayla-video'));
         naylaGeneralAnims($('.has-anim'));
@@ -12718,7 +12722,7 @@
 
 
 
-// ---------------- Soft Scroll Animation Anchor -----------------------
+    // ---------------- Soft Scroll Animation Anchor -----------------------
 
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
@@ -12782,6 +12786,22 @@ iframes.forEach(frame => {
 
         mouseCursor.classList.add("hide");
     });
+
+});
+
+
+// ---------------- Scroll to tool -----------------------
+
+window.addEventListener('load', function () {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const toggle = target.querySelector('.accordion-title a');
+    if (toggle) toggle.click();
+
 
 });
 
