@@ -14273,3 +14273,18 @@ video::-internal-media-controls-overlay-cast-button {
         border-radius: 8px;
     }
 }
+
+/* ------------------------ padding 0px rechts in mobile ----------------------------------- */
+
+@media (max-width: 768px) {
+  .accordion-content {
+    padding-right: 0 !important;
+  }
+
+    .c-col-5.sm-12 {
+    padding-right: 0 !important;
+  }
+}
+
+
+
