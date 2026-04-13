@@ -26,7 +26,7 @@
     <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@gumlet/[email protected]/dist/player.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
 
     <!-- Favicons -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -34,6 +34,33 @@
 
 </head>
 
+
+<!-- Smooth Scroller -->
+<script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+<script>
+    const lenis = new Lenis({
+        autoRaf: true,
+        autoToggle: true,
+        anchors: true,
+        allowNestedScroll: true,
+        naiveDimensions: true,
+        stopInertiaOnNavigate: true
+    });
+
+    // Anchor-Hash nach vollständigem Laden auflösen
+    window.addEventListener('load', () => {
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                // Kurze Verzögerung damit Lenis und alle Assets bereit sind
+                setTimeout(() => {
+                    lenis.scrollTo(target, { immediate: false, duration: 1.2 });
+                }, 300);
+            }
+        }
+    });
+</script>
+<!-- Smooth Scroller -->
 
 <body class="dark">
 
@@ -166,13 +193,12 @@
                             <li><a href="index.html" class="text-h1 super-hover-fett"
                                     style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Home</a></li>
 
+                            <li><a href="index.html#showreel" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
+                            <li><a href="index.html#aboutme" target="_blank" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">About me</a></li>
                             <li><a href="tools.html" class="text-h1 super-hover-fett"
                                     style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Tools</a></li>
-                            <li><a href="https://kinescope.io/2hnU5UeEj8uXxLtWU6YQ7G" target="_blank"
-                                    class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
-                            <li><a href="mailto:hello@martinspeidel.info" class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">E-Mail</a></li>
                         </ul>
                         <!--/ Main Menu -->
 
@@ -256,7 +282,7 @@
 
 
                     <!-- Empty Column (For Spacing) -->
-                    <div class="hide-mobile" style="padding-top:0px;"> </div>
+                    <div class="hide-mobile" style="padding-top:10px;"> </div>
                     <div class="hide-desktop" style="padding-top:25px;"> </div>
                     <!--/ Empty Column (For Spacing) -->
 
@@ -604,7 +630,8 @@
                                                             width="1920" height="1080"
                                                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; aspect-ratio: 16 / 9; border: none;"
                                                             allow="autoplay; fullscreen; picture-in-picture"
-                                                            allowfullscreen></iframe></div>
+                                                            allowfullscreen></iframe>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -896,6 +923,56 @@
     </div>
 
 
+  <!-- --------------------------------------------------------------- Cookie Popup ------------------------------------------------------------ -->
+
+
+    <style>
+        #cookie-popup {
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translate(-50%, 10px);
+            pointer-events: none;
+        }
+
+        #cookie-popup.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+            pointer-events: auto;
+        }
+    </style>
+
+    <div id="cookie-popup"
+        style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); width:90%; max-width:690px;">
+        <div id="cookie-inner" style="padding: 25px 36px 32px;">
+            <p class="text-h5" style="padding:0; margin-top:0; margin-bottom:0px; color:#ffffff">
+                This website uses anonymous server statistics and essential cookies required for secure login.
+            </p>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; padding-top: 15px;">
+                <div class="text-h5" style="margin-top:0; margin-bottom:0;">
+                    <a href="#" class="super-hover no-barba"
+                        style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block" target="_self"
+                        onclick="cookieConsent('accept'); return false;">OK</a>
+                </div>
+
+                <div>
+                    <div id="stern" class="lottie" style="width: 47px;">
+                    </div>
+                    <script> lottie.loadAnimation({ container: document.getElementById('stern'), renderer: 'svg', loop: true, autoplay: true, path: 'json/stern.json' }); </script>
+                </div>
+
+
+                <div class="text-h5" style="margin-top:0; margin-bottom:0;">
+                    <a href="privacy.html" class="super-hover no-barba"
+                        style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block" target="_self">
+                        Read more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!--/ Page -->
 
@@ -905,6 +982,31 @@
     <!-- <script src="js/barba.min.js"></script> -->
     <script src="js/gsap.js"></script>
     <script src="js/scripts.js"></script>
+
+
+
+    <!--/ --------------------- Cookie Consent Script ----------------------- -->
+
+    <script>
+        function cookieConsent(choice) {
+            localStorage.setItem('cookie_consent', choice);
+            const popup = document.getElementById('cookie-popup');
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 600);
+        }
+
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookie_consent')) {
+                const popup = document.getElementById('cookie-popup');
+                popup.style.display = 'block';
+                requestAnimationFrame(() => {
+                    popup.classList.add('show');
+                });
+            }
+        });
+    </script>
 
 
 </body>

@@ -27,14 +27,47 @@
     <script src="https://cdn.jsdelivr.net/npm/@gumlet/[email protected]/dist/player.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
+
     <!-- Favicons -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <!--/ Favicons -->
 
 </head>
 
+<!-- Smooth Scroller -->
+<script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+<script>
+    const lenis = new Lenis({
+        autoRaf: true,
+        autoToggle: true,
+        anchors: true,
+        allowNestedScroll: true,
+        naiveDimensions: true,
+        stopInertiaOnNavigate: true
+    });
 
-<body class="dark smooth-scroll">
+    // Anchor-Hash nach vollständigem Laden auflösen
+    window.addEventListener('load', () => {
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                // Kurze Verzögerung damit Lenis und alle Assets bereit sind
+                setTimeout(() => {
+                    lenis.scrollTo(target, { immediate: false, duration: 1.2 });
+                }, 300);
+            }
+        }
+    });
+</script>
+<!-- Smooth Scroller -->
+
+
+
+
+<!-- <body class="dark smooth-scroll"></body> -->
+
+<body class="dark">
 
 
     <!-- Mouse Cursor -->
@@ -65,6 +98,7 @@
                         </a>
 
                         <script>
+
                             const r = new rive.Rive({
                                 src: "riv/logo.riv",
                                 canvas: document.getElementById("rive-canvas"),
@@ -162,16 +196,15 @@
 
                         <!-- Main Menu -->
                         <ul class="menu">
-                            <li><a href="index.html" class="text-h1 super-hover-fett"
+                            <li><a href="#start" class="text-h1 super-hover-fett"
                                     style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Home</a></li>
 
+                            <li><a href="#showreel" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
+                            <li><a href="#aboutme" target="_blank" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">About me</a></li>
                             <li><a href="tools.html" class="text-h1 super-hover-fett"
                                     style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Tools</a></li>
-                            <li><a href="https://kinescope.io/2hnU5UeEj8uXxLtWU6YQ7G" target="_blank"
-                                    class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
-                            <li><a href="mailto:hello@martinspeidel.info" class="text-h1 super-hover-fett"
-                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">E-Mail</a></li>
                         </ul>
                         <!--/ Main Menu -->
 
@@ -244,11 +277,9 @@
                                             <div class="corner-box bottom-left"></div>
                                             <div class="corner-box bottom-right"></div>
                                             Hi, my name is Martin.<br>
-                                            I am a <span class="nayla-dynamic-list">
+                                            I am a<span class="nayla-dynamic-list">
                                                 <ul>
-                                                    <li><a href="tools.html" class="super-hover-fett-clean no-barba"
-                                                            style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99; display:inline-block"
-                                                            target="_self">tech-<wbr>driven</a>
+                                                    <li>
                                                         <!-- <div class="list-image">
 
 
@@ -272,7 +303,7 @@
                                                         </div> -->
                                                     </li>
                                                 </ul>
-                                            </span> and
+                                            </span>
 
 
 
@@ -280,8 +311,7 @@
 
                                             <span class="nayla-dynamic-list">
                                                 <ul>
-                                                    <li><a href="https://framerate.tv/watch/da9dfa60-fe57-4837-bae0-d3cf34278773"
-                                                            class="super-hover-fett-clean no-barba"
+                                                    <li><a href="#aboutme" class="super-hover-fett-clean no-barba"
                                                             style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99; display:inline-block"
                                                             target="_blank">brand-<wbr>focused</a>
                                                         <!-- <div class="list-image">
@@ -430,7 +460,8 @@
                                         src="https://framerate.tv/embed/da9dfa60-fe57-4837-bae0-d3cf34278773?primary_color=%2523ffffff&track_color=%2523ffffff&theme=minimal"
                                         width="1920" height="1080"
                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; aspect-ratio: 16 / 9; border: none;"
-                                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                </div>
 
 
                             </div>
@@ -511,7 +542,9 @@
                                 With over 10 years of freelance experience, I bring motion graphics to life with a
                                 passion.<br><br>I focus on Motion Branding, Logo Animations, DOOH, Templates, Digital
                                 Assets
-                                for web projects, and Custom Scripting.<br><br>
+                                for web projects, and <a href="#tools" class="super-hover-fett-clean no-barba"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99; display:inline-block"
+                                    target="_blank">Custom Scripting.</a><br><br>
                                 I work 100% remotely, ensure fast and secure data exchange, quick response, and
                                 smooth collaboration.<br><br> I live on the edge of Hamburg, surrounded by nature. I've
                                 got two kids, enjoy playing piano,
@@ -600,7 +633,8 @@
                                         src="https://framerate.tv/embed/7a7350c5-4e3e-4cd7-981d-6c70eac823ba?autoplay=1&muted=1&loop=1&primary_color=%2523ffffff&track_color=%2523ffffff&theme=minimal"
                                         width="120" height="120"
                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; aspect-ratio: 1 / 1; border: none;"
-                                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                </div>
 
                             </div>
 
@@ -825,7 +859,7 @@
                 <!-- --------------------------------------------------------------- Creative Coding ------------------------------------------------------------ -->
 
 
-                <div id="coding" class="wrapper-full no-margin" style="transform: translateY(-60px);">
+                <div id="tools" class="wrapper-full no-margin" style="transform: translateY(-60px);">
 
                     <!-- Empty Column (For Spacing) -->
                     <div class="c-col-2 hide-mobile"></div>
@@ -867,76 +901,56 @@
 
 
 
-                <div class="wrapper-full no-margin has-anim fadeIn">
-
+                <div class="wrapper-full no-margin has-anim fadeIn" >
 
                     <span class="empty-space hide-mobile" style="height: 70px"></span>
 
-                    <!-- Empty Column (For Spacing) -->
                     <div class="c-col-2 hide-mobile"></div>
-                    <!--/ Empty Column (For Spacing) -->
-
 
                     <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(-65px);">
-
                         <p class="text-h5" style="padding:0; margin-top:0; margin-bottom:0; color:#8e88a5">
-                            For years I’ve been creating custom tools and extensions for After Effects to make everyday
+                            For years I've been creating custom tools and extensions for After Effects to make everyday
                             tasks faster and more intuitive.<br>
                         </p>
 
-                    </div>
-
-
-                    <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(-65px); ">
-
-                        <div class="text-h5" style="padding:0; margin-top:0; margin-bottom:0; color:#8e88a5">
-                            <span style="font-weight: 600;">I’m releasing my tools for free</span>, hoping they help
-                            others save time, stay focused, and
-                            enjoy the craft even more.<br></br>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Empty Space -->
-                <span class="empty-space hide-mobile" style="height: 30px"></span>
-                <span class="empty-space hide-desktop" style="height: 0px"></span>
-                <!--/ Empty Space -->
-
-
-                <div class="wrapper-full no-margin" style="transform: translateY(-100px);">
-
-                    <!-- Empty Column (For Spacing) -->
-                    <div class="c-col-2 hide-mobile"></div>
-                    <!--/ Empty Column (For Spacing) -->
-
-                    <div class="c-col-5 sm-12">
-                        <div class="text-h5">
+                        <!-- Nur Desktop sichtbar -->
+                        <div class="text-h5 hide-mobile" style="margin-top: 60px;">
                             <a href="tools.html" class="super-hover no-barba"
                                 style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
                                 Discover my tools!
-                                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 133.05 82.65" fill="currentColor" width="45" height="15"
-                                    style="transform:translateY(0px);margin-left:-5px">
-                                    <defs>
-                                        <style>
-                                            .cls-1 {
-                                                fill: currentColor;
-                                            }
-                                        </style>
-                                    </defs>
-                                    <path class="cls-1"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65" fill="currentColor"
+                                    width="45" height="15" style="transform:translateY(0px);margin-left:-5px">
+                                    <path
                                         d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
                                 </svg>
                             </a>
                         </div>
                     </div>
 
+                    <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(-65px);">
+                        <div class="text-h5" style="padding:0; margin-top:0; margin-bottom:0; color:#8e88a5">
+                            <span style="font-weight: 600;">I'm releasing my tools for free</span>, hoping they help
+                            others save time, stay focused, and enjoy the craft even more.<br></br>
+                        </div>
+
+                        <!-- Nur Mobile sichtbar -->
+                        <div class="text-h5 hide-desktop" style="margin-top: 0px;">
+                            <a href="tools.html" class="super-hover no-barba"
+                                style="--initial-color: #BFABFF; --hover-color: #f0ff96; z-index: 99;">
+                                Discover my tools!
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.05 82.65" fill="currentColor"
+                                    width="45" height="15" style="transform:translateY(0px);margin-left:-5px">
+                                    <path
+                                        d="M154.78,35.05v-2.52c-11.81-.88-24.75-8.04-24.75-32.53h13.44c0,28.51,21.61,34.79,33.41,34.79v13.06c-11.81,0-33.41,6.28-33.41,34.79h-13.44c0-24.5,12.94-31.65,24.75-32.53v-2.51H0v-12.56h154.78Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
                 </div>
+
+                <span class="empty-space hide-mobile" style="height: 30px"></span>
+                <span class="empty-space hide-desktop" style="height: 0px"></span>
                 <!--/ Page Content -->
 
         </main>
@@ -948,6 +962,12 @@
         <!-- <span class="empty-space hide-desktop" style="height: 40px"></span> -->
         <!-- <span class="empty-space hide-mobile" style="height: 70px"></span> -->
         <!--/ Empty Space -->
+
+
+
+
+
+
 
 
 
@@ -1047,14 +1067,84 @@
     </div>
 
 
+    <!-- --------------------------------------------------------------- Cookie Popup ------------------------------------------------------------ -->
+
+
+
+    <div id="cookie-popup"
+        style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); width:92%; max-width:690px;">
+        <div id="cookie-inner" style="padding: 25px 36px 32px;">
+            <p class="text-h5" style="padding:0; margin-top:0; margin-bottom:0px; color:#ffffff">
+                This website uses anonymous server statistics and essential cookies required for secure login.
+            </p>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; padding-top: 15px;">
+                <div class="text-h5" style="margin-top:0; margin-bottom:0;">
+                    <a href="#" class="super-hover no-barba"
+                        style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block" target="_self"
+                        onclick="cookieConsent('accept'); return false;">OK</a>
+                </div>
+
+                <div>
+                    <div id="stern" class="lottie" style="width: 47px;">
+                    </div>
+                    <script> lottie.loadAnimation({ container: document.getElementById('stern'), renderer: 'svg', loop: true, autoplay: true, path: 'json/stern.json' }); </script>
+                </div>
+
+                <div class="text-h5" style="margin-top:0; margin-bottom:0;">
+                    <a href="privacy.html" class="super-hover no-barba"
+                        style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block" target="_self">
+                        Read more
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 
     <!--/ Page -->
+
+
+
 
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="js/plugins.js"></script>
-    <!-- <script src="js/barba.min.js"></script> -->
     <script src="js/gsap.js"></script>
     <script src="js/scripts.js"></script>
+
+
+
+    <!--/ --------------------- Cookie Consent Script ----------------------- -->
+
+    <script>
+        function cookieConsent(choice) {
+            localStorage.setItem('cookie_consent', choice);
+            const popup = document.getElementById('cookie-popup');
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 600);
+        }
+
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookie_consent')) {
+                const popup = document.getElementById('cookie-popup');
+                popup.style.display = 'block';
+                requestAnimationFrame(() => {
+                    popup.classList.add('show');
+                });
+            }
+        });
+    </script>
+
 
 </body>
