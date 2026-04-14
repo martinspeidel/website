@@ -14001,6 +14001,7 @@ video {
     flex-direction: column; /* Center elements in a column */
     height: 110%; /* Full height of parent */
     width: 100%; /* Full width of parent */
+    margin-top:140px;
   }
   
   .c-col-9 {
@@ -14024,14 +14025,13 @@ video {
     .wrapper-full-centered {
       align-items: flex-start; /* Align items to the left on mobile screens */
       padding-left: 20px; /* Add some padding for spacing */
+      margin-top:120px;
     }
   
     .c-col-9 {
       justify-content: flex-start; /* Align content to the left on mobile screens */
     }
   }
-  
-
 
 
 /* ------------------------ RIVE Size MOBILE SCREENS ----------------------------------- */
@@ -14383,3 +14383,22 @@ html.lenis {
     }
 
 
+    .stern-icon {
+        width: 40px;
+        height: 40px;
+        margin-top: 4px; /* Standard */
+        display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+        #stern {
+            margin-top: 1px !important;
+        }
+        #cookie-inner{
+            padding: 15px 26px 23px !important;
+        }
+    }
+
+    
+
+    style="padding: 15px 26px 29px;"

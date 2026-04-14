@@ -16,7 +16,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500&display=swap"
+    <link type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;580&display=swap"
         rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,7 +24,7 @@
     <link href="css/logos.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@gumlet/[email protected]/dist/player.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@gumlet/[email protected]/dist/player.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
 
@@ -38,27 +38,45 @@
 <!-- Smooth Scroller -->
 <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
 <script>
-    const lenis = new Lenis({
-        autoRaf: true,
-        autoToggle: true,
-        anchors: true,
-        allowNestedScroll: true,
-        naiveDimensions: true,
-        stopInertiaOnNavigate: true
-    });
+        document.addEventListener('DOMContentLoaded', function () {
 
-    // Anchor-Hash nach vollständigem Laden auflösen
-    window.addEventListener('load', () => {
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
-            if (target) {
-                // Kurze Verzögerung damit Lenis und alle Assets bereit sind
-                setTimeout(() => {
-                    lenis.scrollTo(target, { immediate: false, duration: 1.2 });
-                }, 300);
+            // Falls Lenis schon existiert → alte Instanz sauber zerstören
+            if (window.__lenis) {
+                window.__lenis.destroy();
             }
-        }
-    });
+
+            // Neue Instanz global speichern
+            const lenis = new Lenis({
+                autoRaf: false,               // eigener rAF-Loop → stabiler, kein Freeze
+                autoToggle: false,
+                anchors: false,
+                allowNestedScroll: false,
+                naiveDimensions: false,
+                stopInertiaOnNavigate: true
+            });
+
+            window.__lenis = lenis;
+
+            // Eigener rAF-Loop → Smooth Scroll aktiv
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Hash-Scroll erst nach Layout-Stabilisierung
+            window.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                    if (window.location.hash) {
+                        const target = document.querySelector(window.location.hash);
+                        if (target) {
+                            lenis.scrollTo(target, { duration: 1.2 });
+                        }
+                    }
+                });
+            });
+
+        });
 </script>
 <!-- Smooth Scroller -->
 
@@ -295,7 +313,7 @@
 
 
 
-                    <div class="wrapper-full no-margin">
+                    <div class="wrapper-full no-margin has-anim fadeIn">
 
 
                         <!-- Empty Column (For Spacing) -->
@@ -326,7 +344,7 @@
 
                         <div class="c-col-5 sm-12" style="padding-right: 50px; transform: translateY(0px); ">
                             <div class="text-h5" style="padding:0; margin-top:0; margin-bottom:0; color:#8e88a5">
-                                <span style="font-weight: 600;">These tools are free</span> — share them, support
+                                <span style="font-weight: 580; letter-spacing: -0.01em;">These tools are free</span> — share them, support
                                 each other and keep the community
                                 strong.
                                 <span class="empty-space hide-desktop"><br></span>
@@ -923,31 +941,17 @@
     </div>
 
 
-  <!-- --------------------------------------------------------------- Cookie Popup ------------------------------------------------------------ -->
-
-
-    <style>
-        #cookie-popup {
-            opacity: 0;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            transform: translate(-50%, 10px);
-            pointer-events: none;
-        }
-
-        #cookie-popup.show {
-            opacity: 1;
-            transform: translate(-50%, 0);
-            pointer-events: auto;
-        }
-    </style>
-
-    <div id="cookie-popup"
-        style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); width:90%; max-width:690px;">
-        <div id="cookie-inner" style="padding: 25px 36px 32px;">
+    <!-- ═══════════════════════════════════════════════
+         COOKIE POPUP
+    ═══════════════════════════════════════════════ -->
+    <div id="cookie-popup" role="dialog" aria-modal="true" aria-label="Cookie-Hinweis"
+        style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); width:92%; max-width:670px;">
+        <div id="cookie-inner" style="padding: 15px 26px 28px;">
             <p class="text-h5" style="padding:0; margin-top:0; margin-bottom:0px; color:#ffffff">
                 This website uses anonymous server statistics and essential cookies required for secure login.
             </p>
-            <div style="display:flex; gap:15px; flex-wrap:wrap; padding-top: 15px;">
+
+            <div style="display:flex; gap:11px; flex-wrap:wrap; padding-top: 15px;">
                 <div class="text-h5" style="margin-top:0; margin-bottom:0;">
                     <a href="#" class="super-hover no-barba"
                         style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block" target="_self"
@@ -955,23 +959,20 @@
                 </div>
 
                 <div>
-                    <div id="stern" class="lottie" style="width: 47px;">
+                    <div id="stern" class="lottie" style="width: 40px; height: 40px; margin-top: 2px;">
                     </div>
                     <script> lottie.loadAnimation({ container: document.getElementById('stern'), renderer: 'svg', loop: true, autoplay: true, path: 'json/stern.json' }); </script>
                 </div>
 
-
                 <div class="text-h5" style="margin-top:0; margin-bottom:0;">
                     <a href="privacy.html" class="super-hover no-barba"
                         style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block" target="_self">
-                        Read more
+                        Privacy policy
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
-
 
 
     <!--/ Page -->
