@@ -938,7 +938,7 @@ h1.has-anim-text .anim_char,
 
 h2,
 .text-h2 {
-    font-size: 60px;
+    font-size: 63px;
     line-height: 1.1;
     font-weight: 400;
     letter-spacing: -0.04em;
@@ -968,6 +968,15 @@ h5,
     font-weight: 300;
     margin-bottom: 2em;
     letter-spacing: 0.005em;
+}
+
+/* Zwischenstufe – kleiner, aber noch nicht Mobile */
+@media (max-width: 1500px) {
+    h5,
+    .text-h5 {
+        font-size: 27px;
+        line-height: 40px;
+    }
 }
 
 h6,
