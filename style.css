@@ -14410,4 +14410,43 @@ html.lenis {
 
     
 
-    style="padding: 15px 26px 29px;"
+/* ═══════════════════════════════════════════════
+   PROFIL – Lottie-Maske (CSS)
+═══════════════════════════════════════════════ */
+.profile-section {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Zentriert horizontal im Inhaltsbereich */
+    padding: 0; 
+    z-index: 10;
+}
+
+.profile-container {
+        margin: -100px 0 -20px;
+    position: relative;
+    /* Nutzt 100% der verfügbaren Breite bis zu einem Maximum */
+    width: 100%;
+    max-width: 400px; 
+    /* WICHTIG für Responsivität: Aspect Ratio statt fester Höhe */
+    aspect-ratio: 1 / 1; 
+    
+    overflow: hidden;
+    
+    /* Die Maske muss sich mitstrecken */
+    -webkit-mask-image: url(#myLottieMask);
+    mask: url(#myLottieMask);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+.masked-image {
+    position: absolute;
+    width: 100%;
+    height: 125%; /* Mehr Puffer für den Parallax-Effekt */
+    top: -12.5%;
+    left: 0;
+    object-fit: cover;
+    will-change: transform;
+}
