@@ -1,0 +1,190 @@
+/* Verfügbarkeit – nur was Kalender, Übersicht und Aktionen brauchen.
+   Schrift, Links (super-hover), Raster, Header, Footer, Cursor, Fades und die winkende Hand kommen aus style.css. */
+#vf-app {
+  --vf-bg:#090020; --vf-tile:#110832; --vf-tile-we:#0d052a; --vf-today:#171040; --vf-raised:#191134; --vf-muted:#8e88a5; --vf-line:#2a2150;
+  --vf-accent:#bfabff; --vf-hover:#f0ff96; --vf-on-accent:#090020; --vf-accent-dim:#3a2f6a;
+}
+
+/* Einleitungssatz */
+#vf-intro{margin:0 0 100px;max-width:1400px;font-size:28px;line-height:42px;font-weight:300;color:#fff}
+#vf-intro:empty{display:none}
+.vf-intro-link{background:none;border:0;padding:0;margin:0;font:inherit;letter-spacing:inherit;color:var(--vf-accent);cursor:pointer;transition:color .3s ease}
+.vf-intro-link.vf-hl,.vf-intro-link:hover,.vf-intro-link:focus-visible{color:var(--vf-hover);outline:none}
+
+.vf-mbr{display:none}
+@media (max-width:640px){.vf-mbr{display:inline}}
+
+/* Kalender */
+#vf-cal{display:flex;flex-direction:column;gap:1px;max-width:1400px;color:#fff}
+#vf-cal:empty{display:none}
+.vf-kw{background:var(--vf-bg)}
+.vf-dow,.vf-week{display:grid;grid-template-columns:4.2rem repeat(7,minmax(0,1fr));column-gap:1px}
+/* Desktop: Kalender bündig mit dem Monatsnamen, die KW-Zahlen stehen links davor */
+@media (min-width:641px){.vf-dow,.vf-week{margin-left:calc(-4.2rem - 1px);width:calc(100% + 4.2rem + 1px)}}
+/* Linien nur rund um echte Tage: jedes Kästchen zeichnet seinen eigenen 1px-Rand in die Fugen, leere Felder und KW-Spalte bleiben ohne */
+.vf-dow{font-size:17px;color:var(--vf-muted);font-weight:300}
+.vf-dow div{padding:0 .8rem .6rem}
+.vf-dow div:first-child{padding-left:0}
+.vf-month{padding:120px 0 44px;margin:0;color:#fff}
+.vf-month:first-child{padding-top:0}
+.vf-month:first-child + .vf-dow{margin-top:-1px}
+.vf-week{position:relative;min-height:7.2rem;grid-template-rows:2.6rem repeat(var(--L,1),2.25rem) minmax(.75rem,1fr)}
+.vf-kw{grid-column:1;grid-row:1/-1;font-size:17px;font-weight:300;color:var(--vf-muted);padding:.7rem 0;font-variant-numeric:tabular-nums}
+.vf-day{grid-row:1/-1;background:var(--vf-tile);box-shadow:0 0 0 1px var(--vf-line);padding:.7rem .8rem;font-weight:300}
+.vf-day.vf-we{background:var(--vf-tile-we)}
+.vf-day.vf-out{background:var(--vf-bg);box-shadow:none}
+/* Waagerechte Linien auch in der KW-Spalte und über der ersten Woche (auch über leeren Feldern) */
+.vf-day.vf-today{background:var(--vf-today)}
+.vf-n{font-size:17px;font-variant-numeric:tabular-nums;display:inline-block;transition:color .3s ease}
+.vf-day.vf-past .vf-n{color:var(--vf-muted);opacity:.5}
+.vf-day.vf-hlday .vf-n{color:var(--vf-hover)}
+.vf-bar{position:relative;z-index:1;align-self:center;min-width:0;box-sizing:border-box;height:1.9rem;margin:0 6px;padding:0;font:400 16px/1.9rem "DM Sans",sans-serif;text-align:left;white-space:nowrap;transition:opacity .35s ease,box-shadow .35s ease,background-color .35s ease,color .35s ease}
+.vf-lbl{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 .75rem}
+/* Aufbau-Animation der Balken */
+.vf-bar.vf-pre{visibility:hidden}
+.vf-bar.vf-grow{justify-self:start;overflow:hidden}
+.vf-bar.vf-grow .vf-lbl{text-overflow:clip}
+/* Summenzeile: Arbeitstage als Walze, Tagessatz und Gesamt blenden danach ein */
+.vf-reel{display:inline-block;height:1lh;overflow:hidden;vertical-align:top}
+.vf-strip{display:block;transition:transform 1.1s cubic-bezier(.12,.75,.2,1)}
+.vf-strip span{display:block;height:1lh;text-align:right}
+.vf-total .vf-s-rate,.vf-total .vf-s-sum{transition:opacity .9s ease}
+.vf-total.vf-num-pre .vf-s-rate,.vf-total.vf-num-pre .vf-s-sum{opacity:0}
+.vf-total.vf-num-r .vf-s-rate,.vf-total.vf-num-s .vf-s-sum{opacity:1}
+.vf-bar.vf-booked{background:var(--vf-accent);color:var(--vf-on-accent)}
+.vf-bar.vf-option{background:transparent;color:var(--vf-accent);box-shadow:inset 0 0 0 1px var(--vf-accent);background-image:repeating-linear-gradient(135deg,transparent 0 7px,var(--vf-accent-dim) 7px 9px)}
+.vf-bar.vf-booked.vf-hl{background:var(--vf-hover)}
+.vf-bar.vf-option.vf-hl{color:var(--vf-hover);box-shadow:inset 0 0 0 1px var(--vf-hover);background-image:repeating-linear-gradient(135deg,transparent 0 7px,rgb(240 255 150 / .22) 7px 9px)}
+#vf-cal.vf-hlmode .vf-bar:not(.vf-hl){opacity:.28}
+.vf-days{display:inline-block;vertical-align:top;white-space:pre;overflow:hidden;max-width:0;opacity:0;transition:opacity .4s ease,max-width 0s linear .4s}
+.vf-bar.vf-hl .vf-days{max-width:24em;opacity:1;transition:opacity .45s ease,max-width 0s}
+
+/* Übersicht */
+.vf-seg{white-space:nowrap}
+#vf-sum{display:flex;flex-direction:column;gap:0;max-width:1400px}
+.vf-total{margin:0;padding:0;font-size:28px;line-height:42px;font-weight:300;color:#fff;font-variant-numeric:tabular-nums}
+.vf-items{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:17px;line-height:25px;font-weight:300;color:var(--vf-muted)}
+.vf-item{display:inline-flex;align-items:flex-start;gap:12px;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;font-variant-numeric:tabular-nums;transition:color .3s ease}
+.vf-item.vf-hl,.vf-item:focus-visible{color:var(--vf-hover);outline:none}
+.vf-sw{display:inline-block;flex:none;margin-top:7px;width:26px;height:11px;transition:background-color .3s ease,box-shadow .3s ease}
+.vf-sw.vf-booked{background:var(--vf-accent)}
+.vf-sw.vf-option{box-shadow:inset 0 0 0 1px var(--vf-accent);background-image:repeating-linear-gradient(135deg,transparent 0 4px,var(--vf-accent-dim) 4px 6px)}
+.vf-item.vf-hl .vf-sw.vf-booked,.vf-item:focus-visible .vf-sw.vf-booked{background:var(--vf-hover)}
+.vf-item.vf-hl .vf-sw.vf-option,.vf-item:focus-visible .vf-sw.vf-option{box-shadow:inset 0 0 0 1px var(--vf-hover);background-image:repeating-linear-gradient(135deg,transparent 0 4px,rgb(240 255 150 / .3) 4px 6px)}
+
+.vf-bar{cursor:pointer}
+
+.vf-sw.vf-open{-webkit-mask-image:linear-gradient(90deg,#000 25%,transparent);mask-image:linear-gradient(90deg,#000 25%,transparent)}
+
+.vf-total-link{background:none;border:0;padding:0;margin:0;font:inherit;letter-spacing:inherit;color:inherit;text-align:left;cursor:pointer;transition:color .3s ease}
+.vf-total-link:hover,.vf-total-link:focus-visible,.vf-total-link.vf-hl{color:var(--vf-hover);outline:none}
+
+/* Aktionen */
+#vf-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 44px;margin-top:88px;font-size:28px;line-height:42px;font-weight:300}
+#vf-actions:empty{display:none}
+.vf-act{background:none;border:0;padding:0;margin:0;font:inherit;letter-spacing:inherit;color:var(--vf-muted);cursor:pointer;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.vf-act span{transition:color .3s ease}
+.vf-act:hover span,.vf-act:focus-visible span{color:var(--vf-hover)}
+.vf-act:focus-visible{outline:none}
+.vf-ic{width:24px;height:24px;flex:none;overflow:visible;transition:color .3s ease}
+.vf-act:hover .vf-ic,.vf-act:focus-visible .vf-ic{color:var(--vf-hover)}
+.vf-act.vf-done,.vf-act.vf-done span{color:var(--vf-hover);text-decoration:none}
+
+
+/* Unterstreichung animiert wie „Client login“ (super-hover): Linie zieht sich nach rechts zurück, gelbe Linie wächst von links */
+.vf-act span,.vf-intro-link{position:relative;text-decoration:none!important}
+.vf-act span::before,.vf-intro-link::before,.vf-act span::after,.vf-intro-link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;pointer-events:none}
+.vf-act span::before,.vf-intro-link::before{background:var(--ul,currentColor);transform:scaleX(1);transform-origin:bottom right;transition:transform .2s ease-out .15s}
+.vf-act span::after,.vf-intro-link::after{background:#f0ff96;transform:scaleX(0);transform-origin:bottom left;transition:transform .2s ease-out 0s}
+.vf-act:hover span::before,.vf-act:focus-visible span::before,.vf-intro-link:hover::before,.vf-intro-link:focus-visible::before,.vf-intro-link.vf-hl::before{transform:scaleX(0);transition-delay:0s}
+.vf-act:hover span::after,.vf-act:focus-visible span::after,.vf-intro-link:hover::after,.vf-intro-link:focus-visible::after,.vf-intro-link.vf-hl::after{transform:scaleX(1);transition-delay:.15s}
+@media (max-width:767px){.vf-act span::before,.vf-intro-link::before,.vf-act span::after,.vf-intro-link::after{height:1.5px}}
+@media (prefers-reduced-motion:reduce){
+  .vf-strip{transition:none}.vf-act span::before,.vf-intro-link::before,.vf-act span::after,.vf-intro-link::after{transition:none}}
+.vf-act span{--ul:var(--vf-muted)}
+.vf-intro-link{--ul:var(--vf-accent)}
+.vf-act.vf-done span::before,.vf-act.vf-done span::after{display:none}
+
+/* Icon-Animationen beim Hover */
+.vf-pg-f,.vf-pg-b,.vf-ml,.vf-ml-f{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.vf-ml-f{transform-box:fill-box;transform-origin:50% 0}
+#vf-copy:hover .vf-pg-f,#vf-copy:focus-visible .vf-pg-f{transform:translate(2px,2px)}
+#vf-copy:hover .vf-pg-b,#vf-copy:focus-visible .vf-pg-b{transform:translate(-2px,-2px)}
+#vf-reply .vf-ml,#vf-reply .vf-ml-f{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+#vf-reply .vf-ml-f{transform-box:fill-box;transform-origin:50% 0}
+#vf-reply:hover .vf-ml,#vf-reply:focus-visible .vf-ml{transform:translateY(2px)}
+#vf-reply:hover .vf-ml-f,#vf-reply:focus-visible .vf-ml-f{transform:scaleY(-1)}
+#vf-offer .vf-doc-l path{transform-box:fill-box;transform-origin:0 50%;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+#vf-offer:hover .vf-doc-l path,#vf-offer:focus-visible .vf-doc-l path{transform:scaleX(.45)}
+#vf-offer:hover .vf-doc-l path:nth-child(2),#vf-offer:focus-visible .vf-doc-l path:nth-child(2){transition-delay:.06s}
+#vf-offer:hover .vf-doc-l path:nth-child(3),#vf-offer:focus-visible .vf-doc-l path:nth-child(3){transition-delay:.12s;transform:scaleX(1.3)}
+
+/* Kleiner Text */
+#vf-note{display:grid;grid-template-rows:0fr;opacity:0;margin:0;max-width:1400px;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1),opacity .4s ease;font-size:17px;line-height:25px;font-weight:300;color:var(--vf-muted)}
+#vf-note:empty{display:none}
+.vf-nl{display:block;text-wrap:balance}
+
+/* Cursor-Punkt wächst über klickbaren Elementen, wie auf der restlichen Seite */
+#mouseCursor.vf-big{width:80px!important;height:80px!important}
+
+@media (prefers-reduced-motion:no-preference){
+  @keyframes vf-drop{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+  #vf-ics:hover .vf-dl-a,#vf-ics:focus-visible .vf-dl-a{animation:vf-drop .7s ease-in-out infinite}
+}
+@media (prefers-reduced-motion:reduce){
+  .vf-pg-f,.vf-pg-b,.vf-ml,.vf-ml-f{transition:none}
+}
+@media (max-width:767px){
+  .vf-days{display:none}
+}
+@media (max-width:640px){
+  .vf-dow,.vf-week{grid-template-columns:2.2rem repeat(7,minmax(0,1fr))}
+  .vf-dow{font-size:12px}
+  .vf-dow div{padding:0 .3rem .5rem}
+  .vf-day{padding:.4rem .25rem}
+  .vf-n{font-size:14px}
+  .vf-kw{font-size:12px;padding:.45rem 0}
+  .vf-bar{font-size:12px;height:1.3rem;line-height:1.3rem;margin:0 3px}
+  .vf-lbl{padding:0 .4rem}
+  /* Mobil etwas flacher, damit der Kalender nicht so hoch wird */
+  .vf-week{min-height:3.3rem;grid-template-rows:1.6rem repeat(var(--L,1),1.45rem) minmax(.25rem,1fr)}
+  .vf-month{padding:70px 0 26px}
+  #vf-intro{margin-bottom:56px}
+  #vf-actions{margin-top:46px;gap:14px 36px}
+}
+@media (max-width:480px){
+  /* Auf dem Handy entfällt die KW-Spalte, damit Tage und Balken mehr Platz haben */
+  .vf-dow,.vf-week{grid-template-columns:0 repeat(7,minmax(0,1fr))}
+  .vf-kw,.vf-dow div:first-child{font-size:0;padding:0;overflow:hidden}
+  .vf-dow div{padding:0 .3rem .5rem}
+}
+@media (max-width:450px){
+  .vf-total,#vf-intro{font-size:21.25px;line-height:36px}
+  #vf-sum{gap:12px}
+  .vf-total .vf-seg{display:block}
+  .vf-total .vf-dot{display:none}
+  .vf-items{gap:4px}
+  .vf-nl{text-wrap:pretty}
+  #vf-actions{font-size:21.25px;line-height:36px;flex-direction:column;align-items:flex-start;gap:12px}
+  .vf-ic{width:20px;height:20px}
+}
+
+/* Footer immer am unteren Bildschirmrand, auch wenn wenig Inhalt da ist */
+#start{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+#start > #primary{flex:1 0 auto}
+
+/* Sanftes Einblenden, sobald die Daten geladen sind (unabhängig von den Seiten-Animationen) */
+@media (prefers-reduced-motion:no-preference){
+  .vf-rv{opacity:0;transform:translateY(24px)}
+  .vf-rv.vf-rv-in{opacity:1;transform:none;transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1),color .3s ease}
+  .vf-week.vf-rv{transform:translateY(16px)}
+  .vf-week.vf-rv.vf-rv-in{transform:none}
+}
+
+/* Konditionen: kleiner Text, erst nach Klick sichtbar */
+#vf-note.vf-open{grid-template-rows:1fr;opacity:1}
+.vf-note-in{display:flex;flex-direction:column;overflow:hidden;min-height:0;padding-top:40px}
+#vf-terms .vf-in-i{transform-box:fill-box;transform-origin:50% 100%;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+#vf-terms:hover .vf-in-i,#vf-terms:focus-visible .vf-in-i{transform:translateY(-2px)}
+#vf-terms[aria-expanded="true"] span::before{transform:scaleX(0)}
+#vf-terms[aria-expanded="true"],#vf-terms[aria-expanded="true"] span{color:var(--vf-hover)}

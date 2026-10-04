@@ -1,0 +1,61 @@
+VERFÜGBARKEIT – EINRICHTUNG
+===========================
+
+Dateien hochladen (in dasselbe Verzeichnis wie tools.html)
+  verfuegbarkeit.html
+  verfuegbarkeit.php
+  css/verfuegbarkeit.css
+  js/verfuegbarkeit.js
+  index.html, tools.html, process.html, privacy.html, legal.html, test.html
+    (unverändert bis auf den versteckten Link: das 👋 hinter „Moin“ im Footer)
+
+1. Kalender in Google anlegen
+   Google Kalender → links „Weitere Kalender“ → „+“ → „Neuen Kalender erstellen“
+   Name: Verfügbarkeit
+
+2. Geheime iCal-Adresse kopieren
+   Einstellungen → Kalender „Verfügbarkeit“ → ganz unten
+   „Geheime Adresse im iCal-Format“ kopieren (endet auf basic.ics).
+   Diese Adresse niemandem geben, sie liest den ganzen Kalender.
+
+3. verfuegbarkeit.php öffnen und oben drei Werte eintragen
+   $ICAL_URL       = die geheime Adresse aus Schritt 2
+   $SECRET         = ein langer Zufallstext (z. B. 30 beliebige Zeichen)
+   $ADMIN_PASSWORT = ein Passwort für deine Linkliste
+   Dann die Dateien hochladen.
+
+4. Termine eintragen (im Kalender „Verfügbarkeit“, ganztägig)
+   Titel:          Joachim Fenchel – Bär Tiger Wolf
+                   Joachim Fenchel                  (ohne Projekt geht auch)
+   Anzeigen als:   Beschäftigt  → Buchung
+                   Frei         → Option
+                   (Ganztägige Termine sind in Google standardmäßig „Frei“, also
+                   zuerst eine Option. Für eine Buchung auf „Beschäftigt“ stellen.)
+   Beschreibung:   Tagessatz: 700                   (optional, wird dann angezeigt)
+   – Jeder Termin in diesem Kalender ist ein Kundentermin. Private Termine also
+     in einen anderen Kalender.
+   – Der Name muss bei allen Terminen eines Kunden gleich geschrieben sein.
+   – Zwischen Name und Projekt: Leerzeichen, Bindestrich oder Gedankenstrich, Leerzeichen.
+   – Wochenenden und Hamburger Feiertage lässt die Seite automatisch aus.
+   – Wiederkehrende Termine werden nicht unterstützt.
+
+5. Umstellen
+   Aus Option wird Buchung: Termin öffnen → „Frei“ auf „Beschäftigt“ → Speichern.
+   Nach spätestens etwa 5 Minuten zeigt die Kundenseite den neuen Stand.
+
+6. Kundenlinks holen
+   Auf der Website im Footer auf das 👋 hinter „Moin“ klicken
+   (oder direkt: https://martinspeidel.info/verfuegbarkeit.php?liste).
+   Beim ersten Mal fragt die Seite nach $ADMIN_PASSWORT und merkt sich das
+   in diesem Browser für ein Jahr. Das Passwort steht nirgends im Quelltext.
+   „Abmelden“ ganz unten auf der Liste löscht die Anmeldung.
+   Dort stehen alle Kunden mit kommenden Terminen und ihre Links (Deutsch und Englisch).
+   Der Link bleibt gleich, solange der Name gleich geschrieben ist.
+
+Gut zu wissen
+   – Änderungen in Google erscheinen nach spätestens etwa 5 Minuten auf der Seite
+     (Zwischenspeicher im PHP-Skript) – Google selbst aktualisiert die iCal-Adresse
+     manchmal erst nach einigen Minuten, im Einzelfall auch länger.
+   – Ein Kunde sieht nur seine eigenen Termine. Deine anderen Kalender sind nicht beteiligt.
+   – Ändert sich der Name in den Terminen, ändert sich auch der Link.
+   – Die Seite ist für Suchmaschinen gesperrt (noindex) und nicht im Menü verlinkt.

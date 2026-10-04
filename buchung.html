@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        // Ohne Kundenschlüssel (?k=…) führt buchung.html zur Kundenliste
+        if (!/[?&]k=/.test(location.search)) location.replace("buchung.php?liste");
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+         Title & Meta (private client page, not indexed)
+    ═══════════════════════════════════════════════ -->
+    <title>Buchung | Martin Speidel → 2D Motion Design Specialist, Hamburg</title>
+    <meta name="author" content="Martin Speidel">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="googlebot" content="noindex, nofollow, noarchive">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- ═══════════════════════════════════════════════
+         Fonts
+    ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="text/css"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;580&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+    <!-- ═══════════════════════════════════════════════
+         Stylesheets
+    ═══════════════════════════════════════════════ -->
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/logos.css" rel="stylesheet">
+    <link href="style.css?v=20261002u" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
+    <link href="css/verfuegbarkeit.css?v=20261004c" rel="stylesheet">
+
+
+
+    <!-- ═══════════════════════════════════════════════
+         Favicon
+    ═══════════════════════════════════════════════ -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+
+
+    <!-- ═══════════════════════════════════════════════
+         Scripts (defer – kein Render-Blocking)
+    ═══════════════════════════════════════════════ -->
+    <script src="https://unpkg.com/@rive-app/canvas@latest" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js" defer></script>
+
+</head>
+
+
+<body class="dark">
+
+    <!-- Mouse Cursor -->
+    <div id="mouseCursor" class="dot" aria-hidden="true"></div>
+    <!--/ Mouse Cursor -->
+
+
+    <!-- Page -->
+    <div id="start">
+
+        <div class="menu-overlay" aria-hidden="true"></div>
+
+
+        <!-- ═══════════════════════════════════════════════
+             HEADER
+        ═══════════════════════════════════════════════ -->
+        <header id="header" class="site-header fixed light" role="banner">
+
+            <!-- Header Wrapper -->
+            <div class="header-wrapper wrapper-full">
+
+                <div class="c-col-4 sm-8">
+                    <!-- Logo -->
+                    <div class="site-branding" style="transform:translate(-33px,15px); width: 332px;">
+                        <a href="index.html" class="no-barba"
+                            aria-label="Martin Speidel – Motion Design, back to homepage">
+                            <canvas id="rive-canvas" class="rive-canvas" width="20000px" height="11500px" role="img"
+                                aria-label="Martin Speidel Logo Animation"></canvas>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="c-col-4 hide-mobile" aria-hidden="true"></div>
+
+                <div class="c-col-4 sm-4 align-right">
+                    <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10; margin-right: 40px;">
+                        <a href="#" id="vf-lang" class="super-hover no-barba hide-mobile"
+                            style="--initial-color: #BFABFF; --hover-color: #f0ff96;">EN</a>
+                    </div>
+
+                    <div class="text-h5" style="transform:translate(-20px,0px); z-index: 10;">
+                        <a href="https://login.martinspeidel.info/" target="_blank" rel="noopener noreferrer"
+                            class="super-hover no-barba hide-mobile"
+                            style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Client login</a>
+                    </div>
+
+                    <!-- Menu Toggle -->
+                    <div class="menu-toggle" style="transform:translate(0px,-26px);" aria-expanded="false"
+                        aria-controls="site-navigation" aria-label="Toggle navigation">
+                        <div class="toggle-lines" aria-hidden="true">
+                            <div class="toggle-line"></div>
+                            <div class="toggle-line"></div>
+                        </div>
+                    </div>
+                    <!--/ Menu Toggle -->
+                </div>
+
+            </div>
+
+
+            <!-- ═══════════════════════════════════════════════
+                 NAVIGATION
+            ═══════════════════════════════════════════════ -->
+            <nav id="site-navigation" class="fullscreen_menu fullscreen fullscreen-menu-wrapper"
+                aria-label="Main navigation">
+
+                <div class="wrapper-full-centered">
+                    <div class="c-col-3" aria-hidden="true"></div>
+                    <div class="c-col-9 sm-12">
+                        <ul class="menu" role="list">
+                            <li role="listitem"><a href="index.html" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Home</a></li>
+                            <li role="listitem"><a href="index.html#showreel" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Showreel</a></li>
+                            <li role="listitem"><a href="index.html#aboutme" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">About me</a></li>
+                            <li role="listitem"><a href="tools.html" class="text-h1 super-hover-fett"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="c-col-2 hide-mobile" aria-hidden="true"></div>
+                    <div class="c-col-2 hide-desktop" style="padding-bottom: 60px;" aria-hidden="true"></div>
+                    <div class="fullscreen-menu-wrap-bottom">
+                        <div class="c-col-3 hide-mobile" aria-hidden="true"></div>
+                        <div class="c-col-9 sm-12 has-anim fadeDown" data-delay=".2"></div>
+                    </div>
+                </div>
+
+            </nav>
+            <!--/ Navigation -->
+
+        </header>
+        <!--/ Header -->
+
+
+        <!-- Empty Space -->
+        <span class="empty-space hide-mobile" style="height: 10px;" aria-hidden="true"></span>
+        <span class="empty-space hide-desktop" style="height: 20px;" aria-hidden="true"></span>
+        <!--/ Empty Space -->
+
+
+        <!-- ═══════════════════════════════════════════════
+             MAIN CONTENT
+        ═══════════════════════════════════════════════ -->
+        <main id="primary" class="site-main smooth-scroll" role="main">
+
+            <!-- Page Content -->
+            <div id="content" class="page-content">
+
+                <div class="section no-margin" id="vf-app">
+
+                    <!-- Title -->
+                    <div class="wrapper-full no-margin">
+                        <div class="c-col-12 sm-12 self-center">
+
+                            <div class="hide-mobile" style="padding-top:75px;" aria-hidden="true"></div>
+                            <div class="hide-desktop" style="padding-top:50px;" aria-hidden="true"></div>
+
+                            <div class="text-wrapper no-margin">
+                                <h1 class="no-margin no-revert" style="margin-top:5px;">
+                                    <div class="text-container">
+                                        <div class="scaling-container">
+                                            <div class="border-box" aria-hidden="true"></div>
+                                            <div class="corner-box top-left" aria-hidden="true" onclick="window.open('buchung.php?liste','_blank')"></div>
+                                            <div class="corner-box top-right" aria-hidden="true"></div>
+                                            <div class="corner-box bottom-left" aria-hidden="true"></div>
+                                            <div class="corner-box bottom-right" aria-hidden="true"></div>
+                                            <span id="vf-title">Zeit für dein Projekt.</span>
+                                        </div>
+                                    </div>
+                                </h1>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-mobile" style="height: 100px" aria-hidden="true"></span>
+                    <span class="empty-space hide-desktop" style="height: 44px" aria-hidden="true"></span>
+
+
+                    <!-- Calendar -->
+                    <div class="wrapper-full no-margin vf-fade">
+                        <div class="c-col-2 hide-mobile" aria-hidden="true"></div>
+                        <div class="c-col-10 sm-12">
+                            <p id="vf-intro"></p>
+                            <div id="vf-cal"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- Summary, actions, note -->
+                    <span class="empty-space hide-mobile" style="height: 72px" aria-hidden="true"></span>
+                    <span class="empty-space hide-desktop" style="height: 24px" aria-hidden="true"></span>
+                    <div class="wrapper-full no-margin vf-fade">
+                        <div class="c-col-2 hide-mobile" aria-hidden="true"></div>
+                        <div class="c-col-10 sm-12">
+                            <div id="vf-sum"></div>
+                            <div id="vf-actions"></div>
+                            <p id="vf-note"></p>
+                        </div>
+                    </div>
+
+
+                    <!-- Empty Space -->
+                    <span class="empty-space hide-desktop" style="height: 60px" aria-hidden="true"></span>
+                    <span class="empty-space hide-mobile" style="height: 150px" aria-hidden="true"></span>
+
+                </div>
+
+            </div>
+            <!--/ Page Content -->
+
+        </main>
+        <!--/ Main -->
+
+
+        <!-- ═══════════════════════════════════════════════
+             FOOTER
+        ═══════════════════════════════════════════════ -->
+        <footer id="footer" class="site-footer dark" role="contentinfo"
+            style="background:#191134; padding: 50px 0 0px 0; margin-top: 0px;">
+
+            <span class="empty-space hide-mobile" style="height: 50px" aria-hidden="true"></span>
+
+            <div class="footer-wrapper no-margin text-h5">
+                <div class="wrapper-full footer-bottom-wrapper no-margin" style="line-height: .8em;">
+
+                    <div class="c-col-3 sm-12 align-left">
+                        <nav aria-label="Social media and legal links">
+                            <ul class="menu vertical">
+                                <li><a href="https://www.linkedin.com/in/martinspeidel" target="_blank"
+                                        rel="noopener noreferrer" class="super-hover no-barba"
+                                        style="--initial-color: #BFABFF; --hover-color: #f0ff96;">LinkedIn</a></li>
+                                <li><a href="https://framerate.tv/profile/martinspeidel" target="_blank"
+                                        rel="noopener noreferrer" class="super-hover no-barba"
+                                        style="--initial-color: #BFABFF; --hover-color: #f0ff96;">FrameRate</a></li>
+                                <li><a href="https://martinspeidel.bsky.social/" target="_blank"
+                                        rel="noopener noreferrer" class="super-hover no-barba"
+                                        style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Bluesky</a></li>
+                                <li><a href="https://www.instagram.com/martinspeidel/" target="_blank"
+                                        rel="noopener noreferrer" class="super-hover"
+                                        style="--initial-color: #BFABFF; --hover-color: #f0ff96;">Instagram</a></li>
+
+                                <span class="empty-space hide-desktop" style="height: 35px" aria-hidden="true"></span>
+                                <span class="empty-space hide-mobile" style="height: 50px" aria-hidden="true"></span>
+
+                                <li><a href="privacy.html" class="super-hover no-barba"
+                                        style="--initial-color: #ffffff; --hover-color: #BFABFF;">Privacy policy</a>
+                                </li>
+                                <li><a href="legal.html" class="super-hover no-barba"
+                                        style="--initial-color: #ffffff; --hover-color: #BFABFF">Legal notice</a></li>
+                            </ul>
+                        </nav>
+
+                        <ul class="menu vertical hide-desktop" style="transform: translateY(35px);">
+                            <li>Moin <span aria-label="Winke-Emoji" role="img"><span class="wave" onclick="window.open('buchung.php?liste','_blank')">👋</span></span></li>
+                            <li><a href="mailto:hello@martinspeidel.info" class="no-barba super-hover"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">hello@martinspeidel.info</a>
+                            </li>
+                            <li><a href="https://wa.link/4m6e97" target="_blank" rel="noopener noreferrer"
+                                    class="super-hover no-barba"
+                                    style="--initial-color: #BFABFF; --hover-color: #f0ff96;">+(0)49 176 24 122 854</a>
+                            </li>
+                        </ul>
+
+                        <ul class="menu vertical hide-desktop"
+                            style="transform: translateY(70px); margin-bottom: 75px;">
+                            <li><a href="#start" class="no-barba super-hover"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">Scroll up</a></li>
+                            <li><a href="img/whatif.jpg" target="_blank" rel="noopener noreferrer" class="no-barba">©
+                                    2026</a></li>
+                        </ul>
+                    </div>
+
+                    <address class="c-col-6 align-left mobile-align-left hide-mobile" style="font-style: normal;">
+                        <ul class="menu vertical">
+                            <li><span class="dm-serif-display-regular-italic">Moin <span
+                                        aria-label="Winke-Emoji"><span class="wave" onclick="window.open('buchung.php?liste','_blank')">👋</span></span></span></li>
+                            <li><a href="mailto:hello@martinspeidel.info" class="super-hover no-barba"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">hello@martinspeidel.info</a>
+                            </li>
+                            <li><a href="https://wa.link/4m6e97" target="_blank" rel="noopener noreferrer"
+                                    class="super-hover no-barba"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">+(0)49 176 24 122 854</a>
+                            </li>
+                        </ul>
+                    </address>
+
+                    <div class="c-col-3 align-right hide-mobile">
+                        <ul class="menu vertical">
+                            <li><a href="#start" class="no-barba super-hover"
+                                    style="--initial-color: #ffffff; --hover-color: #BFABFF;">Scroll up</a></li>
+                            <li><a href="img/whatif.jpg" target="_blank" rel="noopener noreferrer" class="no-barba">©
+                                    2026</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+        <!--/ Footer -->
+
+    </div>
+    <!--/ #start -->
+
+
+
+    <!-- ═══════════════════════════════════════════════
+         COOKIE POPUP
+    ═══════════════════════════════════════════════ -->
+    <div id="cookie-popup" role="dialog" aria-modal="true" aria-label="Cookie notice"
+        style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); width:92%; max-width:670px;">
+        <div id="cookie-inner" style="padding: 15px 26px 28px;">
+            <p class="text-h5" style="padding:0; margin-top:0; margin-bottom:0px; color:#ffffff">
+                This website uses anonymous server statistics and essential cookies required for secure login.
+            </p>
+            <div style="display:flex; gap:11px; flex-wrap:wrap; padding-top: 15px;">
+                <div class="text-h5" style="margin-top:0; margin-bottom:0;">
+                    <a href="#" class="super-hover no-barba"
+                        style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block"
+                        onclick="cookieConsent('accept'); return false;">OK</a>
+                </div>
+                <div>
+                    <div id="stern" class="lottie" style="width: 40px; height: 40px; margin-top: 2px;"
+                        aria-hidden="true"></div>
+                </div>
+                <div class="text-h5" style="margin-top:0; margin-bottom:0;">
+                    <a href="privacy.html" class="super-hover no-barba"
+                        style="--initial-color: #ffffff; --hover-color: #f0ff96; display:inline-block">
+                        Privacy policy
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════
+         SCRIPTS – alle am Ende des Body
+    ═══════════════════════════════════════════════ -->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/verfuegbarkeit.js?v=20261004c"></script>
+
+
+    <!-- Lenis Smooth Scroll Init -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.__lenis) {
+                window.__lenis.destroy();
+            }
+            const lenis = new Lenis({
+                autoRaf: false,
+                autoToggle: false,
+                anchors: false,
+                allowNestedScroll: false,
+                naiveDimensions: false,
+                stopInertiaOnNavigate: true
+            });
+            window.__lenis = lenis;
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+            window.addEventListener('load', () => {
+                requestAnimationFrame(() => {
+                    if (window.location.hash) {
+                        const target = document.querySelector(window.location.hash);
+                        if (target) {
+                            lenis.scrollTo(target, { duration: 1.2 });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <!-- Rive Logo Init -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof rive === 'undefined') return;
+            const r = new rive.Rive({
+                src: "riv/logo.riv",
+                canvas: document.getElementById("rive-canvas"),
+                autoplay: true,
+                stateMachines: "logo",
+                onLoad: () => {
+                    r.resizeDrawingSurfaceToCanvas();
+                    const inputs = r.stateMachineInputs("logo");
+                    const xInput = inputs.find(i => i.name === "xAxis");
+                    const yInput = inputs.find(i => i.name === "yAxis");
+                    const hoverInput = inputs.find(i => i.name === "linkHover");
+                    const linkWorldInput = inputs.find(i => i.name === "linkWorld");
+                    const maxWidth = window.innerWidth;
+                    const maxHeight = window.innerHeight;
+                    window.addEventListener("mousemove", function (e) {
+                        xInput.value = (e.x / maxWidth) * 100;
+                        yInput.value = 100 - (e.y / maxHeight) * 100;
+                    });
+                    // Per Delegation: wirkt auch auf Links und Buttons, die erst nachträglich entstehen
+                    // (Kalender, Summenzeilen, Aktionen, Kundenliste)
+                    const SEL = 'a, button, .vf-bar, [data-hl], .corner-box[onclick], .wave[onclick]';
+                    const isWorld = el => el.tagName === 'A' && (el.target === '_blank' || (el.getAttribute('href') || '').startsWith('mailto:'));
+                    let cur = null;
+                    const set = (el, v) => { if (!el) return; const inp = isWorld(el) ? linkWorldInput : hoverInput; if (inp) inp.value = v; };
+                    document.addEventListener('pointerover', e => {
+                        const el = e.target.closest ? e.target.closest(SEL) : null;
+                        if (el === cur) return;
+                        set(cur, false); cur = el; set(cur, true);
+                    });
+                    document.addEventListener('pointerout', e => {
+                        if (!e.relatedTarget) { set(cur, false); cur = null; }
+                    });
+                },
+                background: "transparent"
+            });
+        });
+    </script>
+
+
+    <!-- Menu Toggle Accessibility -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.querySelector('.menu-toggle');
+            const nav = document.getElementById('site-navigation');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', String(!expanded));
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Cookie Consent -->
+    <script>
+        function cookieConsent(choice) {
+            localStorage.setItem('cookie_consent', choice);
+            const popup = document.getElementById('cookie-popup');
+            popup.classList.remove('show');
+            setTimeout(() => { popup.style.display = 'none'; }, 600);
+        }
+
+        window.addEventListener('load', function () {
+            if (!localStorage.getItem('cookie_consent')) {
+                const popup = document.getElementById('cookie-popup');
+                popup.style.display = 'block';
+                requestAnimationFrame(() => {
+                    popup.classList.add('show');
+                    lottie.loadAnimation({
+                        container: document.getElementById('stern'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'json/stern.json'
+                    });
+                });
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
